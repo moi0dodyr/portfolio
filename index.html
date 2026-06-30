@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oleg Stepanchykov — Product Designer</title>
+<style>
+  :root{
+    --ink:#16181d;
+    --ink-soft:#43474f;
+    --muted:#7b818b;
+    --line:#e5e7ea;
+    --bg:#fbfbf9;
+    --card:#ffffff;
+    --accent:#2f4bff;
+    --accent-soft:#eef0ff;
+    --tint:#f4f5f1;
+    --ph-bg:#f3f4f2;
+    --ph-line:#c7cbcf;
+    --maxw:1080px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  h1,h2,h3{line-height:1.13;letter-spacing:-0.02em;font-weight:650}
+  h1{font-size:clamp(34px,5.2vw,58px)}
+  h2{font-size:clamp(24px,3.2vw,34px);margin-bottom:10px}
+  h3{font-size:19px;font-weight:640}
+  p{color:var(--ink-soft);font-size:17px}
+  .lead{font-size:clamp(18px,2.2vw,21px);color:var(--ink-soft)}
+  .eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,251,249,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:650;letter-spacing:-.01em;cursor:pointer;font-size:15.5px}
+  .navlinks{display:flex;gap:24px;align-items:center}
+  .navlinks a{font-size:14.5px;color:var(--ink-soft);text-decoration:none;cursor:pointer}
+  .navlinks a:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--ink);color:#fff;padding:9px 16px;border-radius:9px;font-size:14px;text-decoration:none;border:none;cursor:pointer;font-weight:520}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn:hover{opacity:.9}
+  .langtoggle{font-size:13px;font-weight:600;letter-spacing:.04em;padding:7px 11px;min-width:42px;text-align:center}
+
+  section{padding:90px 0;scroll-margin-top:76px}
+  .divider{border-top:1px solid var(--line)}
+  .band{background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  /* LOGO PLACEHOLDER */
+  .logo-ph{width:48px;height:48px;border:1.5px dashed var(--ph-line);border-radius:12px;background:var(--ph-bg);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .logo-ph span{font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .logo-ph.sm{width:34px;height:34px;border-radius:9px}
+
+  /* HERO */
+  .hero{padding-top:84px;padding-bottom:30px}
+  .hero h1{max-width:16ch}
+  .hero .lead{max-width:56ch;margin-top:22px}
+  .hero .cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+  .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13.5px;color:var(--ink-soft)}
+  .fact b{color:var(--ink);font-weight:620}
+
+  /* PLACEHOLDER (images) */
+  figure{margin:0}
+  .ph{position:relative;width:100%;border:1.5px dashed var(--ph-line);background:
+      repeating-linear-gradient(45deg,var(--ph-bg),var(--ph-bg) 11px,#eef0ee 11px,#eef0ee 22px);
+      border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-align:center}
+  .ph.r-wide{aspect-ratio:16/8}
+  .ph.r-med{aspect-ratio:16/9}
+  .ph.r-sq{aspect-ratio:4/3}
+  .ph .tag{background:#fff;border:1px solid var(--ph-line);border-radius:8px;padding:7px 13px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  figcaption{font-size:13.5px;color:var(--muted);margin-top:13px;line-height:1.6}
+  figcaption b{color:var(--ink-soft);font-weight:600}
+
+  /* WORK CARDS */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,24,29,.08)}
+  .card .ph{border-radius:0;border:none;border-bottom:1px solid var(--line)}
+  .card .body{padding:24px 26px 28px}
+  .card-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+  .card-head .kicker{font-size:13px;color:var(--muted);margin-bottom:3px}
+  .card-head h3{font-size:21px}
+  .card p{font-size:15.5px}
+  .metrics{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px}
+  .metric{font-size:13.5px;color:var(--ink-soft)}
+  .metric b{display:block;font-size:20px;color:var(--ink);font-weight:660;letter-spacing:-.01em}
+  .readmore{margin-top:18px;font-size:14px;color:var(--accent);font-weight:560}
+
+  /* PET PROJECTS */
+  .petgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px}
+  .petbox{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;transition:border-color .15s ease,transform .15s ease}
+  .petbox:hover{border-color:#b9c0ff;transform:translateY(-2px)}
+  .petname{font-size:15.5px;font-weight:600;line-height:1.3}
+  .peturl{display:block;font-size:13px;color:var(--muted);font-weight:400}
+  .petitem .txt{margin-top:16px}
+  .petitem h4{font-size:16px;font-weight:640;margin-bottom:5px}
+  .petitem .txt p{font-size:14.5px;color:var(--muted)}
+
+  /* ALSO WORKED ON */
+  .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .chip-head{display:flex;gap:11px;align-items:center;margin-bottom:10px}
+  .chip-head h4{font-size:15.5px;font-weight:620}
+  .chip p{font-size:13.5px;color:var(--muted)}
+
+  /* ABOUT / CONTACT */
+  .about{max-width:62ch}
+  .about p+p{margin-top:18px}
+  .contact{text-align:center;padding:96px 0}
+  .contact h2{margin-bottom:14px}
+  .contact .links{margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+  /* CASE PAGES */
+  .backlink{font-size:14px;color:var(--muted);cursor:pointer;display:inline-block;margin-bottom:12px;text-decoration:none}
+  .backlink:hover{color:var(--ink)}
+  .case-id{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+  .case-meta{font-size:14px;color:var(--muted);margin-top:16px}
+  .case-hero h1{font-size:clamp(30px,4.6vw,48px);max-width:18ch;margin-top:8px}
+  .case-hero .lead{margin-top:18px;max-width:54ch}
+  .bigmetrics{display:flex;gap:46px;flex-wrap:wrap;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+  .bigmetric b{display:block;font-size:30px;letter-spacing:-.02em;font-weight:680}
+  .bigmetric span{font-size:13.5px;color:var(--muted)}
+
+  .block{max-width:68ch}
+  .block .eyebrow{margin-bottom:14px;display:block}
+  .block p+p{margin-top:16px}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .note{background:var(--accent-soft);border-left:3px solid var(--accent);padding:16px 20px;border-radius:0 10px 10px 0;font-size:14.5px;color:var(--ink-soft);margin-top:24px;line-height:1.6}
+  .quote{font-size:clamp(20px,2.6vw,28px);line-height:1.35;letter-spacing:-.01em;color:var(--ink);font-weight:560;max-width:26ch;border-left:3px solid var(--ink);padding-left:24px;margin:16px 0}
+
+  table.metrics-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px}
+  table.metrics-table th,table.metrics-table td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.metrics-table th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  table.metrics-table td.tbc{color:var(--muted)}
+
+  .decision{padding-top:56px;margin-top:56px;border-top:1px solid var(--line)}
+  .decision:first-of-type{border-top:none;padding-top:0;margin-top:0}
+  .decision h2{margin-top:6px}
+  .dnum{font-size:13px;color:var(--accent);font-weight:600;letter-spacing:.04em}
+
+  .mb24{margin-bottom:24px}.mb12{margin-bottom:12px}.mt8{margin-top:10px}
+  .stack > * + *{margin-top:16px}
+
+  .page{display:none}
+  .page.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  @media(max-width:760px){
+    .cards{grid-template-columns:1fr}
+    .petgrid{grid-template-columns:1fr;gap:26px}
+    .grid6{grid-template-columns:1fr 1fr}
+    .twocol,.split{grid-template-columns:1fr;gap:24px}
+    .navlinks{gap:14px}
+    .navlinks .hide-sm{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand" data-go="home">Oleg Stepanchykov</div>
+    <div class="navlinks">
+      <a data-go="home" data-anchor="work" data-uk="Роботи">Work</a>
+      <a data-go="home" data-anchor="about" class="hide-sm" data-uk="Про мене">About</a>
+      <a data-go="home" data-anchor="contact" data-uk="Контакти">Contact</a>
+      <button class="btn ghost langtoggle">UA</button>
+      <a class="btn ghost" href="#" onclick="return false" data-uk="Резюме">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<div class="page active" id="home">
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow mb12" data-uk="Продуктовий дизайнер · 4+ роки">Product Designer · 4+ years</div>
+      <h1 data-uk="Перетворюю складні B2B- та фінтех-продукти на зрозумілі й зручні.">I turn complex B2B and fintech products into something clear and usable.</h1>
+      <p class="lead" data-uk="Працюю зі складними інтерфейсами — дашборди, інструменти планування, дизайн-системи. Мене тягне до найскладнішого: переосмислити завдання, спроєктувати структуру під поверхнею та перевірити рішення на реальних користувачах.">I work on data-heavy interfaces — dashboards, planning tools, design systems. I tend to gravitate to the messy parts: reframing the brief, designing the structure underneath, and testing things with real users.</p>
+      <div class="cta">
+        <a class="btn" data-go="home" data-anchor="work" data-uk="Переглянути роботи">View work</a>
+        <a class="btn ghost" href="#" onclick="return false" data-uk="Резюме">Resume</a>
+      </div>
+      <div class="facts">
+        <div class="fact" data-uk="<b>4+ роки</b> у B2B та фінтеху"><b>4+ years</b> in B2B &amp; fintech</div>
+        <div class="fact" data-uk="Квитковий сервіс — <b>~50% → ~90%</b> успішних сценаріїв">Event ticketing — <b>~50% → ~90%</b> task success</div>
+        <div class="fact" data-uk="Фінтех — <b>від концепту до передачі в розробку</b>">Fintech — <b>concept → dev handoff</b></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="padding-top:16px;padding-bottom:60px">
+    <div class="wrap">
+      <figure>
+        <div class="ph r-wide"><span class="tag">Hero image</span></div>
+        <figcaption><b>What to make:</b> a clean composite of 2–3 of your strongest screens (Ticket Fairy + WealthTrace) in neutral browser frames on a calm background. Should read as “real product,” not dribbble art. First thing visitors see.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="divider" id="work">
+    <div class="wrap">
+      <div class="eyebrow mb12" data-uk="Вибрані роботи">Selected work</div>
+      <h2 data-uk="Детальніше про два нещодавні проєкти">A closer look at two recent projects</h2>
+      <div class="cards">
+
+        <a class="card" data-go="tf">
+          <figure><div class="ph r-med"><span class="tag">TF cover</span></div></figure>
+          <div class="body">
+            <div class="card-head">
+              <span class="logo-ph"><span>logo</span></span>
+              <div>
+                <div class="kicker" data-uk="SaaS для квитків і керування подіями · YC S15">Event ticketing &amp; management SaaS · YC S15</div>
+                <h3>The Ticket Fairy</h3>
+              </div>
+            </div>
+            <p data-uk="Зробив редизайн B2B-платформи, на якій організатори ведуть свій бізнес, і побудував її дизайн-систему з нуля.">Redesigned the B2B platform that event organizers run their business on, and built its design system from scratch.</p>
+            <div class="metrics">
+              <div class="metric" data-uk="<b>~50%→90%</b>успішне створення події"><b>~50%→90%</b>event-creation success</div>
+              <div class="metric" data-uk="<b>~10%→50%+</b>використання реферальної програми"><b>~10%→50%+</b>referral adoption</div>
+            </div>
+            <div class="readmore" data-uk="Дивитися кейс →">Read case →</div>
+          </div>
+        </a>
+
+        <a class="card" data-go="wt">
+          <figure><div class="ph r-med"><span class="tag">WealthTrace cover</span></div></figure>
+          <div class="body">
+            <div class="card-head">
+              <span class="logo-ph"><span>logo</span></span>
+              <div>
+                <div class="kicker" data-uk="Фінтех для пенсійного планування · США">Retirement-planning fintech · U.S.</div>
+                <h3>WealthTrace</h3>
+              </div>
+            </div>
+            <p data-uk="Єдиний дизайнер на продукті. Переосмислив завдання й перебудував застосунок навколо проблеми, яка насправді шкодила конверсії.">The only designer on the product. Reframed the brief and rebuilt the app around the problem that was actually hurting conversion.</p>
+            <div class="metrics">
+              <div class="metric" data-uk="<b>Увесь вебзастосунок</b>від концепту до передачі в розробку"><b>Whole web app</b>concept → dev handoff</div>
+              <div class="metric" data-uk="<b>~30% швидше</b>онбординг <span style='color:var(--muted)'>(тест, TBC)</span>"><b>~30% faster</b>onboarding <span style="color:var(--muted)">(test, TBC)</span></div>
+            </div>
+            <div class="readmore" data-uk="Дивитися кейс →">Read case →</div>
+          </div>
+        </a>
+
+      </div>
+      <figcaption style="margin-top:16px"><b>Covers &amp; logos:</b> one strong “after” screen per case, same frame style for both. Small product logo sits next to each name (placeholders shown).</figcaption>
+    </div>
+  </section>
+
+  <!-- PET PROJECTS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow mb12" data-uk="У вільний час">On my own time</div>
+      <h2 data-uk="Пет-проєкти">Pet projects</h2>
+      <p style="max-width:54ch;margin-top:6px" data-uk="Дизайн — це не лише робота. Кілька речей, які я роблю для себе.">Design isn't just the day job — a couple of things I'm building for myself.</p>
+      <div class="petgrid">
+
+        <div class="petitem">
+          <a class="petbox" href="https://www.newurgency.art/" target="_blank" rel="noopener">
+            <span class="logo-ph sm"><span>logo</span></span>
+            <span class="petname">new urgency<span class="peturl">newurgency.art ↗</span></span>
+          </a>
+          <div class="txt">
+            <h4 data-uk="Цифрова фотогалерея">Digital photo gallery</h4>
+            <p data-uk="Проста галерея, яку я зібрав сам (vibe-coding), щоб упорядкувати дорогу мені колекцію фото.">A simple gallery I vibe-coded myself to organize a photo library I care about.</p>
+          </div>
+        </div>
+
+        <div class="petitem">
+          <a class="petbox" href="http://kanon.agency/" target="_blank" rel="noopener">
+            <span class="logo-ph sm"><span>logo</span></span>
+            <span class="petname">kanon.agency<span class="peturl">kanon.agency ↗</span></span>
+          </a>
+          <div class="txt">
+            <h4 data-uk="Гайд із дизайну продуктів">A guide to designing products</h4>
+            <p data-uk="Пишу книгу, щоб оформити свій підхід у зрозумілий покроковий метод.">Writing a book to put my approach into a clear, step-by-step method.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ALSO WORKED ON -->
+  <section class="divider">
+    <div class="wrap">
+      <div class="eyebrow mb12" data-uk="Також працював над">Also worked on</div>
+      <h2 data-uk="Інші продукти, до яких я долучався">Other products I've contributed to</h2>
+      <p style="max-width:54ch;margin-top:6px" data-uk="У сферах фінтеху, медицини та B2B SaaS — у Halo Lab, у складі продуктових команд клієнтів.">Across fintech, healthcare, and B2B SaaS — at Halo Lab, embedded in client product teams.</p>
+      <div class="grid6">
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>Comparesoft</h4></div><p data-uk="Маркетплейс для добору B2B-софту · 16 000+ компаній (TfL, PwC, Just Eat)">B2B software-selection marketplace · 16,000+ companies (TfL, PwC, Just Eat)</p></div>
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>RedPath</h4></div><p data-uk="Медичний застосунок для національної онкопрограми · offline-first">Healthcare app for a national cancer-care program · offline-first</p></div>
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>Hygeia</h4></div><p data-uk="PWA для операційного керування прибиранням на великих об'єктах">Operations PWA for large-scale site cleaning</p></div>
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>Hornet</h4></div><p data-uk="Редизайн SaaS для торгових алгоритмів · фінтех">Trading-algorithm SaaS redesign · fintech</p></div>
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>Umano</h4></div><p data-uk="B2B SaaS для трансформації команд">B2B team-transformation SaaS</p></div>
+        <div class="chip"><div class="chip-head"><span class="logo-ph sm"><span>logo</span></span><h4>Team Garden</h4></div><p data-uk="Внутрішній HR-інструмент">Internal HR tool</p></div>
+      </div>
+      <figcaption style="margin-top:16px"><b>Logos:</b> drop a small logo into each placeholder. The recognizable names do most of the work. Intentionally not clickable.</figcaption>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="divider" id="about">
+    <div class="wrap">
+      <div class="eyebrow mb12" data-uk="Як я працюю">How I work</div>
+      <div class="about stack">
+        <p data-uk="Я починаю з проблеми й того, що на кону для бізнесу, а не з екрана. Якщо озвучена проблема — не справжня, я скажу про це й переосмислю її ще до того, як щось проєктувати.">I start from the problem and what's at stake for the business, not the screen. When the stated problem isn't the real one, I'll say so — and reframe it before designing anything.</p>
+        <p data-uk="У мене сильна DesOps-основа — дизайн-системи, токени та злагоджена передача в розробку через Storybook/Chromatic.">I have a DesOps backbone — design systems, tokens, and a tight Storybook/Chromatic handoff with engineers.</p>
+        <p data-uk="Більшість цих робіт — у <b>Halo Lab</b>, продуктовій студії, де я зазвичай провідний або єдиний дизайнер на продукті клієнта. Хочу робити те саме in-house — над одним продуктом, у довгу.">Most of this work was at <b>Halo Lab</b>, a product studio, where I'm usually the lead or only designer on a client's product. I'm looking to do the same kind of work in-house — on one product, for the long run.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="divider contact" id="contact">
+    <div class="wrap">
+      <h2 data-uk="Поговорімо.">Let's talk.</h2>
+      <p data-uk="Відкритий до in-house ролей продуктового дизайнера.">Open to in-house product design roles.</p>
+      <div class="links">
+        <a class="btn" href="mailto:stepanchykov.o@gmail.com">stepanchykov.o@gmail.com</a>
+        <a class="btn ghost" href="#" onclick="return false">LinkedIn</a>
+        <a class="btn ghost" href="#" onclick="return false" data-uk="Резюме (PDF)">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CASE: THE TICKET FAIRY ============ -->
+<div class="page" id="tf">
+  <article>
+    <section class="case-hero">
+      <div class="wrap">
+        <a class="backlink" data-go="home" data-anchor="work" data-uk="← Усі роботи">← All work</a>
+        <div class="case-id">
+          <span class="logo-ph"><span>logo</span></span>
+          <div class="eyebrow">The Ticket Fairy</div>
+        </div>
+        <h1 data-uk="Редизайн механізму доходу квиткової платформи">Redesigning the revenue engine of an event-ticketing platform</h1>
+        <div class="case-meta" data-uk="Провідний продуктовий дизайнер · B2B-дашборд, дизайн-система, Artist Management · серп. 2025 – бер. 2026 · через Halo Lab">Lead Product Designer · B2B Dashboard, Design System, Artist Management · Aug 2025 – Mar 2026 · via Halo Lab</div>
+        <p class="lead" data-uk="YC S15 · $300M+ продажів квитків. Платформа бере комісію з кожного квитка, тож дашборд для організаторів — це місце, де компанія заробляє. Саме його я й переробив.">YC S15 · $300M+ in ticket sales. The platform takes a commission on every ticket, so the organizer-facing dashboard is where the company makes its money. That's the part I redesigned.</p>
+        <div class="bigmetrics">
+          <div class="bigmetric"><b>~50%→90%</b><span data-uk="успішне створення події (юзабіліті-тести)">event-creation success (usability testing)</span></div>
+          <div class="bigmetric"><b>~10%→50%+</b><span data-uk="використання реферальної програми (продуктова аналітика)">referral adoption (product analytics)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:14px;padding-bottom:60px">
+      <div class="wrap">
+        <figure>
+          <div class="ph r-wide"><span class="tag">Hero image</span></div>
+          <figcaption><b>What to make:</b> the most “selling” post-redesign screen — the event-performance dashboard or the new event-creation flow — full-width in a browser frame. Should immediately say “modern SaaS.”</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="band">
+      <div class="wrap split">
+        <div class="block">
+          <span class="eyebrow" data-uk="Контекст">Context</span>
+          <p data-uk="The Ticket Fairy — це мультипродуктова екосистема: B2B-дашборд для організаторів подій, застосунки для покупців і інструменти сканування на місці. Я вів редизайн B2B-дашборда; другий дизайнер відповідав за споживчу частину.">The Ticket Fairy runs a multi-product ecosystem: a B2B dashboard for event organizers, consumer apps for buyers, and on-site scanning tools. I led the redesign of the B2B dashboard; a second designer handled the consumer side.</p>
+        </div>
+        <figure>
+          <div class="ph r-med"><span class="tag">Diagram</span></div>
+          <figcaption><b>Product ecosystem diagram:</b> B2B Dashboard at the center (highlighted), surrounded by B2C app, B2C web, Entry Fairy, and Artist Management. Shows the scale and cleanly scopes what you worked on.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow" data-uk="Проблема">The problem</span>
+          <p data-uk="Лише <b>20% щойно зареєстрованих організаторів</b> створювали подію — а оскільки дохід залежить від запущених подій, цей розрив означав втрачені гроші. Під ним: роки legacy-коду дали неузгоджений, застарілий інтерфейс із низьким контрастом; ключові можливості (зокрема цінна реферальна програма) були заховані в налаштуваннях; а стани помилок лишали користувача без пояснень — напр., подія мовчки не створювалася, доки не існував «Бренд», але про це ніщо не повідомляло.">Only <b>20% of newly registered organizers</b> ever created an event — and since revenue depends on events going live, that gap was lost money. Underneath it: years of legacy code had produced an inconsistent, dated, low-contrast interface; key capabilities (including the high-value referral program) were buried in settings; and error states left users stuck with no explanation — e.g. an event silently couldn't be created until a “Brand” existed, but nothing said so.</p>
+        </div>
+        <figure style="margin-top:28px">
+          <div class="ph r-wide"><span class="tag">Before</span></div>
+          <figcaption><b>“Before” collage:</b> mismatched legacy UI side by side (proves inconsistent &amp; dated) + a confusing silent error state + the referral feature buried deep in settings. Present small, muted, with arrows pointing at the problems.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- TURNING POINT -->
+    <section class="band">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow mb12" data-uk="Переломний момент">The turning point</span>
+          <div class="quote" data-uk="У брифі було «зробіть сучасно». Справжньою проблемою була конверсія.">The brief was “make it modern.” The real problem was conversion.</div>
+          <p class="mt8" data-uk="Тож я прив'язав кожне рішення до одного питання: чи допомагає це новому організатору запустити подію? Це переосмислення — від візуального оновлення до проблеми конверсії — задало пріоритети всього проєкту: онбординг, створення події та виведення на поверхню функцій, які реально приносять продажі.">So I anchored every decision to one question: does this help a new organizer get an event live? That reframing — from a visual refresh to a conversion problem — set the priorities for the whole project: onboarding, event creation, and surfacing the features that actually drive sales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISIONS -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="eyebrow" style="margin-bottom:8px" data-uk="Ключові рішення">Key decisions</div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 1">Decision 1</div>
+          <h2 data-uk="Дизайн-система з нуля">A design system from scratch</h2>
+          <div class="block"><p data-uk="Системи не існувало. Я побудував її з нуля — токени кольору, типографіки та відступів (семантичні + примітивні) і бібліотеку компонентів, що постачалася через Storybook і ревʼюилася в Chromatic. Вона охоплює всю екосистему з двома дизайн-мовами (щільна інформацією B2B, виразна B2C) на спільній основі для web, iOS та Android.">No system existed. I built one from the ground up — color, type, and spacing tokens (semantic + primitive) and a component library shipped through Storybook and reviewed in Chromatic. It spans the whole ecosystem with two design languages (information-dense B2B, expressive B2C) on a shared foundation across web, iOS, and Android.</p></div>
+          <div class="twocol" style="margin-top:26px">
+            <figure>
+              <div class="ph r-sq"><span class="tag">DS tokens</span></div>
+              <figcaption><b>Tokens &amp; base components:</b> color/type/spacing scales, buttons, inputs in one grid.</figcaption>
+            </figure>
+            <figure>
+              <div class="ph r-sq"><span class="tag">Storybook</span></div>
+              <figcaption><b>Storybook/Chromatic screen</b> with your review annotations. Proves a real dev handoff — strong DesOps signal.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 2">Decision 2</div>
+          <h2 data-uk="Створення події — виправлення конверсії">Event creation — the conversion fix</h2>
+          <div class="block"><p data-uk="Я перебудував найважливіший для бізнесу флоу на менші, зрозуміліші кроки, вивів на поверхню раніше заховані функції та замінив мовчазні збої на дієві стани помилок (напр., пояснення, що подія потребує Бренду, і як створити його тут же).">I restructured the most business-critical flow into smaller, clearer steps, surfaced previously buried features, and replaced silent failures with actionable error states (e.g. explaining that an event needs a Brand, and how to create one inline).</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">Before / After</span></div>
+            <figcaption><b>The case's key visual:</b> old overloaded creation step → new flow broken into clear steps. Add a small “before: silent error → after: actionable error state” pair. This is the heart of the conversion story.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 3">Decision 3</div>
+          <h2 data-uk="Вивести реферальну програму на поверхню">Surfacing the referral program</h2>
+          <div class="block"><p data-uk="Реферальна програма — унікальна високоефективна функція без прямих аналогів у конкурентів — але вона була захована в налаштуваннях події, тож без дзвінка підтримки лише ~10% організаторів її налаштовували. Я переніс її у флоу створення події з чітким поясненням, документацією, підкріпленими даними очікуваними результатами та окремим, візуально привабливішим екраном аналітики для відстеження ефективності.">The referral program is a unique, high-performing feature with no direct competitor equivalent — but it was hidden in event settings, so without a support call only ~10% of organizers ever set it up. I moved it into the event-creation flow with a clear explanation, supporting docs, data-backed framing of typical results, and a dedicated, more visually engaging analytics screen to track performance.</p></div>
+          <div class="twocol" style="margin-top:26px">
+            <figure>
+              <div class="ph r-med"><span class="tag">Before / After</span></div>
+              <figcaption><b>Before:</b> referral buried in settings (click-path arrow). <b>After:</b> referral as a visible step in event creation.</figcaption>
+            </figure>
+            <figure>
+              <div class="ph r-med"><span class="tag">Analytics screen</span></div>
+              <figcaption><b>Dedicated referral analytics screen</b> — the more visually engaging one.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 4">Decision 4</div>
+          <h2 data-uk="Таблиці, графіки та дашборди ефективності">Tables, charts &amp; performance dashboards</h2>
+          <div class="block"><p data-uk="Організатори живуть у щільних екранах із даними. Я зробив таблиці зручними для перегляду та дій і підібрав тип кожного графіка під семантику його даних — в одній послідовній візуальній мові, щоб найважливіші екрани стало швидко читати й діяти за ними.">Organizers live in high-density data screens. I made tables scannable and actionable, and matched each chart type to the semantics of its data, under one consistent visual language — so the screens that matter most became fast to read and act on.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">After</span></div>
+            <figcaption><b>1–2 “after” screens:</b> a redesigned data table + an event-performance dashboard, with short “what changed” notes.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 5 · спроєктовано з нуля">Decision 5 · designed from zero</div>
+          <h2 data-uk="Модуль Artist Management">Artist Management module</h2>
+          <div class="block"><p data-uk="Цілком новий модуль, що працює як окремий продукт усередині дашборда. Організатори фестивалів жонглюють контрактами артистів, райдерами, перельотами, проживанням і обладнанням у десятках листів і таблиць. Я спроєктував централізовану систему з: імпортом документів за допомогою AI (розбирає й розкладає дані по потрібних модулях, з обробкою конфліктів версій); рольовим доступом для 7+ ролей, де кожна бачить лише свої дані (гонорари артистів видно лише Finance/Legal); та інформаційною архітектурою, яку я склав окремою картою сайту для кожної ролі ще до того, як було намальовано перший екран.">A brand-new module that works as a standalone product inside the dashboard. Festival organizers juggle artist contracts, riders, travel, accommodation, and equipment across dozens of emails and spreadsheets. I designed a centralized system with: AI-powered bulk document import (parses and routes data into the right modules, with version-conflict handling); role-based access for 7+ roles, each seeing only their data (artist fees visible only to Finance/Legal); and an information architecture I mapped as a separate sitemap per role before any screen was drawn.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">Role-based sitemap — priority</span></div>
+            <figcaption><b>Most important artifact in the case:</b> a map of roles → the modules/screens each can access. Shows systems-level IA thinking before any UI. Make this one count.</figcaption>
+          </figure>
+          <div class="twocol" style="margin-top:26px">
+            <figure>
+              <div class="ph r-med"><span class="tag">AI import flow</span></div>
+              <figcaption><b>Schema:</b> upload → parse → route → review/edit → version conflict (v2).</figcaption>
+            </figure>
+            <figure>
+              <div class="ph r-med"><span class="tag">Module screens</span></div>
+              <figcaption><b>2–3 key screens</b> (e.g. per-artist overview + logistics).</figcaption>
+            </figure>
+          </div>
+          <div class="note" data-uk="Статус: дизайн завершено; зараз у розробці.">Status: design complete; currently in development.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="band">
+      <div class="wrap">
+        <div class="eyebrow mb12" data-uk="Результати">Outcomes</div>
+        <div class="block" style="max-width:none">
+          <table class="metrics-table">
+            <thead><tr><th data-uk="Метрика">Metric</th><th data-uk="До">Before</th><th data-uk="Після">After</th><th data-uk="Джерело">Source</th></tr></thead>
+            <tbody>
+              <tr><td data-uk="Успішне створення події (юзабіліті)">Event-creation success (usability)</td><td data-uk="~50% (з помилками)">~50% (with errors)</td><td>~90%</td><td data-uk="Юзабіліті-тести, n=5/раунд, до/після">Usability testing, n=5/round, pre/post</td></tr>
+              <tr><td data-uk="Використання реферальної програми">Referral-program adoption</td><td>~10%</td><td>50%+</td><td data-uk="Продуктова аналітика">Product analytics</td></tr>
+              <tr><td data-uk="Запити на дзвінки підтримки при онбордингу">Support onboarding-call requests</td><td data-uk="базовий рівень">baseline</td><td data-uk="на ~10% менше">~10% lower</td><td data-uk="Внутрішні дані підтримки">Internal support data</td></tr>
+              <tr><td data-uk="Нові користувачі, що створюють подію">New users who create an event</td><td data-uk="20% (база)">20% baseline</td><td class="tbc" data-uk="вимірювання очікується">measurement pending</td><td data-uk="Продуктова аналітика">Product analytics</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note" data-uk="Чесно про метод: юзабіліті-тест був n=5 на раунд і немодерований — це орієнтовний сигнал, а не статистичний доказ. Головну бізнес-метрику (20% → ?) ще не виміряно; подано як «проблему сформульовано», а не як перемогу.">Honest framing: the usability test was n=5 per round and unmoderated — a directional signal, not statistical proof. The core business metric (20% → ?) isn't measured yet; presented as “problem framed,” not a win.</div>
+        <figure style="margin-top:28px">
+          <div class="ph r-med"><span class="tag">Outcomes chart</span></div>
+          <figcaption><b>Metric cards or an honest before/after bar chart</b> (50→90, 10→50). Clean, with un-truncated axes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="divider">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow" data-uk="Висновок">Reflection</span>
+          <p data-uk="Найбільше я пишаюся не екраном, а рольовою інформаційною архітектурою Artist Management і системою, що тримає всю платформу разом. Саме ця частина витримує масштабування продукту.">The work I'm proudest of isn't a screen — it's the role-based IA for Artist Management and the system that ties the whole platform together. That's the part that holds up as the product scales.</p>
+        </div>
+        <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" data-go="wt" data-uk="Наступний кейс: WealthTrace →">Next case: WealthTrace →</a>
+          <a class="btn ghost" data-go="home" data-anchor="work" data-uk="Усі роботи">All work</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</div>
+
+<!-- ============ CASE: WEALTHTRACE ============ -->
+<div class="page" id="wt">
+  <article>
+    <section class="case-hero">
+      <div class="wrap">
+        <a class="backlink" data-go="home" data-anchor="work" data-uk="← Усі роботи">← All work</a>
+        <div class="case-id">
+          <span class="logo-ph"><span>logo</span></span>
+          <div class="eyebrow">WealthTrace</div>
+        </div>
+        <h1 data-uk="Як зробити складний механізм пенсійного планування достатньо зрозумілим, щоб конвертувати">Making a sophisticated retirement-planning engine legible enough to convert</h1>
+        <div class="case-meta" data-uk="Senior Product Designer · вебзастосунок повністю · квіт.–вер. 2026 · через Halo Lab">Senior Product Designer · the web app, end-to-end · Apr–Sep 2026 · via Halo Lab</div>
+        <p class="lead" data-uk="ПЗ для пенсійного планування для заможних інвесторів зі США. Потужний механізм моделювання, загорнутий у незручний інтерфейс — я переробив вебзастосунок навколо нього.">Retirement-planning software for high-net-worth U.S. investors. A strong modeling engine wrapped in a hard-to-use interface — I redesigned the web app around it.</p>
+        <div class="bigmetrics">
+          <div class="bigmetric"><b data-uk="Увесь вебзастосунок">Whole web app</b><span data-uk="від концепту до передачі в розробку">concept to dev-ready handoff</span></div>
+          <div class="bigmetric"><b>~30% faster</b><span data-uk="онбординг — порівняльний тест (цифра TBC)">onboarding — comparative test (figure TBC)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:14px;padding-bottom:60px">
+      <div class="wrap">
+        <figure>
+          <div class="ph r-wide"><span class="tag">Hero image</span></div>
+          <figcaption><b>What to make:</b> the main post-redesign dashboard, clean, in a frame. Should look “institutional-grade but human.”</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="band">
+      <div class="wrap split">
+        <div class="block">
+          <span class="eyebrow" data-uk="Контекст">Context</span>
+          <p data-uk="WealthTrace обслуговує заможних інвесторів зі США ($2–10M в активах, вік 50–65, високофінансово грамотні). Її перевага — глибина моделювання: механізм Монте-Карло, що рахує зважену дохідність і волатильність аж до окремого активу — ближче до інструментів для радників (RightCapital, eMoney), ніж до споживчих застосунків (Boldin). Сильний механізм, слабка поверхня.">WealthTrace serves high-net-worth U.S. investors ($2–10M investable, age 50–65, highly financially literate). Its edge is modeling depth: a Monte Carlo engine that computes weighted return and volatility down to the individual holding — closer to advisor tools (RightCapital, eMoney) than to consumer apps (Boldin). Strong engine, weak surface.</p>
+        </div>
+        <figure>
+          <div class="ph r-med"><span class="tag">Positioning map</span></div>
+          <figcaption><b>Competitive positioning map:</b> axes “Consumer ↔ Advisor/institutional” × “shallow ↔ deep modeling.” Plot Boldin, ProjectionLab, RightCapital, eMoney, MoneyGuidePro, and WealthTrace in its narrow premium niche. Explains product &amp; audience instantly.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow" data-uk="Проблема">The problem</span>
+          <p data-uk="Високонамірені тріали не конвертувалися: приблизно <b>13 зі 131 тріалу/місяць</b> ставали платними, зростання було пласким (~5% рік до року, переважно завдяки сарафанному радіо), і багато користувачів відпадали посеред тріалу. Гіпотеза: поверхня — застаріла, перевантажена, складна в навігації — втрачала користувачів, яких механізм уже завоював. Моїм завданням було зробити продукт достатньо зрозумілим, щоб нетехнічні, високонамірені користувачі доходили до цінності й конвертувалися.">High-intent trials weren't converting: roughly <b>13 of 131 trials/month</b> became paid, growth was flat (~5% YoY, mostly word of mouth), and many users dropped off mid-trial. The hypothesis: the surface — dated, overwhelming, hard to navigate — was losing users the engine had already won. My mandate was to make the product clear enough that non-technical, high-intent users could reach value and convert.</p>
+        </div>
+        <figure style="margin-top:28px">
+          <div class="ph r-med"><span class="tag">Before</span></div>
+          <figcaption><b>“Before” dashboard:</b> overloaded, with off-topic sections. Small, with callouts on the problem zones.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- TURNING POINT -->
+    <section class="band">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow mb12" data-uk="Переломний момент">The turning point</span>
+          <div class="quote" data-uk="«Приберіть вкладки». Я не погодився — проблема була не у вкладках.">“Remove the tabs.” I pushed back — tabs weren't the problem.</div>
+          <p class="mt8" data-uk="Рішення вже лежало на столі: вкладки перевантажені, приберіть їх. Після евристичного аналізу я не погодився — прибирати вкладки було ні можливо, ні доцільно з огляду на структуру продукту. Справжні причини — <b>низьке співвідношення сигнал/шум</b> (екрани несли контент, на який користувачі не дивилися) та <b>погане смислове групування</b> (пов'язана інформація не була організована за змістом). Я проєктував проти причини, а не названого симптому. Відокремлення озвученої проблеми від справжньої стало стрижнем проєкту.">A fix was already on the table: the tabs are cluttered, remove them. After a heuristic analysis I disagreed — removing tabs was neither possible nor desirable given the product's structure. The real causes were <b>low signal-to-noise</b> (screens carried content users never looked at) and <b>poor semantic grouping</b> (related information wasn't organized by meaning). I designed against the cause, not the named symptom. Separating the stated problem from the actual one became the spine of the project.</p>
+        </div>
+        <figure style="margin-top:28px">
+          <div class="ph r-med"><span class="tag">Concept diagram</span></div>
+          <figcaption><b>Thinking diagram (not UI):</b> crossed-out “remove tabs” → the real diagnosis (“signal-to-noise ↑” + “semantic grouping”). Can be a mini before/after of one screen: noisy → grouped by meaning.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DECISIONS -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="eyebrow" style="margin-bottom:8px" data-uk="Ключові рішення">Key decisions</div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 1">Decision 1</div>
+          <h2 data-uk="Linked Entities — цілісність даних за дизайном">Linked Entities — data-integrity by design</h2>
+          <div class="block"><p data-uk="На екрані введення грошових потоків один реальний об'єкт вимагав кількох незв'язаних записів: купуєш орендну нерухомість — і додаєш актив, іпотеку (зобов'язання), орендний дохід (надходження) і майбутній продаж (ще одне надходження) — чотири записи для однієї речі. Користувачі забували пов'язані записи, а під час видалення мусили вручну вишукувати кожен зв'язаний запис. Гірше: ці дані живлять механізм Монте-Карло, тож осиротілі записи псували саме ті прогнози, якими відомий продукт. Я ввів модель <b>Linked Entities</b>: актив володіє своїми залежностями — його створення генерує пов'язане зобов'язання й дохід; редагування чи видалення каскадно поширюється автоматично. Це рішення про керування станом і модель даних, а не косметика.">On the cash-flow inputs screen, one real-world object required several disconnected records: buy a rental property and you'd add the asset, the mortgage (liability), the rental income (inflow), and the future sale (another inflow) — four entries for one thing. Users forgot related entries and, when deleting, had to hunt down every linked record. Worse, this data feeds the Monte Carlo engine, so orphaned records corrupted the very projections the product is known for. I introduced a <b>Linked Entities</b> model: an asset owns its dependencies — creating it generates the linked liability and income; editing or deleting it cascades automatically. A state-management and data-model decision, not a cosmetic one.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">Before / After diagram</span></div>
+            <figcaption><b>Key diagram:</b> before — one object → four scattered records across sections (broken-link arrows); after — one asset entity containing mortgage/income/sale, with cascading delete. Pair with the real new asset-creation UI.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 2">Decision 2</div>
+          <h2 data-uk="Деталізований розподіл активів — progressive disclosure у жорстких обмеженнях">Granular asset allocation — progressive disclosure under tight constraints</h2>
+          <div class="block"><p data-uk="Ручні рахунки підтримують глибоку деталізацію для точного розрахунку ймовірності — активи аж до окремих тікерів і розподіл за типом (напр., 30% кеш / 50% акції зростання / 5% облігації). Це глибоко вкладена структура (Рахунок → Клас активів → Тікери → %), яка мала вміститися в обмежений простір, не перетворившись на нескінченну таблицю. Я спроєктував компактний UI з progressive disclosure та інлайн-редагуванням, щоб користувачі розподіляли 100% без візуального перевантаження. Це забрало багато ітерацій.">Manual accounts support deep detail for accurate probability — holdings down to individual tickers and allocation by type (e.g. 30% cash / 50% growth / 5% bonds). That's a deeply nested structure (Account → Asset class → Tickers → %) that had to fit a tight space without becoming an endless spreadsheet. I designed a compact UI using progressive disclosure and inline editing so users distribute a 100% allocation without visual overload. It took heavy iteration.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-med"><span class="tag">Allocation UI</span></div>
+            <figcaption><b>Final nested allocation UI,</b> ideally showing a collapsed → expanded state to demonstrate progressive disclosure.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 3">Decision 3</div>
+          <h2 data-uk="Монте-Карло — налаштування проти результатів (довіра за дизайном)">Monte Carlo — settings vs results (trust by design)</h2>
+          <div class="block"><p data-uk="Екран Монте-Карло змішував введення й вивід в одному просторі, тож користувачі не розрізняли, де налаштування, якими вони керують, а де результати, які видає модель — а оскільки симуляція перезапускається вручну, люди змінювали налаштування й читали застарілі результати як актуальні. Я виніс усі налаштування в окрему колонку, дав результатам власну основну область і додав підказку стану (тонка анімація + індикатор), що спрацьовує при зміні налаштування, сигналізуючи: симуляція застаріла й потребує перезапуску. Я свідомо не чіпав саму модель — механізм був надійний; завдання — зробити його зрозумілим і вартим довіри.">The Monte Carlo screen mixed inputs and outputs in the same space, so users couldn't tell which controls they owned versus which numbers the model produced — and since the simulation re-runs manually, people changed a setting and read stale results as current. I pulled all settings into a dedicated column, gave results their own primary area, and added a state cue (subtle animation + indicator) that fires when a setting changes, signaling the simulation is stale and must be re-run. I deliberately left the model untouched — the engine was sound; the job was making it legible and trustworthy.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">Before / After</span></div>
+            <figcaption><b>Before:</b> settings and results mixed together. <b>After:</b> a settings column | a results area + the “stale, re-run” indicator (show the indicator as a small separate crop too).</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 4">Decision 4</div>
+          <h2 data-uk="Розподіл грошових потоків — FlowView">Cash-flow distributions — FlowView</h2>
+          <div class="block"><p data-uk="Екран розподілів — щільна порічна таблиця надходжень і витрат за категоріями. Я додав поверх таблиці візуалізацію у стилі потоків, щоб користувачі з першого погляду бачили, звідки гроші надходять і куди йдуть — перетворивши таблицю на щось зрозуміле за секунди.">The distributions screen is a dense year-by-year table of inflows and outflows by category. I added a flow-style visualization on top of the table, so users can see at a glance where money comes from and goes — turning a spreadsheet into something readable in seconds.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-med"><span class="tag">FlowView</span></div>
+            <figcaption><b>The table + FlowView</b> (sankey-like visualization) side by side.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 5 · переосмислення спрацювало">Decision 5 · the reframe, paid off</div>
+          <h2 data-uk="Боротьба з перевантаженням інформацією">Fighting information overload</h2>
+          <div class="block"><p data-uk="Дашборд показував графіки, якими ніхто не користувався; на екрані прогнозів був графік розподілу активів без смислового зв'язку з прогнозами — користувачі прямо казали, що не розуміють, навіщо він там. Я підняв співвідношення сигнал/шум, прибравши малоцінний контент, а тоді застосував смислове групування — впорядкував решту за змістом. Обидва екрани стали сфокусованими, з чіткою ієрархією навколо вводів і прогнозів, що мають значення.">The dashboard showed charts nobody used; the projections screen included an asset-allocation chart with no semantic link to projections — users explicitly said they didn't understand why it was there. I raised signal-to-noise by cutting low-value content, then applied semantic grouping to organize what remained by meaning. Both screens became focused, with a clear hierarchy around the inputs and projections that matter.</p></div>
+          <figure style="margin-top:26px">
+            <div class="ph r-wide"><span class="tag">Before / After</span></div>
+            <figcaption><b>Strong visual:</b> overloaded dashboard with off-topic sections → balanced; cluttered projections with an off-topic allocation chart → focused.</figcaption>
+          </figure>
+        </div>
+
+        <div class="decision">
+          <div class="dnum" data-uk="Рішення 6">Decision 6</div>
+          <h2 data-uk="Онбординг, перебудований навколо швидкого досягнення цінності">Onboarding rebuilt around time-to-value</h2>
+          <div class="block"><p data-uk="Старий онбординг мав забагато важких кроків із формами до будь-якої цінності. Я перебудував його: мінімальний перший крок (ім'я, email, пароль), фіксація мети, інлайн-поради з фінансового планування з посиланнями на джерела (довіра + навчання), необов'язкове раннє додавання рахунків, що запускає <b>живий графік прогнозу</b>, який показує зростання капіталу ще до того, як користувач дійде до дашборда, крок перевірки та коротка «обраховуємо 100 000 сценаріїв…» заставка (ілюзія праці, що дає відчути глибину моделювання). У порівняльному тесті старого й нового флоу новий переміг впевнено — <b>~30% швидше</b> (точна цифра TBC).">The old onboarding was too many heavy, form-crowded steps before any value. I rebuilt it: a minimal first step (name, email, password), goal capture, inline financial-planning tips linked to their sources (credibility + education), optional early account entry that triggers a <b>live projection graph</b> showing capital growth before the user even reaches the dashboard, a review step, and a brief “calculating 100,000 scenarios…” screen (a labor-illusion that makes the modeling depth felt). In a comparative old-vs-new test, the new flow won clearly — <b>~30% faster</b> (exact figure TBC).</p></div>
+          <div class="twocol" style="margin-top:26px">
+            <figure>
+              <div class="ph r-med"><span class="tag">Onboarding steps</span></div>
+              <figcaption><b>The new onboarding step sequence</b> as a horizontal ribbon.</figcaption>
+            </figure>
+            <figure>
+              <div class="ph r-med"><span class="tag">Live preview + calc screen</span></div>
+              <figcaption><b>The live projection preview + the “calculating scenarios” screen</b> — the signature moments, worth highlighting.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="band">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow" data-uk="Процес — продуктовий дизайн із AI">Process — AI-assisted product design</span>
+          <p data-uk="У цьому проєкті був свідомо новий виробничий процес. Я зробив візуальний концепт, базову дизайн-систему (токени кольору/типографіки, базові компоненти) і перший дашборд у Figma. Тоді переніс виробництво в AI-інструмент для дизайну, проєктуючи екрани прямо зі щільних специфікацій рівня сторінки, які писав першими — кожне поле, його поведінка, навіщо збираються дані, текст підказок, логіка взаємодії. Інструмент видавав клікабельний, адаптивний, майже фінальний UI з цих специфікацій; я ітерував через фідбек стейкхолдерів. Затверджені дизайни перебудовувалися у Figma як джерело правди для розробників. Ефект: вайрфреймінг згорнувся у високодеталізований інтерактивний артефакт — а специфікації сторінок є доказом авторства. Продуктове мислення й специфікації були моїми; інструмент лише пришвидшив виконання.">This project used a deliberate, novel production process. I built the visual concept, a foundational design system (color/type tokens, base components), and the first dashboard in Figma. Then I moved production into an AI design tool, designing screens directly from dense, page-level specs I wrote first — every field, its behavior, why the data is collected, the helper copy, the interaction logic. The tool produced clickable, responsive, near-final UI from those specs; I iterated through stakeholder feedback. Approved designs were rebuilt in Figma as the developer source of truth. The effect: wireframing collapsed into a high-fidelity, interactive artifact — and the page specs are the proof of authorship. The product thinking and the page specs were mine; the tool only sped up execution.</p></div>
+        <div class="twocol" style="margin-top:26px">
+          <figure>
+            <div class="ph r-med"><span class="tag">Process diagram</span></div>
+            <figcaption><b>Figma (concept + DS) → AI tool (spec-driven production) → Figma (source of truth).</b></figcaption>
+          </figure>
+          <figure>
+            <div class="ph r-med"><span class="tag">Spec page — priority</span></div>
+            <figcaption><b>A page-level spec screen</b> (redact anything confidential). Your strongest proof of authorship — strongly recommended.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="divider">
+      <div class="wrap">
+        <div class="eyebrow mb12" data-uk="Результати">Outcomes</div>
+        <div class="block" style="max-width:none">
+          <table class="metrics-table">
+            <thead><tr><th data-uk="Метрика">Metric</th><th data-uk="До">Before</th><th data-uk="Після">After</th><th data-uk="Джерело">Source</th><th data-uk="Статус">Status</th></tr></thead>
+            <tbody>
+              <tr><td data-uk="Час проходження онбордингу">Onboarding completion time</td><td data-uk="база">baseline</td><td data-uk="~30% швидше">~30% faster</td><td data-uk="Порівняльний тест (старий vs новий)">Comparative test (old vs new)</td><td class="tbc" data-uk="точна цифра TBC">exact figure TBC</td></tr>
+              <tr><td data-uk="Помилки під час онбордингу">Onboarding errors</td><td data-uk="база">baseline</td><td data-uk="менше (новий флоу впевнено переміг)">reduced (new flow won clearly)</td><td data-uk="Порівняльний тест">Comparative test</td><td class="tbc" data-uk="цифри TBC">figures TBC</td></tr>
+              <tr><td data-uk="Конверсія тріал → платний">Trial → paid conversion</td><td data-uk="13 / 131 тріалів/міс">13 / 131 trials/mo</td><td>—</td><td data-uk="Продуктова аналітика">Product analytics</td><td class="tbc" data-uk="реліз вер. 2026, ще не виміряно">ships Sep 2026, not yet measured</td></tr>
+              <tr><td data-uk="Зрозумілість Монте-Карло">Monte Carlo clarity</td><td>—</td><td data-uk="позитивна реакція користувачів">positive user reaction</td><td data-uk="Тестування прототипу">Prototype testing</td><td class="tbc" data-uk="якісне">qualitative</td></tr>
+              <tr><td data-uk="Розуміння Linked Entities">Linked Entities comprehension</td><td data-uk="заплутано">confusing</td><td data-uk="зрозуміли одразу">understood immediately</td><td data-uk="Коридорне тестування">Hallway testing</td><td class="tbc" data-uk="якісне">qualitative</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note" data-uk="Чесно про подачу: продукт виходить у вересні 2026, тож бізнес-результати (конверсія, відтік, зростання) ще не можна виміряти — цей кейс про сильне переосмислення проблеми + продуктові рішення + підтверджені юзабіліті-покращення, а бізнес-результати — в очікуванні. Генеративні глибинні інтерв'ю проводила продуктова команда; я спирався на це дослідження й відповідав за дизайн-рішення. Моя власна перевірка — евристичний аналіз, тестування прототипу/коридорне та порівняльний тест онбордингу.">Honest framing: the product ships September 2026, so business results (conversion, churn, growth) aren't measurable yet — this case is strong problem-reframing + product decisions + validated usability improvements, with business outcomes pending. The generative depth interviews were run by the product team; I built on that research and owned the design response. My hands-on validation was heuristic analysis, prototype/hallway testing, and the comparative onboarding test.</div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <div class="wrap">
+        <div class="block">
+          <span class="eyebrow" data-uk="Висновок">Reflection</span>
+          <p data-uk="Рішення, яке я захищатиму найзапекліше, — відмова «прибрати вкладки». Розв'язати справжню проблему замість замовленої — це різниця між виконанням брифа й реальним усуненням того, що не працює.">The decision I'd defend hardest is refusing to “remove the tabs.” Solving the real problem instead of the requested one is the difference between executing a brief and actually fixing what's wrong.</p>
+        </div>
+        <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" data-go="tf" data-uk="Наступний кейс: The Ticket Fairy →">Next case: The Ticket Fairy →</a>
+          <a class="btn ghost" data-go="home" data-anchor="work" data-uk="Усі роботи">All work</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div data-uk="© 2026 Олег Степанчиков · Продуктовий дизайнер">© 2026 Oleg Stepanchykov · Product Designer</div>
+    <div>stepanchykov.o@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+  // ---- i18n (EN / UA) ----
+  var curLang = 'en';
+  document.querySelectorAll('[data-uk]').forEach(function(el){ el.setAttribute('data-en', el.innerHTML); });
+  function setLang(l){
+    curLang = l;
+    var key = (l === 'uk') ? 'data-uk' : 'data-en';
+    document.querySelectorAll('[data-uk]').forEach(function(el){ el.innerHTML = el.getAttribute(key); });
+    document.documentElement.lang = (l === 'uk') ? 'uk' : 'en';
+    document.querySelectorAll('.langtoggle').forEach(function(b){ b.textContent = (l === 'uk') ? 'EN' : 'UA'; });
+  }
+  document.querySelectorAll('.langtoggle').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); setLang(curLang === 'en' ? 'uk' : 'en'); });
+  });
+
+  // ---- page navigation ----
+  function go(id, anchor){
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    var el = document.getElementById(id);
+    if(el) el.classList.add('active');
+    if(anchor){
+      requestAnimationFrame(function(){
+        var a = document.getElementById(anchor);
+        if(a) a.scrollIntoView({behavior:'smooth'});
+      });
+    } else {
+      window.scrollTo({top:0});
+    }
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-go]');
+    if(!t) return;
+    e.preventDefault();
+    go(t.getAttribute('data-go'), t.getAttribute('data-anchor'));
+  });
+</script>
+</body>
+</html>
