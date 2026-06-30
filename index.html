@@ -67,11 +67,11 @@
 
   /* HERO */
   .hero-section{padding:90px 0 70px;background:var(--bg)}
-  .hero-split-container{display:grid;grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);align-items:center;gap:36px;width:100%}
+  .hero-split-container{display:grid;grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);align-items:flex-start;gap:36px;width:100%}
   .hero-col{display:flex;flex-direction:column}
   .hero-left{justify-self:end;text-align:left;align-items:flex-start}
-  .hero-right{justify-self:start;text-align:left;align-items:flex-start}
-  .hero-center{justify-self:center;align-items:center;justify-content:center;flex-shrink:0}
+  .hero-right{justify-self:start;text-align:left;align-items:flex-start;margin-top:1.1em}
+  .hero-center{justify-self:center;align-self:center;align-items:center;justify-content:center;flex-shrink:0}
   
   .hero-title{color:#8F969D;font-family:'Inter', sans-serif;font-size:56px;font-style:normal;font-weight:600;line-height:1.1;letter-spacing:-1.12px;margin:0;white-space:nowrap}
   .shifted{margin-left:48px}
@@ -195,7 +195,7 @@
 
   @media(max-width:1024px){
     .hero-split-container{display:flex;flex-direction:column;align-items:center;gap:32px;text-align:center}
-    .hero-left, .hero-right{align-items:center;text-align:center;justify-self:center}
+    .hero-left, .hero-right{align-items:center;text-align:center;justify-self:center;margin-top:0}
     .hero-title{font-size:38px;letter-spacing:-0.76px;white-space:normal}
     .shifted{margin-left:0}
   }
@@ -242,10 +242,11 @@
 
   <header class="hero-section">
     <div class="wrap">
+      <div class="eyebrow mb24" data-uk="ПРОДУКТОВИЙ ДИЗАЙНЕР · <span class='text-red'>4+</span> РОКИ">PRODUCT DESIGNER · <span class="text-red">4+</span> YEARS</div>
+      
       <div class="hero-split-container">
         
         <div class="hero-col hero-left">
-          <div class="eyebrow" data-uk="ПРОДУКТОВИЙ ДИЗАЙНЕР · <span class='text-red'>4+</span> РОКИ">PRODUCT DESIGNER · <span class="text-red">4+</span> YEARS</div>
           <h1 class="hero-title" data-uk="Перетворюю складні B2B">I turn complex B2B</h1>
           <h1 class="hero-title" data-uk="та фінтех-продукти">and fintech products</h1>
         </div>
