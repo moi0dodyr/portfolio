@@ -102,33 +102,167 @@
   figcaption{font-size:13.5px;color:var(--muted);margin-top:13px;line-height:1.6}
   figcaption b{color:var(--ink-soft);font-weight:600}
 
-  /* WORK CARDS */
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;text-decoration:none;color:inherit;display:block}
-  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,24,29,.08)}
-  .card .ph{border-radius:0;border:none;border-bottom:1px solid var(--line)}
-  .card .body{padding:24px 26px 28px}
-  .card-head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
-  .card-head .kicker{font-size:13px;color:var(--muted);margin-bottom:3px}
-  .card-head h3{font-size:21px}
-  .card p{font-size:15.5px}
-  .metrics{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px}
-  .metric{font-size:13.5px;color:var(--ink-soft)}
-  .metric b{display:block;font-size:20px;color:var(--ink);font-weight:660;letter-spacing:-.01em}
-  .readmore{margin-top:18px;font-size:14px;color:var(--accent);font-weight:560}
-
-  /* SELECTED WORKS SECTION */
-  .selected-works-section{background:#121316;color:#ffffff;padding:90px 0;scroll-margin-top:72px}
-  .section-title-centered{text-align:center;font-size:clamp(28px, 4vw, 40px);font-weight:800;letter-spacing:-0.03em;margin-bottom:48px;color:#ffffff}
-  .selected-works-section .card{background:#1c1e22;border:1px solid rgba(255, 255, 255, 0.08);color:#ffffff}
-  .selected-works-section .card:hover{box-shadow:0 16px 40px rgba(0, 0, 0, 0.5);border-color:rgba(255, 255, 255, 0.16);transform:translateY(-4px)}
-  .selected-works-section .card p{color:#a0a5b0}
-  .selected-works-section .card-head .kicker{color:#8E929C}
-  .selected-works-section .metric b{color:#ffffff}
-  .selected-works-section .metric{color:#a0a5b0}
-  .selected-works-section .readmore{color:#ff453a}
-  .selected-works-section .logo-ph{border-color:rgba(255,255,255,0.15);background:rgba(255,255,255,0.03)}
-  .selected-works-section .logo-ph span{color:rgba(255,255,255,0.4)}
+  /* PROJECT SECTIONS (SELECTED WORKS) */
+  #work {
+    scroll-margin-top: 72px;
+  }
+  .project-section {
+    padding: 100px 0;
+    transition: background-color 0.3s ease;
+  }
+  .project-section.dark-theme {
+    background: #121316;
+    color: #ffffff;
+  }
+  .project-section.light-theme {
+    background: #ffffff;
+    color: var(--ink);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
+  .dark-theme .section-title {
+    color: #ffffff;
+  }
+  .light-theme .section-title {
+    color: var(--ink);
+  }
+  .project-container {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .project-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+  .project-image-large {
+    grid-column: span 2;
+    aspect-ratio: 16 / 10;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .project-image-small {
+    aspect-ratio: 1.15 / 1;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .dark-ph {
+    background: #1c1e22;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .light-ph {
+    background: #f0f1f4;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+  .ph-tag {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .project-logo-ph {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 750;
+    font-size: 12px;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+  .logo-tf {
+    background: #e60000;
+  }
+  .logo-wt {
+    background: #2f54eb;
+  }
+  .project-kicker {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .project-title {
+    font-size: clamp(24px, 3.2vw, 36px);
+    font-weight: 850;
+    letter-spacing: -0.025em;
+    margin-bottom: 18px;
+    margin-top: 0;
+  }
+  .dark-theme .project-title {
+    color: #ffffff;
+  }
+  .light-theme .project-title {
+    color: var(--ink);
+  }
+  .project-desc {
+    font-size: 16px;
+    line-height: 1.62;
+    margin-bottom: 28px;
+    margin-top: 0;
+  }
+  .dark-theme .project-desc {
+    color: #a0a5b0;
+  }
+  .light-theme .project-desc {
+    color: var(--ink-soft);
+  }
+  .project-metrics {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+  .project-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .metric-val {
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -0.015em;
+  }
+  .dark-theme .metric-val {
+    color: #ffffff;
+  }
+  .light-theme .metric-val {
+    color: var(--ink);
+  }
+  .metric-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    font-weight: 500;
+  }
 
   /* PET PROJECTS */
   .petgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px}
@@ -198,6 +332,7 @@
     .hero-left, .hero-right{align-items:center;text-align:center;justify-self:center;margin-top:0}
     .hero-title{font-size:38px;letter-spacing:-0.76px;white-space:normal}
     .shifted{margin-left:0}
+    .project-container{grid-template-columns:1fr;gap:40px}
   }
 
   @media(max-width:760px){
@@ -295,53 +430,106 @@
   </header>
 
   <!-- SELECTED WORK -->
-  <section class="selected-works-section" id="work">
-    <div class="wrap">
-      <h2 class="section-title-centered" data-uk="Вибрані роботи">Selected works</h2>
-      <div class="cards">
-
-        <a class="card" data-go="tf">
-          <figure><div class="ph r-med"><span class="tag">TF cover</span></div></figure>
-          <div class="body">
-            <div class="card-head">
-              <span class="logo-ph"><span>logo</span></span>
-              <div>
-                <div class="kicker" data-uk="SaaS для квитків і керування подіями · YC S15">Event ticketing &amp; management SaaS · YC S15</div>
-                <h3>The Ticket Fairy</h3>
+  <div id="work">
+    
+    <!-- Ticket Fairy (Dark Theme) -->
+    <section class="project-section dark-theme">
+      <div class="wrap">
+        <div class="project-header">
+          <h2 class="section-title" data-uk="Вибрані роботи">Selected works</h2>
+        </div>
+        
+        <div class="project-container">
+          <!-- Left: Images Grid -->
+          <div class="project-images-grid">
+            <div class="project-image-large dark-ph">
+              <span class="ph-tag">TF main dashboard</span>
+            </div>
+            <div class="project-image-small dark-ph">
+              <span class="ph-tag">TF event creation</span>
+            </div>
+            <div class="project-image-small dark-ph">
+              <span class="ph-tag">TF referral analytics</span>
+            </div>
+          </div>
+          
+          <!-- Right: Content -->
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-logo-ph logo-tf"><span>TF</span></span>
+              <span class="project-kicker" data-uk="SaaS для квитків і керування подіями · YC S15">Event ticketing &amp; management SaaS · YC S15</span>
+            </div>
+            <h3 class="project-title">The Ticket Fairy</h3>
+            <p class="project-desc" data-uk="Зробив редизайн B2B-платформи, на якій організатори ведуть свій бізнес, і побудував її дизайн-систему з нуля.">Redesigned the B2B platform that event organizers run their business on, and built its design system from scratch.</p>
+            
+            <div class="project-metrics">
+              <div class="project-metric">
+                <span class="metric-val">~50%→90%</span>
+                <span class="metric-desc" data-uk="успішне створення події">event-creation success</span>
+              </div>
+              <div class="project-metric">
+                <span class="metric-val">~10%→50%+</span>
+                <span class="metric-desc" data-uk="використання реферальної програми">referral adoption</span>
               </div>
             </div>
-            <p data-uk="Зробив редизайн B2B-платформи, на якій організатори ведуть свій бізнес, і побудував її дизайн-систему з нуля.">Redesigned the B2B platform that event organizers run their business on, and built its design system from scratch.</p>
-            <div class="metrics">
-              <div class="metric" data-uk="<b>~50%→90%</b>успішне створення події"><b>~50%→90%</b>event-creation success</div>
-              <div class="metric" data-uk="<b>~10%→50%+</b>використання реферальної програми"><b>~10%→50%+</b>referral adoption</div>
+            
+            <div class="project-action">
+              <a class="btn-red" data-go="tf" data-uk="Дивитися кейс →">Read case →</a>
             </div>
-            <div class="readmore" data-uk="Дивитися кейс →">Read case →</div>
           </div>
-        </a>
-
-        <a class="card" data-go="wt">
-          <figure><div class="ph r-med"><span class="tag">WealthTrace cover</span></div></figure>
-          <div class="body">
-            <div class="card-head">
-              <span class="logo-ph"><span>logo</span></span>
-              <div>
-                <div class="kicker" data-uk="Фінтех для пенсійного планування · США">Retirement-planning fintech · U.S.</div>
-                <h3>WealthTrace</h3>
-              </div>
-            </div>
-            <p data-uk="Єдиний дизайнер на продукті. Переосмислив завдання й перебудував застосунок навколо проблеми, яка насправді шкодила конверсії.">The only designer on the product. Reframed the brief and rebuilt the app around the problem that was actually hurting conversion.</p>
-            <div class="metrics">
-              <div class="metric" data-uk="<b>Увесь вебзастосунок</b>від концепту до передачі в розробку"><b>Whole web app</b>concept → dev handoff</div>
-              <div class="metric" data-uk="<b>~30% швидше</b>онбординг <span style='color:var(--muted)'>(тест, TBC)</span>"><b>~30% faster</b>onboarding <span style="color:var(--muted)">(test, TBC)</span></div>
-            </div>
-            <div class="readmore" data-uk="Дивитися кейс →">Read case →</div>
-          </div>
-        </a>
-
+        </div>
+        
       </div>
-      <figcaption style="margin-top:16px"><b>Covers &amp; logos:</b> one strong “after” screen per case, same frame style for both. Small product logo sits next to each name (placeholders shown).</figcaption>
-    </div>
-  </section>
+    </section>
+
+    <!-- WealthTrace (Light Theme) -->
+    <section class="project-section light-theme">
+      <div class="wrap">
+        
+        <div class="project-container">
+          <!-- Left: Images Grid -->
+          <div class="project-images-grid">
+            <div class="project-image-large light-ph">
+              <span class="ph-tag">WT retirement dashboard</span>
+            </div>
+            <div class="project-image-small light-ph">
+              <span class="ph-tag">WT linked entities flow</span>
+            </div>
+            <div class="project-image-small light-ph">
+              <span class="ph-tag">WT Monte Carlo settings</span>
+            </div>
+          </div>
+          
+          <!-- Right: Content -->
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-logo-ph logo-wt"><span>WT</span></span>
+              <span class="project-kicker" data-uk="Фінтех для пенсійного планування · США">Retirement-planning fintech · U.S.</span>
+            </div>
+            <h3 class="project-title">WealthTrace</h3>
+            <p class="project-desc" data-uk="Єдиний дизайнер на продукті. Переосмислив завдання й перебудував застосунок навколо проблеми, яка насправді шкодила конверсії.">The only designer on the product. Reframed the brief and rebuilt the app around the problem that was actually hurting conversion.</p>
+            
+            <div class="project-metrics">
+              <div class="project-metric">
+                <span class="metric-val" data-uk="Увесь вебзастосунок">Whole web app</span>
+                <span class="metric-desc" data-uk="concept → dev handoff">concept &rarr; dev handoff</span>
+              </div>
+              <div class="project-metric">
+                <span class="metric-val">~30% faster</span>
+                <span class="metric-desc" data-uk="onboarding (тест, TBC)">onboarding (test, TBC)</span>
+              </div>
+            </div>
+            
+            <div class="project-action">
+              <a class="btn-red" data-go="wt" data-uk="Дивитися кейс →">Read case →</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </div>
 
   <!-- PET PROJECTS -->
   <section class="band">
