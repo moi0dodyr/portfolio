@@ -1,0 +1,178 @@
+.hero-section {
+  padding: 140px 0 70px;
+  background: var(--bg);
+}
+
+.hero-split-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 36px;
+  width: 100%;
+}
+
+.hero-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-left {
+  justify-self: start;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.hero-right {
+  justify-self: end;
+  text-align: left;
+  align-items: flex-start;
+  margin-top: 1.1em; /* Align "into something" horizontally with "and fintech products" */
+}
+
+.hero-center {
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  color: #8F969D;
+  font-family: 'Inter', sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.12px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.shifted {
+  margin-left: 48px;
+}
+
+.text-red {
+  color: #e60000;
+}
+
+.profile-container {
+  width: clamp(180px, 18vw, 240px);
+  height: clamp(180px, 18vw, 240px);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-cta {
+  margin-top: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-red {
+  display: inline-block;
+  background: #e60000;
+  color: #ffffff;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-red:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 0, 0, 0.25);
+}
+
+.hero-social {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 34px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 13.5px;
+  color: #8E929C;
+  font-weight: 550;
+  transition: color 0.2s ease;
+}
+
+.social-link:hover {
+  color: var(--ink);
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.social-link .arrow {
+  font-size: 11px;
+  color: #8E929C;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.social-link:hover .arrow {
+  transform: translate(2px, -2px);
+  color: var(--ink);
+}
+
+/* RESPONSIVE HERO */
+@media(max-width:1024px) {
+  .hero-split-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    align-items: center;
+    text-align: center;
+    justify-self: center;
+    margin-top: 0;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    letter-spacing: -0.76px;
+    white-space: normal;
+  }
+
+  .shifted {
+    margin-left: 0;
+  }
+}
+
+@media(max-width:760px) {
+  .hero-section {
+    padding: 50px 0;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    letter-spacing: -0.56px;
+  }
+}

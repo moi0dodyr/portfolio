@@ -1,0 +1,203 @@
+/* LOGO PLACEHOLDERS */
+.logo-ph {
+  width: 48px;
+  height: 48px;
+  border: 1.5px dashed var(--ph-line);
+  border-radius: 12px;
+  background: var(--ph-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.logo-ph span {
+  font-size: 8.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.logo-ph.sm {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+}
+
+/* PLACEHOLDER IMAGES FOR GENERAL USE */
+figure {
+  margin: 0;
+}
+
+.ph {
+  position: relative;
+  width: 100%;
+  border: 1.5px dashed var(--ph-line);
+  background: repeating-linear-gradient(45deg, var(--ph-bg), var(--ph-bg) 11px, #eef0ee 11px, #eef0ee 22px);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ph.r-wide {
+  aspect-ratio: 16/8;
+}
+
+.ph.r-med {
+  aspect-ratio: 16/9;
+}
+
+.ph.r-sq {
+  aspect-ratio: 4/3;
+}
+
+.ph .tag {
+  background: #fff;
+  border: 1px solid var(--ph-line);
+  border-radius: 8px;
+  padding: 7px 13px;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+figcaption {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 13px;
+  line-height: 1.6;
+}
+
+figcaption b {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* PET PROJECTS */
+.petgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 36px;
+}
+
+.petbox {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.petbox:hover {
+  border-color: #b9c0ff;
+  transform: translateY(-2px);
+}
+
+.petname {
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.peturl {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.petitem .txt {
+  margin-top: 16px;
+}
+
+.petitem h4 {
+  font-size: 16px;
+  font-weight: 640;
+  margin-bottom: 5px;
+}
+
+.petitem .txt p {
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+/* ALSO WORKED ON */
+.grid6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.chip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.chip-head {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chip-head h4 {
+  font-size: 15.5px;
+  font-weight: 620;
+}
+
+.chip p {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+/* ABOUT SECTION */
+.about {
+  max-width: 62ch;
+}
+
+.about p+p {
+  margin-top: 18px;
+}
+
+/* CONTACT SECTION */
+.contact {
+  text-align: center;
+  padding: 96px 0;
+}
+
+.contact h2 {
+  margin-bottom: 14px;
+}
+
+.contact .links {
+  margin-top: 24px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE ELEMENTS */
+@media(max-width:760px) {
+  .petgrid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .grid6 {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,166 @@
+/* CASE PAGES */
+.backlink {
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 12px;
+  text-decoration: none;
+}
+
+.backlink:hover {
+  color: var(--ink);
+}
+
+.case-id {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 6px;
+}
+
+.case-meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+.case-hero h1 {
+  font-size: clamp(30px, 4.6vw, 48px);
+  max-width: 18ch;
+  margin-top: 8px;
+}
+
+.case-hero .lead {
+  margin-top: 18px;
+  max-width: 54ch;
+}
+
+.bigmetrics {
+  display: flex;
+  gap: 46px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.bigmetric b {
+  display: block;
+  font-size: 30px;
+  letter-spacing: -.02em;
+  font-weight: 680;
+}
+
+.bigmetric span {
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.block {
+  max-width: 68ch;
+}
+
+.block .eyebrow {
+  margin-bottom: 14px;
+  display: block;
+}
+
+.block p+p {
+  margin-top: 16px;
+}
+
+.twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.note {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+.quote {
+  font-size: clamp(20px, 2.6vw, 28px);
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  font-weight: 560;
+  max-width: 26ch;
+  border-left: 3px solid var(--ink);
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+table.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+table.metrics-table th,
+table.metrics-table td {
+  text-align: left;
+  padding: 12px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+table.metrics-table th {
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+table.metrics-table td.tbc {
+  color: var(--muted);
+}
+
+.decision {
+  padding-top: 56px;
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+}
+
+.decision:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.decision h2 {
+  margin-top: 6px;
+}
+
+.dnum {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+/* RESPONSIVE CASE PAGES */
+@media(max-width:760px) {
+  .twocol,
+  .split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
