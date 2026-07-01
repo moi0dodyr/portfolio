@@ -97,9 +97,3 @@ nav .wrap {
     margin-top: 8px;
   }
 }
-
-@media (min-width: 1513px) {
-  nav .wrap {
-    max-width: 1920px;
-  }
-}
