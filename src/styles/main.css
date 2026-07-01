@@ -44,7 +44,9 @@ a {
   color: inherit;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.13;
   letter-spacing: -0.03em;
   font-weight: 750;
@@ -78,7 +80,7 @@ p {
   font-size: 12.5px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -133,7 +135,7 @@ section {
   margin-top: 10px;
 }
 
-.stack > * + * {
+.stack>*+* {
   margin-top: 16px;
 }
 
@@ -152,6 +154,7 @@ section {
     opacity: 0;
     transform: translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: none;

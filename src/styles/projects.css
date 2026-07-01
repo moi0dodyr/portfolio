@@ -190,7 +190,7 @@
 }
 
 /* RESPONSIVE PROJECTS */
-@media(max-width:1024px) {
+@media(max-width:1279px) {
   .project-container {
     grid-template-columns: 1fr;
     gap: 40px;
