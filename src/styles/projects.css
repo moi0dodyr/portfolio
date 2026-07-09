@@ -163,6 +163,11 @@
   margin-bottom: 32px;
 }
 
+.tf-section .project-metrics,
+.wt-section .project-metrics {
+  margin-bottom: 32px;
+}
+
 .project-metric {
   display: flex;
   flex-direction: column;
@@ -210,6 +215,15 @@
   background: #0c0c14 url('../assets/TF_bg.png') center center / cover no-repeat !important;
   position: relative;
   overflow: hidden;
+  padding-top: 16px !important;
+  padding-bottom: 0 !important;
+}
+
+.wt-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 48px !important;
+  padding-bottom: 0 !important;
 }
 
 /* Sticky caption bar */
@@ -221,7 +235,7 @@
   top: 0;
   z-index: 10;
   padding: 16px 0;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 /* Layout: narrow text left, wide showcase right */
@@ -235,13 +249,85 @@
 .tf-content {
   position: relative;
   z-index: 2;
+  margin-top: 48px;
+}
+
+/* TF headline from Figma */
+.tf-section .project-title,
+.wt-section .project-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.22px;
+  margin-bottom: 0;
+}
+
+.tf-section .project-title {
+  color: #ffffff;
+}
+
+.wt-section .project-title {
+  color: var(--ink);
+}
+
+/* Stacked kicker + title text */
+.tf-caption-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* TF kicker (text above headline) */
+.tf-section .project-kicker,
+.wt-section .project-kicker {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 100%;
+  color: #7B818B;
+}
+
+/* TF body text */
+.tf-section .project-desc,
+.wt-section .project-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #7B818B;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* TF metric description (same as body) */
+.tf-section .metric-desc,
+.wt-section .metric-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #7B818B;
+}
+
+/* TF metric numbers */
+.tf-section .metric-val,
+.wt-section .metric-val {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.2px;
+}
+
+.tf-section .metric-val {
+  color: #ffffff;
+}
+
+.wt-section .metric-val {
+  color: var(--ink);
 }
 
 /* Logo image */
 .project-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -253,6 +339,7 @@
   gap: 24px;
   position: relative;
   z-index: 2;
+  padding-top: 0;
 }
 
 .tf-showcase-laptop {
@@ -267,25 +354,38 @@
 }
 
 .tf-showcase-mobiles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 16px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
-/* Equal-height mobile frames with centered crop */
-.tf-mobile-frame {
-  border-radius: 8px;
+/* Center iPhone is the main/biggest image */
+.tf-mobile-main {
+  flex: 0 0 33%;
   overflow: hidden;
-  aspect-ratio: 3 / 4.5;
+  border-radius: 8px 8px 0 0;
 }
 
-.tf-mobile-frame img {
+/* Side mobile images are smaller */
+.tf-mobile-side {
+  flex: 0 0 28%;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+/* WT mobile frames are all equal width */
+.wt-mobile-frame {
+  flex: 0 0 calc((100% - 32px) / 3);
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.tf-mobile-frame img,
+.wt-mobile-frame img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: top center;
 }
 
 /* ============================
@@ -301,7 +401,7 @@
   align-items: center;
   gap: 4px;
   border-radius: 50px;
-  border: none;
+  border: 1.3px solid linear-gradient(rgba(235, 235, 238, 0.05) 0%, rgba(235, 235, 238, 1.00) 50%, rgba(235, 235, 238, 0.05) 100%);
   background:
     radial-gradient(54.09% 195.21% at 92.23% -4.17%, rgba(187, 191, 244, 0.20) 0%, rgba(107, 95, 231, 0.60) 100%),
     radial-gradient(57.49% 47.97% at 0% 50%, #BBBFF4 0%, #413778 100%);
@@ -323,6 +423,35 @@
     0 16px 4.5px -14px #BBBFF4 inset,
     inset 0 0 0 1.3px rgba(187, 191, 244, 0.30),
     0 4px 18px rgba(107, 95, 231, 0.35);
+}
+
+/* ============================
+   RED BUTTON (WT CTA)
+   ============================ */
+.btn-wt {
+  display: flex;
+  width: 140px;
+  height: 44px;
+  min-width: 96px;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 50px;
+  background: #e60000;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-wt:hover {
+  background: #cc0000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(230, 0, 0, 0.35);
 }
 
 /* ============================

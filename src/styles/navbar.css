@@ -2,9 +2,34 @@ nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  transition: border-color 0.2s ease;
+  background: transparent;
+  backdrop-filter: none;
+  transition: background 0.3s ease;
+}
+
+/* When nav overlaps a dark section */
+nav.nav-dark .brand {
+  color: #ffffff;
+}
+
+nav.nav-dark .lang-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+nav.nav-dark .lang-link.active {
+  color: #ffffff;
+}
+
+nav.nav-dark .lang-link:hover {
+  color: #ffffff;
+}
+
+nav.nav-dark .navlinks a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+nav.nav-dark .navlinks a:hover {
+  color: #ffffff;
 }
 
 nav .wrap {

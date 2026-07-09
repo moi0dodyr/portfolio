@@ -44,4 +44,29 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     go(t.getAttribute('data-go'), t.getAttribute('data-anchor'));
   });
+
+  // Navbar dark/light detection based on underlying section
+  const nav = document.querySelector('nav');
+  if (nav) {
+    const navH = nav.offsetHeight;
+    const darkSections = document.querySelectorAll('.dark-theme');
+
+    // Observe dark sections intersecting with the nav strip at the top
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let isDark = false;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) isDark = true;
+        });
+        nav.classList.toggle('nav-dark', isDark);
+      },
+      {
+        // Only trigger when a dark section enters the top nav-height strip
+        rootMargin: `0px 0px -${window.innerHeight - navH}px 0px`,
+        threshold: 0,
+      }
+    );
+
+    darkSections.forEach((s) => observer.observe(s));
+  }
 });
