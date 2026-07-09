@@ -357,34 +357,26 @@
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin-left: 10%;
+  margin-right: 10%;
   align-items: flex-start;
 }
 
-/* Center iPhone is the main/biggest image */
-.tf-mobile-main {
-  flex: 0 0 33%;
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;
-}
-
-/* Side mobile images are smaller */
-.tf-mobile-side {
-  flex: 0 0 28%;
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;
-}
-
-/* WT mobile frames are all equal width */
+/* All mobile frames (TF and WT) are equal width and height */
+.tf-mobile-frame,
 .wt-mobile-frame {
   flex: 0 0 calc((100% - 32px) / 3);
   overflow: hidden;
   border-radius: 8px 8px 0 0;
+  aspect-ratio: 3 / 4.5;
 }
 
 .tf-mobile-frame img,
 .wt-mobile-frame img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
   display: block;
 }
 

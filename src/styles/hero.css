@@ -26,7 +26,7 @@
   justify-self: end;
   text-align: left;
   align-items: flex-start;
-  margin-top: 4em;
+  margin-top: 5em;
   /* Align "into something" horizontally with "and fintech products" */
 }
 
@@ -141,6 +141,7 @@
     font-size: clamp(38px, 4vw, 50px);
     letter-spacing: -1px;
   }
+
   .profile-container {
     width: clamp(144px, calc(144px + 96 * (100vw - 1280px) / 119), 240px);
     height: clamp(144px, calc(144px + 96 * (100vw - 1280px) / 119), 240px);
