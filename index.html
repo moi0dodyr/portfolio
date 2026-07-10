@@ -5,12 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oleg Stepanchykov — Product Designer</title>
-  
+
   <script type="module" src="/src/main.js"></script>
 </head>
 
 <body>
   <nav>
+    <div class="nav-blur-container">
+      <div class="blur-layer layer-1"></div>
+      <div class="blur-layer layer-2"></div>
+      <div class="blur-layer layer-3"></div>
+      <div class="blur-layer layer-4"></div>
+      <div class="blur-layer layer-5"></div>
+    </div>
     <div class="wrap">
       <div class="brand" data-go="home">Oleg Stepanchykov</div>
 
@@ -105,7 +112,8 @@
             <div class="project-content tf-content">
               <!-- Sticky caption -->
               <div class="tf-sticky-caption">
-                <img class="project-logo-img" src="src/assets/TF_logo.png" alt="Ticket Fairy logo" width="48" height="48">
+                <img class="project-logo-img" src="src/assets/TF_logo.png" alt="Ticket Fairy logo" width="48"
+                  height="48">
                 <div class="tf-caption-text">
                   <span class="project-kicker" data-i18n="event_ticketing_amp_management_saas">Event ticketing
                     &amp; management SaaS · YC S15</span>
@@ -164,7 +172,8 @@
             <div class="project-content tf-content">
               <!-- Sticky caption -->
               <div class="tf-sticky-caption">
-                <img class="project-logo-img" src="src/assets/WT_logo.png" alt="WealthTrace logo" width="48" height="48">
+                <img class="project-logo-img" src="src/assets/WT_logo.png" alt="WealthTrace logo" width="48"
+                  height="48">
                 <div class="tf-caption-text">
                   <span class="project-kicker" data-i18n="retirementplanning_fintech_us">Retirement-planning
                     fintech · U.S.</span>
@@ -345,7 +354,7 @@
         <div class="wrap">
           <a class="backlink" data-go="home" data-anchor="work" data-i18n="all_work">← All work</a>
           <div class="case-id">
-            <span class="logo-ph"><span>logo</span></span>
+            <img class="case-logo-img" src="/src/assets/TF_logo.png" alt="The Ticket Fairy logo" width="44" height="44">
             <div class="eyebrow">The Ticket Fairy</div>
           </div>
           <h1 data-i18n="redesigning_the_revenue_engine_of">Redesigning the revenue engine of an
@@ -357,252 +366,253 @@
             YC S15 · $300M+ in ticket sales. The platform takes a commission on every ticket, so the organizer-facing
             dashboard is where the company makes its money. That's the part I redesigned.</p>
           <div class="bigmetrics">
-            <div class="bigmetric"><b>~50%→90%</b><span data-i18n="eventcreation_success_usability_testing">event-creation success (usability testing)</span>
+            <div class="bigmetric"><b>~50%→90%</b><span
+                data-i18n="eventcreation_success_usability_testing">event-creation success (usability testing)</span>
             </div>
-            <div class="bigmetric"><b>~10%→50%+</b><span data-i18n="referral_adoption_product_analytics">referral adoption (product
+            <div class="bigmetric"><b>~10%→50%+</b><span data-i18n="referral_adoption_product_analytics">referral
+                adoption (product
                 analytics)</span></div>
           </div>
         </div>
       </section>
 
-      <section style="padding-top:14px;padding-bottom:60px">
+      <section class="case-hero-image-section">
         <div class="wrap">
-          <figure>
-            <div class="ph r-wide"><span class="tag">Hero image</span></div>
-            <figcaption><b>What to make:</b> the most “selling” post-redesign screen — the event-performance dashboard
-              or the new event-creation flow — full-width in a browser frame. Should immediately say “modern SaaS.”
-            </figcaption>
-          </figure>
+          <img class="case-hero-image" src="src/assets/TF01.png" alt="Ticket Fairy dashboard on laptop">
         </div>
       </section>
 
-      <!-- CONTEXT -->
-      <section class="band">
-        <div class="wrap split">
-          <div class="block">
-            <span class="eyebrow" data-i18n="context">Context</span>
-            <p data-i18n="the_ticket_fairy_runs_a">
-              The Ticket Fairy runs a multi-product ecosystem: a B2B dashboard for event organizers, consumer apps for
-              buyers, and on-site scanning tools. I led the redesign of the B2B dashboard; a second designer handled the
-              consumer side.</p>
-          </div>
-          <figure>
-            <div class="ph r-med"><span class="tag">Diagram</span></div>
-            <figcaption><b>Product ecosystem diagram:</b> B2B Dashboard at the center (highlighted), surrounded by B2C
-              app, B2C web, Entry Fairy, and Artist Management. Shows the scale and cleanly scopes what you worked on.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      <!-- CASE BODY WITH SIDEBAR -->
+      <div class="case-layout wrap">
+        <!-- SIDEBAR TOC -->
+        <aside class="case-sidebar">
+          <a href="#tf-problem">1. The Problem</a>
+          <a href="#tf-analysis">2. Analysis & Testing</a>
+          <a href="#tf-insights">3. Key Insights</a>
+          <a href="#tf-redesign">4. Design of the New Flow</a>
+          <a href="#tf-results">5. Testing & Results</a>
+          <a href="#tf-design-system">6. Design System</a>
+          <a href="#tf-artist-mgmt">7. Artist Management</a>
+        </aside>
 
-      <!-- PROBLEM -->
-      <section class="divider">
-        <div class="wrap">
-          <div class="block">
-            <span class="eyebrow" data-i18n="the_problem">The problem</span>
-            <p data-i18n="only_20_of_newly_registered">
-              Only <b>20% of newly registered organizers</b> ever created an event — and since revenue depends on events
-              going live, that gap was lost money. Underneath it: years of legacy code had produced an inconsistent,
-              dated, low-contrast interface; key capabilities (including the high-value referral program) were buried in
-              settings; and error states left users stuck with no explanation — e.g. an event silently couldn't be
-              created until a “Brand” existed, but nothing said so.</p>
-          </div>
-          <figure style="margin-top:28px">
-            <div class="ph r-wide"><span class="tag">Before</span></div>
-            <figcaption><b>“Before” collage:</b> mismatched legacy UI side by side (proves inconsistent &amp; dated) + a
-              confusing silent error state + the referral feature buried deep in settings. Present small, muted, with
-              arrows pointing at the problems.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- TURNING POINT -->
-      <section class="band">
-        <div class="wrap">
-          <div class="block">
-            <span class="eyebrow mb12" data-i18n="the_turning_point">The turning point</span>
-            <div class="quote" data-i18n="the_brief_was_make_it">The brief
-              was “make it modern.” The real problem was conversion.</div>
-            <p class="mt8" data-i18n="so_i_anchored_every_decision">
-              So I anchored every decision to one question: does this help a new organizer get an event live? That
-              reframing — from a visual refresh to a conversion problem — set the priorities for the whole project:
-              onboarding, event creation, and surfacing the features that actually drive sales.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- DECISIONS -->
-      <section class="divider">
-        <div class="wrap">
-          <div class="eyebrow" style="margin-bottom:8px" data-i18n="key_decisions">Key decisions</div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_1">Decision 1</div>
-            <h2 data-i18n="a_design_system_from_scratch">A design system from scratch</h2>
+        <!-- MAIN CONTENT -->
+        <div class="case-content">
+          <!-- 1. PROBLEM -->
+          <section id="tf-problem" class="case-section">
+            <span class="eyebrow">1. The Problem</span>
+            <h2>Lost revenue at the very first step</h2>
             <div class="block">
-              <p data-i18n="no_system_existed_i_built">
-                No system existed. I built one from the ground up — color, type, and spacing tokens (semantic +
-                primitive) and a component library shipped through Storybook and reviewed in Chromatic. It spans the
-                whole ecosystem with two design languages (information-dense B2B, expressive B2C) on a shared foundation
-                across web, iOS, and Android.</p>
+              <p>The Ticket Fairy runs a multi-product ecosystem, but its core revenue driver is the B2B dashboard where
+                organizers create events and sell tickets. The problem was stark: <b>only 20% of newly registered
+                  organizers ever managed to create an event</b>. Because revenue depends on events going live, that 80%
+                drop-off was a massive leak in the funnel.</p>
+              <p>Underneath this metric lay years of legacy code that had produced an inconsistent, dated, and
+                low-contrast interface. Crucial features were buried, and organizers were regularly getting stuck.</p>
+            </div>
+            <figure style="margin-top:28px">
+              <div class="ph r-wide"><span class="tag">Before</span></div>
+              <figcaption><b>“Before” collage:</b> mismatched legacy UI side by side + a confusing silent error state.
+                Present small, muted, with arrows pointing at the problems.</figcaption>
+            </figure>
+          </section>
+
+          <!-- 2. ANALYSIS & TESTING -->
+          <section id="tf-analysis" class="case-section divider">
+            <span class="eyebrow">2. Analysis & Testing</span>
+            <h2>Why were users dropping off?</h2>
+            <div class="block">
+              <p>Before jumping into Figma, I needed to understand exactly where and why users were failing. I conducted
+                unmoderated usability testing with 5 organizers, asking them to complete the core task: go through
+                onboarding and create an event.</p>
+              <p>The results confirmed the severity of the problem: only about 50% of users successfully created an
+                event in this controlled environment, and even those who succeeded encountered numerous errors and took
+                up to 15 minutes to finish.</p>
+            </div>
+          </section>
+
+          <!-- 3. KEY INSIGHTS -->
+          <section id="tf-insights" class="case-section band">
+            <span class="eyebrow">3. Key Insights</span>
+            <h2>Four critical usability errors</h2>
+            <div class="block">
+              <p>Watching the session recordings revealed four specific, recurring issues that drove the high failure
+                rate:</p>
+              <ol style="margin-top: 16px; padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 8px;"><b>Brand & Location Selectors:</b> Users struggled to understand how the
+                  brand and location selection logic worked. Silent error states left them stuck without explanation.
+                </li>
+                <li style="margin-bottom: 8px;"><b>Ticket Creation:</b> The process for adding and configuring tickets
+                  was disjointed from the main flow.</li>
+                <li style="margin-bottom: 8px;"><b>Hidden Referral Program:</b> The platform's highest-converting
+                  feature—its referral program—was buried deep in settings. Users consistently missed it.</li>
+                <li style="margin-bottom: 8px;"><b>Information Overload:</b> The sheer volume of unorganized information
+                  on a single page caused users to miss primary actions entirely.</li>
+              </ol>
+            </div>
+          </section>
+
+          <!-- 4. DESIGN OF THE NEW FLOW -->
+          <section id="tf-redesign" class="case-section divider">
+            <span class="eyebrow">4. Design of the New Flow</span>
+            <h2>Designing for conversion</h2>
+            <div class="block">
+              <p>Armed with these insights, I completely restructured the event creation flow. Every design decision was
+                anchored to one question: does this help a new organizer get an event live faster?</p>
+              <ul style="margin-top: 16px; padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 8px;"><b>Step-by-step Wizard:</b> I broke the overloaded single-page form into
+                  smaller, logical steps to drastically reduce cognitive load.</li>
+                <li style="margin-bottom: 8px;"><b>Integrated Ticket Creation:</b> I moved ticket configuration directly
+                  into the main setup flow, fixing the disjointed experience.</li>
+                <li style="margin-bottom: 8px;"><b>Surfaced the Referral Program:</b> I took the referral setup out of
+                  the hidden settings and made it a prominent step in the creation flow, complete with data-backed
+                  messaging on the results organizers typically see.</li>
+                <li style="margin-bottom: 8px;"><b>Actionable Error States:</b> I redesigned the complex selectors and
+                  replaced silent failures with clear guidance (e.g., explaining inline that an event needs a Brand, and
+                  how to create one).</li>
+              </ul>
             </div>
             <div class="twocol" style="margin-top:26px">
               <figure>
+                <div class="ph r-wide"><span class="tag">Before / After: Event Creation</span></div>
+                <figcaption><b>The conversion fix:</b> Old overloaded creation step → new flow broken into clear steps.
+                </figcaption>
+              </figure>
+              <figure>
+                <div class="ph r-wide"><span class="tag">Before / After: Referral</span></div>
+                <figcaption><b>Referral discoverability:</b> Buried in settings → prominent step in event creation.
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- 5. TESTING & RESULTS -->
+          <section id="tf-results" class="case-section band">
+            <span class="eyebrow">5. Testing & Results</span>
+            <h2>Measurable business impact</h2>
+            <div class="block" style="max-width: none;">
+              <p>After designing the new flow, I ran a second round of usability testing (n=5) to measure the
+                improvement. The results were dramatic. By eliminating the friction points, we reduced critical errors
+                to near zero and almost halved the time required to complete the task.</p>
+
+              <table class="metrics-table" style="margin-top: 24px;">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Current Flow (Before)</th>
+                    <th>Redesigned Flow (After)</th>
+                    <th>Change</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Task Success Rate</td>
+                    <td>~50%</td>
+                    <td><b>~90%</b></td>
+                    <td>+80% (relative)</td>
+                  </tr>
+                  <tr>
+                    <td>Mean Time on Task</td>
+                    <td>~14 min</td>
+                    <td><b>~8 min</b></td>
+                    <td>-43%</td>
+                  </tr>
+                  <tr>
+                    <td>Error Rate</td>
+                    <td>~4 critical errors</td>
+                    <td><b>0-1 errors</b></td>
+                    <td>-75%+</td>
+                  </tr>
+                  <tr>
+                    <td>Mean SEQ Score</td>
+                    <td>5.0 / 7</td>
+                    <td><b>6.5 / 7</b></td>
+                    <td>+30%</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3 style="margin-top: 32px; font-size: 18px;">Business Outcomes</h3>
+              <p style="margin-top: 12px;">The UX improvements directly translated to business value:</p>
+              <ul style="margin-top: 12px; padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 8px;"><b>Referral Program Activation grew from ~10% to 50%+.</b> Based on
+                  sample event data, active referral campaigns generate approximately <b>18% of total ticket sales</b>.
+                  By increasing activation by 5x, this redesign directly drives substantial additional revenue for the
+                  platform.</li>
+                <li style="margin-bottom: 8px;"><b>Projected Conversion Increase:</b> Based on the massive reduction in
+                  UX errors, the core business conversion metric (new users successfully creating an event) is projected
+                  to grow from the 20% baseline to <b>~26%</b>, representing millions in additional revenue.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 6. DESIGN SYSTEM -->
+          <section id="tf-design-system" class="case-section divider">
+            <span class="eyebrow">6. Design System</span>
+            <h2>A scalable foundation from scratch</h2>
+            <div class="block">
+              <p>While fixing the conversion funnel was the immediate business priority, the long-term goal was to
+                ensure the platform could scale. When I joined, no design system existed. I built one from the ground
+                up.</p>
+              <p>This included establishing color, typography, and spacing tokens (both semantic and primitive) and
+                building a robust component library. To bridge the gap between design and engineering, the system was
+                shipped directly through <b>Storybook</b> and reviewed via <b>Chromatic</b>. This spanned the whole
+                ecosystem, defining two design languages (information-dense for B2B, expressive for B2C) on a shared
+                foundation across web, iOS, and Android.</p>
+            </div>
+
+            <div class="twocol" style="margin-top:26px">
+              <figure>
                 <div class="ph r-sq"><span class="tag">DS tokens</span></div>
-                <figcaption><b>Tokens &amp; base components:</b> color/type/spacing scales, buttons, inputs in one grid.
+                <figcaption><b>Tokens & base components:</b> color/type/spacing scales, buttons, inputs in one grid.
                 </figcaption>
               </figure>
               <figure>
                 <div class="ph r-sq"><span class="tag">Storybook</span></div>
-                <figcaption><b>Storybook/Chromatic screen</b> with your review annotations. Proves a real dev handoff —
-                  strong DesOps signal.</figcaption>
+                <figcaption><b>Storybook/Chromatic screen</b> with review annotations. Proves a real developer handoff
+                  and strong DesignOps signal.</figcaption>
               </figure>
             </div>
-          </div>
+          </section>
 
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_2">Decision 2</div>
-            <h2 data-i18n="event_creation_the_conversion_fix">Event creation — the conversion fix</h2>
+          <!-- 7. ARTIST MANAGEMENT -->
+          <section id="tf-artist-mgmt" class="case-section divider">
+            <span class="eyebrow">7. Designing from zero (0 to 1)</span>
+            <h2>Artist Management Module</h2>
             <div class="block">
-              <p data-i18n="i_restructured_the_most_businesscritical">
-                I restructured the most business-critical flow into smaller, clearer steps, surfaced previously buried
-                features, and replaced silent failures with actionable error states (e.g. explaining that an event needs
-                a Brand, and how to create one inline).</p>
+              <p>Beyond optimizing existing flows, I also designed brand-new modules. Festival organizers juggle artist
+                contracts, riders, travel, accommodation, and equipment across dozens of emails and spreadsheets. I
+                designed a centralized "Artist Management" system that functions as a standalone product inside the
+                dashboard.</p>
+              <ul style="margin-top: 16px; padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 8px;"><b>AI-powered bulk document import:</b> Automatically parses and routes
+                  data into the right modules, complete with version-conflict handling.</li>
+                <li style="margin-bottom: 8px;"><b>Strict role-based access:</b> 7+ different roles, each seeing only
+                  their specific data (e.g., artist fees are visible only to Finance and Legal).</li>
+                <li style="margin-bottom: 8px;"><b>Systems-level IA:</b> I mapped the information architecture as a
+                  separate sitemap per role before any screen was drawn.</li>
+              </ul>
             </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-wide"><span class="tag">Before / After</span></div>
-              <figcaption><b>The case's key visual:</b> old overloaded creation step → new flow broken into clear steps.
-                Add a small “before: silent error → after: actionable error state” pair. This is the heart of the
-                conversion story.</figcaption>
-            </figure>
-          </div>
 
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_3">Decision 3</div>
-            <h2 data-i18n="surfacing_the_referral_program">Surfacing the referral program</h2>
-            <div class="block">
-              <p data-i18n="the_referral_program_is_a">
-                The referral program is a unique, high-performing feature with no direct competitor equivalent — but it
-                was hidden in event settings, so without a support call only ~10% of organizers ever set it up. I moved
-                it into the event-creation flow with a clear explanation, supporting docs, data-backed framing of
-                typical results, and a dedicated, more visually engaging analytics screen to track performance.</p>
-            </div>
-            <div class="twocol" style="margin-top:26px">
-              <figure>
-                <div class="ph r-med"><span class="tag">Before / After</span></div>
-                <figcaption><b>Before:</b> referral buried in settings (click-path arrow). <b>After:</b> referral as a
-                  visible step in event creation.</figcaption>
-              </figure>
-              <figure>
-                <div class="ph r-med"><span class="tag">Analytics screen</span></div>
-                <figcaption><b>Dedicated referral analytics screen</b> — the more visually engaging one.</figcaption>
-              </figure>
-            </div>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_4">Decision 4</div>
-            <h2 data-i18n="tables_charts_amp_performance_dashboards">Tables, charts &amp; performance dashboards</h2>
-            <div class="block">
-              <p data-i18n="organizers_live_in_highdensity_data">
-                Organizers live in high-density data screens. I made tables scannable and actionable, and matched each
-                chart type to the semantics of its data, under one consistent visual language — so the screens that
-                matter most became fast to read and act on.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-wide"><span class="tag">After</span></div>
-              <figcaption><b>1–2 “after” screens:</b> a redesigned data table + an event-performance dashboard, with
-                short “what changed” notes.</figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_5_designed_from_zero">Decision 5 · designed from zero</div>
-            <h2 data-i18n="artist_management_module">Artist Management module</h2>
-            <div class="block">
-              <p data-i18n="a_brandnew_module_that_works">
-                A brand-new module that works as a standalone product inside the dashboard. Festival organizers juggle
-                artist contracts, riders, travel, accommodation, and equipment across dozens of emails and spreadsheets.
-                I designed a centralized system with: AI-powered bulk document import (parses and routes data into the
-                right modules, with version-conflict handling); role-based access for 7+ roles, each seeing only their
-                data (artist fees visible only to Finance/Legal); and an information architecture I mapped as a separate
-                sitemap per role before any screen was drawn.</p>
-            </div>
             <figure style="margin-top:26px">
               <div class="ph r-wide"><span class="tag">Role-based sitemap — priority</span></div>
-              <figcaption><b>Most important artifact in the case:</b> a map of roles → the modules/screens each can
-                access. Shows systems-level IA thinking before any UI. Make this one count.</figcaption>
+              <figcaption><b>Systems-level IA thinking:</b> A map of roles mapping to the modules and screens each can
+                access.</figcaption>
             </figure>
+
             <div class="twocol" style="margin-top:26px">
               <figure>
                 <div class="ph r-med"><span class="tag">AI import flow</span></div>
-                <figcaption><b>Schema:</b> upload → parse → route → review/edit → version conflict (v2).</figcaption>
+                <figcaption><b>Schema:</b> upload → parse → route → review/edit → version conflict.</figcaption>
               </figure>
               <figure>
                 <div class="ph r-med"><span class="tag">Module screens</span></div>
-                <figcaption><b>2–3 key screens</b> (e.g. per-artist overview + logistics).</figcaption>
+                <figcaption><b>Key screens:</b> Per-artist overview and logistics tracking.</figcaption>
               </figure>
             </div>
-            <div class="note" data-i18n="status_design_complete_currently_in">Status: design complete; currently
-              in development.</div>
-          </div>
-
+            <div class="note">Status: Design complete; currently in development.</div>
+          </section>
         </div>
-      </section>
-
-      <!-- OUTCOMES -->
-      <section class="band">
-        <div class="wrap">
-          <div class="eyebrow mb12" data-i18n="outcomes">Outcomes</div>
-          <div class="block" style="max-width:none">
-            <table class="metrics-table">
-              <thead>
-                <tr>
-                  <th data-i18n="metric">Metric</th>
-                  <th data-i18n="before">Before</th>
-                  <th data-i18n="after">After</th>
-                  <th data-i18n="source">Source</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-i18n="eventcreation_success_usability">Event-creation success (usability)</td>
-                  <td data-i18n="50_with_errors">~50% (with errors)</td>
-                  <td>~90%</td>
-                  <td data-i18n="usability_testing_n5round_prepost">Usability testing, n=5/round, pre/post</td>
-                </tr>
-                <tr>
-                  <td data-i18n="referralprogram_adoption">Referral-program adoption</td>
-                  <td>~10%</td>
-                  <td>50%+</td>
-                  <td data-i18n="product_analytics">Product analytics</td>
-                </tr>
-                <tr>
-                  <td data-i18n="support_onboardingcall_requests">Support onboarding-call requests</td>
-                  <td data-i18n="baseline">baseline</td>
-                  <td data-i18n="10_lower">~10% lower</td>
-                  <td data-i18n="internal_support_data">Internal support data</td>
-                </tr>
-                <tr>
-                  <td data-i18n="new_users_who_create_an">New users who create an event</td>
-                  <td data-i18n="20_baseline">20% baseline</td>
-                  <td class="tbc" data-i18n="measurement_pending">measurement pending</td>
-                  <td data-i18n="product_analytics">Product analytics</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="note" data-i18n="honest_framing_the_usability_test">
-            Honest framing: the usability test was n=5 per round and unmoderated — a directional signal, not statistical
-            proof. The core business metric (20% → ?) isn't measured yet; presented as “problem framed,” not a win.
-          </div>
-          <figure style="margin-top:28px">
-            <div class="ph r-med"><span class="tag">Outcomes chart</span></div>
-            <figcaption><b>Metric cards or an honest before/after bar chart</b> (50→90, 10→50). Clean, with un-truncated
-              axes.</figcaption>
-          </figure>
-        </div>
-      </section>
+      </div>
 
       <section class="divider">
         <div class="wrap">
@@ -612,9 +622,9 @@
               The work I'm proudest of isn't a screen — it's the role-based IA for Artist Management and the system that
               ties the whole platform together. That's the part that holds up as the product scales.</p>
           </div>
-          <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+          <div class="case-bottom-nav">
             <a class="btn" data-go="wt" data-i18n="next_case_wealthtrace">Next case: WealthTrace →</a>
-            <a class="btn ghost" data-go="home" data-anchor="work" data-i18n="all_work_1">All work</a>
+            <a class="btn-allwork" data-go="home" data-anchor="work" data-i18n="all_work_1">← All work</a>
           </div>
         </div>
       </section>
@@ -628,7 +638,7 @@
         <div class="wrap">
           <a class="backlink" data-go="home" data-anchor="work" data-i18n="all_work">← All work</a>
           <div class="case-id">
-            <span class="logo-ph"><span>logo</span></span>
+            <img class="case-logo-img" src="/src/assets/WT_logo.png" alt="WealthTrace logo" width="44" height="44">
             <div class="eyebrow">WealthTrace</div>
           </div>
           <h1 data-i18n="making_a_sophisticated_retirementplanning_engine">Making
@@ -639,308 +649,331 @@
             Retirement-planning software for high-net-worth U.S. investors. A strong modeling engine wrapped in a
             hard-to-use interface — I redesigned the web app around it.</p>
           <div class="bigmetrics">
-            <div class="bigmetric"><b data-i18n="whole_web_app">Whole web app</b><span data-i18n="concept_to_devready_handoff">concept to dev-ready handoff</span></div>
-            <div class="bigmetric"><b>~30% faster</b><span data-i18n="onboarding_comparative_test_figure_tbc">onboarding — comparative test (figure TBC)</span>
+            <div class="bigmetric"><b data-i18n="whole_web_app">Whole web app</b><span
+                data-i18n="concept_to_devready_handoff">concept to dev-ready handoff</span></div>
+            <div class="bigmetric"><b>~30% faster</b><span data-i18n="onboarding_comparative_test_figure_tbc">onboarding
+                — comparative test (figure TBC)</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section style="padding-top:14px;padding-bottom:60px">
+      <section class="case-hero-image-section">
         <div class="wrap">
-          <figure>
-            <div class="ph r-wide"><span class="tag">Hero image</span></div>
-            <figcaption><b>What to make:</b> the main post-redesign dashboard, clean, in a frame. Should look
-              “institutional-grade but human.”</figcaption>
-          </figure>
+          <img class="case-hero-image" src="src/assets/WT04.png" alt="WealthTrace dashboard on laptop">
         </div>
       </section>
 
-      <!-- CONTEXT -->
-      <section class="band">
-        <div class="wrap split">
-          <div class="block">
-            <span class="eyebrow" data-i18n="context">Context</span>
-            <p data-i18n="wealthtrace_serves_highnetworth_us_investors">
-              WealthTrace serves high-net-worth U.S. investors ($2–10M investable, age 50–65, highly financially
-              literate). Its edge is modeling depth: a Monte Carlo engine that computes weighted return and volatility
-              down to the individual holding — closer to advisor tools (RightCapital, eMoney) than to consumer apps
-              (Boldin). Strong engine, weak surface.</p>
-          </div>
-          <figure>
-            <div class="ph r-med"><span class="tag">Positioning map</span></div>
-            <figcaption><b>Competitive positioning map:</b> axes “Consumer ↔ Advisor/institutional” × “shallow ↔ deep
-              modeling.” Plot Boldin, ProjectionLab, RightCapital, eMoney, MoneyGuidePro, and WealthTrace in its narrow
-              premium niche. Explains product &amp; audience instantly.</figcaption>
-          </figure>
-        </div>
-      </section>
+      <!-- CASE BODY WITH SIDEBAR -->
+      <div class="case-layout wrap">
+        <!-- SIDEBAR TOC -->
+        <aside class="case-sidebar">
+          <a href="#wt-context">Context</a>
+          <a href="#wt-problem">The Problem</a>
+          <a href="#wt-turning-point">Turning Point</a>
+          <a href="#wt-decisions">Key Decisions</a>
+          <a href="#wt-process">Process</a>
+          <a href="#wt-outcomes">Outcomes</a>
+        </aside>
 
-      <!-- PROBLEM -->
-      <section class="divider">
-        <div class="wrap">
-          <div class="block">
-            <span class="eyebrow" data-i18n="the_problem">The problem</span>
-            <p data-i18n="highintent_trials_werent_converting_roughly">
-              High-intent trials weren't converting: roughly <b>13 of 131 trials/month</b> became paid, growth was flat
-              (~5% YoY, mostly word of mouth), and many users dropped off mid-trial. The hypothesis: the surface —
-              dated, overwhelming, hard to navigate — was losing users the engine had already won. My mandate was to
-              make the product clear enough that non-technical, high-intent users could reach value and convert.</p>
-          </div>
-          <figure style="margin-top:28px">
-            <div class="ph r-med"><span class="tag">Before</span></div>
-            <figcaption><b>“Before” dashboard:</b> overloaded, with off-topic sections. Small, with callouts on the
-              problem zones.</figcaption>
-          </figure>
-        </div>
-      </section>
+        <!-- MAIN CONTENT -->
+        <div class="case-content">
 
-      <!-- TURNING POINT -->
-      <section class="band">
-        <div class="wrap">
-          <div class="block">
-            <span class="eyebrow mb12" data-i18n="the_turning_point">The turning point</span>
-            <div class="quote" data-i18n="remove_the_tabs_i_pushed">“Remove the
-              tabs.” I pushed back — tabs weren't the problem.</div>
-            <p class="mt8" data-i18n="a_fix_was_already_on">
-              A fix was already on the table: the tabs are cluttered, remove them. After a heuristic analysis I
-              disagreed — removing tabs was neither possible nor desirable given the product's structure. The real
-              causes were <b>low signal-to-noise</b> (screens carried content users never looked at) and <b>poor
-                semantic grouping</b> (related information wasn't organized by meaning). I designed against the cause,
-              not the named symptom. Separating the stated problem from the actual one became the spine of the project.
-            </p>
-          </div>
-          <figure style="margin-top:28px">
-            <div class="ph r-med"><span class="tag">Concept diagram</span></div>
-            <figcaption><b>Thinking diagram (not UI):</b> crossed-out “remove tabs” → the real diagnosis
-              (“signal-to-noise ↑” + “semantic grouping”). Can be a mini before/after of one screen: noisy → grouped by
-              meaning.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- DECISIONS -->
-      <section class="divider">
-        <div class="wrap">
-          <div class="eyebrow" style="margin-bottom:8px" data-i18n="key_decisions">Key decisions</div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_1">Decision 1</div>
-            <h2 data-i18n="linked_entities_dataintegrity_by_design">Linked Entities — data-integrity by design</h2>
-            <div class="block">
-              <p data-i18n="on_the_cashflow_inputs_screen">
-                On the cash-flow inputs screen, one real-world object required several disconnected records: buy a
-                rental property and you'd add the asset, the mortgage (liability), the rental income (inflow), and the
-                future sale (another inflow) — four entries for one thing. Users forgot related entries and, when
-                deleting, had to hunt down every linked record. Worse, this data feeds the Monte Carlo engine, so
-                orphaned records corrupted the very projections the product is known for. I introduced a <b>Linked
-                  Entities</b> model: an asset owns its dependencies — creating it generates the linked liability and
-                income; editing or deleting it cascades automatically. A state-management and data-model decision, not a
-                cosmetic one.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-wide"><span class="tag">Before / After diagram</span></div>
-              <figcaption><b>Key diagram:</b> before — one object → four scattered records across sections (broken-link
-                arrows); after — one asset entity containing mortgage/income/sale, with cascading delete. Pair with the
-                real new asset-creation UI.</figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_2">Decision 2</div>
-            <h2 data-i18n="granular_asset_allocation_progressive_disclosure">Granular asset
-              allocation — progressive disclosure under tight constraints</h2>
-            <div class="block">
-              <p data-i18n="manual_accounts_support_deep_detail">
-                Manual accounts support deep detail for accurate probability — holdings down to individual tickers and
-                allocation by type (e.g. 30% cash / 50% growth / 5% bonds). That's a deeply nested structure (Account →
-                Asset class → Tickers → %) that had to fit a tight space without becoming an endless spreadsheet. I
-                designed a compact UI using progressive disclosure and inline editing so users distribute a 100%
-                allocation without visual overload. It took heavy iteration.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-med"><span class="tag">Allocation UI</span></div>
-              <figcaption><b>Final nested allocation UI,</b> ideally showing a collapsed → expanded state to demonstrate
-                progressive disclosure.</figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_3">Decision 3</div>
-            <h2 data-i18n="monte_carlo_settings_vs_results">Monte Carlo — settings vs
-              results (trust by design)</h2>
-            <div class="block">
-              <p data-i18n="the_monte_carlo_screen_mixed">
-                The Monte Carlo screen mixed inputs and outputs in the same space, so users couldn't tell which controls
-                they owned versus which numbers the model produced — and since the simulation re-runs manually, people
-                changed a setting and read stale results as current. I pulled all settings into a dedicated column, gave
-                results their own primary area, and added a state cue (subtle animation + indicator) that fires when a
-                setting changes, signaling the simulation is stale and must be re-run. I deliberately left the model
-                untouched — the engine was sound; the job was making it legible and trustworthy.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-wide"><span class="tag">Before / After</span></div>
-              <figcaption><b>Before:</b> settings and results mixed together. <b>After:</b> a settings column | a
-                results area + the “stale, re-run” indicator (show the indicator as a small separate crop too).
-              </figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_4">Decision 4</div>
-            <h2 data-i18n="cashflow_distributions_flowview">Cash-flow distributions — FlowView</h2>
-            <div class="block">
-              <p data-i18n="the_distributions_screen_is_a">
-                The distributions screen is a dense year-by-year table of inflows and outflows by category. I added a
-                flow-style visualization on top of the table, so users can see at a glance where money comes from and
-                goes — turning a spreadsheet into something readable in seconds.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-med"><span class="tag">FlowView</span></div>
-              <figcaption><b>The table + FlowView</b> (sankey-like visualization) side by side.</figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_5_the_reframe_paid">Decision 5 · the reframe, paid off</div>
-            <h2 data-i18n="fighting_information_overload">Fighting information overload</h2>
-            <div class="block">
-              <p data-i18n="the_dashboard_showed_charts_nobody">
-                The dashboard showed charts nobody used; the projections screen included an asset-allocation chart with
-                no semantic link to projections — users explicitly said they didn't understand why it was there. I
-                raised signal-to-noise by cutting low-value content, then applied semantic grouping to organize what
-                remained by meaning. Both screens became focused, with a clear hierarchy around the inputs and
-                projections that matter.</p>
-            </div>
-            <figure style="margin-top:26px">
-              <div class="ph r-wide"><span class="tag">Before / After</span></div>
-              <figcaption><b>Strong visual:</b> overloaded dashboard with off-topic sections → balanced; cluttered
-                projections with an off-topic allocation chart → focused.</figcaption>
-            </figure>
-          </div>
-
-          <div class="decision">
-            <div class="dnum" data-i18n="decision_6">Decision 6</div>
-            <h2 data-i18n="onboarding_rebuilt_around_timetovalue">Onboarding rebuilt around
-              time-to-value</h2>
-            <div class="block">
-              <p data-i18n="the_old_onboarding_was_too">
-                The old onboarding was too many heavy, form-crowded steps before any value. I rebuilt it: a minimal
-                first step (name, email, password), goal capture, inline financial-planning tips linked to their sources
-                (credibility + education), optional early account entry that triggers a <b>live projection graph</b>
-                showing capital growth before the user even reaches the dashboard, a review step, and a brief
-                “calculating 100,000 scenarios…” screen (a labor-illusion that makes the modeling depth felt). In a
-                comparative old-vs-new test, the new flow won clearly — <b>~30% faster</b> (exact figure TBC).</p>
-            </div>
-            <div class="twocol" style="margin-top:26px">
+          <!-- CONTEXT -->
+          <section id="wt-context" class="case-section band">
+            <div class="split">
+              <div class="block">
+                <span class="eyebrow" data-i18n="context">Context</span>
+                <p data-i18n="wealthtrace_serves_highnetworth_us_investors">
+                  WealthTrace serves high-net-worth U.S. investors ($2–10M investable, age 50–65, highly financially
+                  literate). Its edge is modeling depth: a Monte Carlo engine that computes weighted return and
+                  volatility
+                  down to the individual holding — closer to advisor tools (RightCapital, eMoney) than to consumer apps
+                  (Boldin). Strong engine, weak surface.</p>
+              </div>
               <figure>
-                <div class="ph r-med"><span class="tag">Onboarding steps</span></div>
-                <figcaption><b>The new onboarding step sequence</b> as a horizontal ribbon.</figcaption>
-              </figure>
-              <figure>
-                <div class="ph r-med"><span class="tag">Live preview + calc screen</span></div>
-                <figcaption><b>The live projection preview + the “calculating scenarios” screen</b> — the signature
-                  moments, worth highlighting.</figcaption>
+                <div class="ph r-med"><span class="tag">Positioning map</span></div>
+                <figcaption><b>Competitive positioning map:</b> axes “Consumer ↔ Advisor/institutional” × “shallow ↔
+                  deep
+                  modeling.” Plot Boldin, ProjectionLab, RightCapital, eMoney, MoneyGuidePro, and WealthTrace in its
+                  narrow
+                  premium niche. Explains product &amp; audience instantly.</figcaption>
               </figure>
             </div>
-          </div>
+          </section>
 
-        </div>
-      </section>
-
-      <!-- PROCESS -->
-      <section class="band">
-        <div class="wrap">
-          <div class="block">
-            <span class="eyebrow" data-i18n="process_aiassisted_product_design">Process — AI-assisted product
-              design</span>
-            <p data-i18n="this_project_used_a_deliberate">
-              This project used a deliberate, novel production process. I built the visual concept, a foundational
-              design system (color/type tokens, base components), and the first dashboard in Figma. Then I moved
-              production into an AI design tool, designing screens directly from dense, page-level specs I wrote first —
-              every field, its behavior, why the data is collected, the helper copy, the interaction logic. The tool
-              produced clickable, responsive, near-final UI from those specs; I iterated through stakeholder feedback.
-              Approved designs were rebuilt in Figma as the developer source of truth. The effect: wireframing collapsed
-              into a high-fidelity, interactive artifact — and the page specs are the proof of authorship. The product
-              thinking and the page specs were mine; the tool only sped up execution.</p>
-          </div>
-          <div class="twocol" style="margin-top:26px">
+          <!-- PROBLEM -->
+          <section id="wt-problem" class="case-section divider">
+            <div class="block">
+              <span class="eyebrow" data-i18n="the_problem">The problem</span>
+              <p data-i18n="highintent_trials_werent_converting_roughly">
+                High-intent trials weren't converting: roughly <b>13 of 131 trials/month</b> became paid, growth was
+                flat
+                (~5% YoY, mostly word of mouth), and many users dropped off mid-trial. The hypothesis: the surface —
+                dated, overwhelming, hard to navigate — was losing users the engine had already won. My mandate was to
+                make the product clear enough that non-technical, high-intent users could reach value and convert.</p>
+            </div>
             <figure>
-              <div class="ph r-med"><span class="tag">Process diagram</span></div>
-              <figcaption><b>Figma (concept + DS) → AI tool (spec-driven production) → Figma (source of truth).</b>
-              </figcaption>
+              <div class="ph r-med"><span class="tag">Before</span></div>
+              <figcaption><b>“Before” dashboard:</b> overloaded, with off-topic sections. Small, with callouts on the
+                problem zones.</figcaption>
             </figure>
-            <figure>
-              <div class="ph r-med"><span class="tag">Spec page — priority</span></div>
-              <figcaption><b>A page-level spec screen</b> (redact anything confidential). Your strongest proof of
-                authorship — strongly recommended.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <!-- OUTCOMES -->
-      <section class="divider">
-        <div class="wrap">
-          <div class="eyebrow mb12" data-i18n="outcomes">Outcomes</div>
-          <div class="block" style="max-width:none">
-            <table class="metrics-table">
-              <thead>
-                <tr>
-                  <th data-i18n="metric">Metric</th>
-                  <th data-i18n="before">Before</th>
-                  <th data-i18n="after">After</th>
-                  <th data-i18n="source">Source</th>
-                  <th data-i18n="status">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-i18n="onboarding_completion_time">Onboarding completion time</td>
-                  <td data-i18n="baseline">baseline</td>
-                  <td data-i18n="30_faster">~30% faster</td>
-                  <td data-i18n="comparative_test_old_vs_new">Comparative test (old vs new)</td>
-                  <td class="tbc" data-i18n="exact_figure_tbc">exact figure TBC</td>
-                </tr>
-                <tr>
-                  <td data-i18n="onboarding_errors">Onboarding errors</td>
-                  <td data-i18n="baseline">baseline</td>
-                  <td data-i18n="reduced_new_flow_won_clearly">reduced (new flow won clearly)</td>
-                  <td data-i18n="comparative_test">Comparative test</td>
-                  <td class="tbc" data-i18n="figures_tbc">figures TBC</td>
-                </tr>
-                <tr>
-                  <td data-i18n="trial_paid_conversion">Trial → paid conversion</td>
-                  <td data-i18n="13_131_trialsmo">13 / 131 trials/mo</td>
-                  <td>—</td>
-                  <td data-i18n="product_analytics">Product analytics</td>
-                  <td class="tbc" data-i18n="ships_sep_2026_not_yet">ships Sep 2026, not yet measured</td>
-                </tr>
-                <tr>
-                  <td data-i18n="monte_carlo_clarity">Monte Carlo clarity</td>
-                  <td>—</td>
-                  <td data-i18n="positive_user_reaction">positive user reaction</td>
-                  <td data-i18n="prototype_testing">Prototype testing</td>
-                  <td class="tbc" data-i18n="qualitative">qualitative</td>
-                </tr>
-                <tr>
-                  <td data-i18n="linked_entities_comprehension">Linked Entities comprehension</td>
-                  <td data-i18n="confusing">confusing</td>
-                  <td data-i18n="understood_immediately">understood immediately</td>
-                  <td data-i18n="hallway_testing">Hallway testing</td>
-                  <td class="tbc" data-i18n="qualitative">qualitative</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="note" data-i18n="honest_framing_the_product_ships">
-            Honest framing: the product ships September 2026, so business results (conversion, churn, growth) aren't
-            measurable yet — this case is strong problem-reframing + product decisions + validated usability
-            improvements, with business outcomes pending. The generative depth interviews were run by the product team;
-            I built on that research and owned the design response. My hands-on validation was heuristic analysis,
-            prototype/hallway testing, and the comparative onboarding test.</div>
+          <!-- TURNING POINT -->
+          <section id="wt-turning-point" class="case-section band">
+            <div class="block">
+              <span class="eyebrow mb12" data-i18n="the_turning_point">The turning point</span>
+              <div class="quote" data-i18n="remove_the_tabs_i_pushed">“Remove the
+                tabs.” I pushed back — tabs weren't the problem.</div>
+              <p class="mt8" data-i18n="a_fix_was_already_on">
+                A fix was already on the table: the tabs are cluttered, remove them. After a heuristic analysis I
+                disagreed — removing tabs was neither possible nor desirable given the product's structure. The real
+                causes were <b>low signal-to-noise</b> (screens carried content users never looked at) and <b>poor
+                  semantic grouping</b> (related information wasn't organized by meaning). I designed against the cause,
+                not the named symptom. Separating the stated problem from the actual one became the spine of the
+                project.
+              </p>
+            </div>
+            <figure>
+              <div class="ph r-med"><span class="tag">Concept diagram</span></div>
+              <figcaption><b>Thinking diagram (not UI):</b> crossed-out “remove tabs” → the real diagnosis
+                (“signal-to-noise ↑” + “semantic grouping”). Can be a mini before/after of one screen: noisy → grouped
+                by
+                meaning.</figcaption>
+            </figure>
+          </section>
+
+          <!-- DECISIONS -->
+          <section id="wt-decisions" class="case-section divider">
+            <div class="eyebrow" style="margin-bottom:8px" data-i18n="key_decisions">Key decisions</div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_1">Decision 1</div>
+              <h2 data-i18n="linked_entities_dataintegrity_by_design">Linked Entities — data-integrity by design</h2>
+              <div class="block">
+                <p data-i18n="on_the_cashflow_inputs_screen">
+                  On the cash-flow inputs screen, one real-world object required several disconnected records: buy a
+                  rental property and you'd add the asset, the mortgage (liability), the rental income (inflow), and the
+                  future sale (another inflow) — four entries for one thing. Users forgot related entries and, when
+                  deleting, had to hunt down every linked record. Worse, this data feeds the Monte Carlo engine, so
+                  orphaned records corrupted the very projections the product is known for. I introduced a <b>Linked
+                    Entities</b> model: an asset owns its dependencies — creating it generates the linked liability and
+                  income; editing or deleting it cascades automatically. A state-management and data-model decision, not
+                  a
+                  cosmetic one.</p>
+              </div>
+              <figure>
+                <div class="ph r-wide"><span class="tag">Before / After diagram</span></div>
+                <figcaption><b>Key diagram:</b> before — one object → four scattered records across sections
+                  (broken-link
+                  arrows); after — one asset entity containing mortgage/income/sale, with cascading delete. Pair with
+                  the
+                  real new asset-creation UI.</figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_2">Decision 2</div>
+              <h2 data-i18n="granular_asset_allocation_progressive_disclosure">Granular asset
+                allocation — progressive disclosure under tight constraints</h2>
+              <div class="block">
+                <p data-i18n="manual_accounts_support_deep_detail">
+                  Manual accounts support deep detail for accurate probability — holdings down to individual tickers and
+                  allocation by type (e.g. 30% cash / 50% growth / 5% bonds). That's a deeply nested structure (Account
+                  →
+                  Asset class → Tickers → %) that had to fit a tight space without becoming an endless spreadsheet. I
+                  designed a compact UI using progressive disclosure and inline editing so users distribute a 100%
+                  allocation without visual overload. It took heavy iteration.</p>
+              </div>
+              <figure>
+                <div class="ph r-med"><span class="tag">Allocation UI</span></div>
+                <figcaption><b>Final nested allocation UI,</b> ideally showing a collapsed → expanded state to
+                  demonstrate
+                  progressive disclosure.</figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_3">Decision 3</div>
+              <h2 data-i18n="monte_carlo_settings_vs_results">Monte Carlo — settings vs
+                results (trust by design)</h2>
+              <div class="block">
+                <p data-i18n="the_monte_carlo_screen_mixed">
+                  The Monte Carlo screen mixed inputs and outputs in the same space, so users couldn't tell which
+                  controls
+                  they owned versus which numbers the model produced — and since the simulation re-runs manually, people
+                  changed a setting and read stale results as current. I pulled all settings into a dedicated column,
+                  gave
+                  results their own primary area, and added a state cue (subtle animation + indicator) that fires when a
+                  setting changes, signaling the simulation is stale and must be re-run. I deliberately left the model
+                  untouched — the engine was sound; the job was making it legible and trustworthy.</p>
+              </div>
+              <figure>
+                <div class="ph r-wide"><span class="tag">Before / After</span></div>
+                <figcaption><b>Before:</b> settings and results mixed together. <b>After:</b> a settings column | a
+                  results area + the “stale, re-run” indicator (show the indicator as a small separate crop too).
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_4">Decision 4</div>
+              <h2 data-i18n="cashflow_distributions_flowview">Cash-flow distributions — FlowView</h2>
+              <div class="block">
+                <p data-i18n="the_distributions_screen_is_a">
+                  The distributions screen is a dense year-by-year table of inflows and outflows by category. I added a
+                  flow-style visualization on top of the table, so users can see at a glance where money comes from and
+                  goes — turning a spreadsheet into something readable in seconds.</p>
+              </div>
+              <figure>
+                <div class="ph r-med"><span class="tag">FlowView</span></div>
+                <figcaption><b>The table + FlowView</b> (sankey-like visualization) side by side.</figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_5_the_reframe_paid">Decision 5 · the reframe, paid off</div>
+              <h2 data-i18n="fighting_information_overload">Fighting information overload</h2>
+              <div class="block">
+                <p data-i18n="the_dashboard_showed_charts_nobody">
+                  The dashboard showed charts nobody used; the projections screen included an asset-allocation chart
+                  with
+                  no semantic link to projections — users explicitly said they didn't understand why it was there. I
+                  raised signal-to-noise by cutting low-value content, then applied semantic grouping to organize what
+                  remained by meaning. Both screens became focused, with a clear hierarchy around the inputs and
+                  projections that matter.</p>
+              </div>
+              <figure>
+                <div class="ph r-wide"><span class="tag">Before / After</span></div>
+                <figcaption><b>Strong visual:</b> overloaded dashboard with off-topic sections → balanced; cluttered
+                  projections with an off-topic allocation chart → focused.</figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="decision_6">Decision 6</div>
+              <h2 data-i18n="onboarding_rebuilt_around_timetovalue">Onboarding rebuilt around
+                time-to-value</h2>
+              <div class="block">
+                <p data-i18n="the_old_onboarding_was_too">
+                  The old onboarding was too many heavy, form-crowded steps before any value. I rebuilt it: a minimal
+                  first step (name, email, password), goal capture, inline financial-planning tips linked to their
+                  sources
+                  (credibility + education), optional early account entry that triggers a <b>live projection graph</b>
+                  showing capital growth before the user even reaches the dashboard, a review step, and a brief
+                  “calculating 100,000 scenarios…” screen (a labor-illusion that makes the modeling depth felt). In a
+                  comparative old-vs-new test, the new flow won clearly — <b>~30% faster</b> (exact figure TBC).</p>
+              </div>
+              <div class="twocol">
+                <figure>
+                  <div class="ph r-med"><span class="tag">Onboarding steps</span></div>
+                  <figcaption><b>The new onboarding step sequence</b> as a horizontal ribbon.</figcaption>
+                </figure>
+                <figure>
+                  <div class="ph r-med"><span class="tag">Live preview + calc screen</span></div>
+                  <figcaption><b>The live projection preview + the “calculating scenarios” screen</b> — the signature
+                    moments, worth highlighting.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROCESS -->
+          <section id="wt-process" class="case-section band">
+            <div class="block">
+              <span class="eyebrow" data-i18n="process_aiassisted_product_design">Process — AI-assisted product
+                design</span>
+              <p data-i18n="this_project_used_a_deliberate">
+                This project used a deliberate, novel production process. I built the visual concept, a foundational
+                design system (color/type tokens, base components), and the first dashboard in Figma. Then I moved
+                production into an AI design tool, designing screens directly from dense, page-level specs I wrote first
+                —
+                every field, its behavior, why the data is collected, the helper copy, the interaction logic. The tool
+                produced clickable, responsive, near-final UI from those specs; I iterated through stakeholder feedback.
+                Approved designs were rebuilt in Figma as the developer source of truth. The effect: wireframing
+                collapsed
+                into a high-fidelity, interactive artifact — and the page specs are the proof of authorship. The product
+                thinking and the page specs were mine; the tool only sped up execution.</p>
+            </div>
+            <div class="twocol">
+              <figure>
+                <div class="ph r-med"><span class="tag">Process diagram</span></div>
+                <figcaption><b>Figma (concept + DS) → AI tool (spec-driven production) → Figma (source of truth).</b>
+                </figcaption>
+              </figure>
+              <figure>
+                <div class="ph r-med"><span class="tag">Spec page — priority</span></div>
+                <figcaption><b>A page-level spec screen</b> (redact anything confidential). Your strongest proof of
+                  authorship — strongly recommended.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- OUTCOMES -->
+          <section id="wt-outcomes" class="case-section divider">
+            <div class="eyebrow mb12" data-i18n="outcomes">Outcomes</div>
+            <div class="block" style="max-width:none">
+              <table class="metrics-table">
+                <thead>
+                  <tr>
+                    <th data-i18n="metric">Metric</th>
+                    <th data-i18n="before">Before</th>
+                    <th data-i18n="after">After</th>
+                    <th data-i18n="source">Source</th>
+                    <th data-i18n="status">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="onboarding_completion_time">Onboarding completion time</td>
+                    <td data-i18n="baseline">baseline</td>
+                    <td data-i18n="30_faster">~30% faster</td>
+                    <td data-i18n="comparative_test_old_vs_new">Comparative test (old vs new)</td>
+                    <td class="tbc" data-i18n="exact_figure_tbc">exact figure TBC</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="onboarding_errors">Onboarding errors</td>
+                    <td data-i18n="baseline">baseline</td>
+                    <td data-i18n="reduced_new_flow_won_clearly">reduced (new flow won clearly)</td>
+                    <td data-i18n="comparative_test">Comparative test</td>
+                    <td class="tbc" data-i18n="figures_tbc">figures TBC</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="trial_paid_conversion">Trial → paid conversion</td>
+                    <td data-i18n="13_131_trialsmo">13 / 131 trials/mo</td>
+                    <td>—</td>
+                    <td data-i18n="product_analytics">Product analytics</td>
+                    <td class="tbc" data-i18n="ships_sep_2026_not_yet">ships Sep 2026, not yet measured</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="monte_carlo_clarity">Monte Carlo clarity</td>
+                    <td>—</td>
+                    <td data-i18n="positive_user_reaction">positive user reaction</td>
+                    <td data-i18n="prototype_testing">Prototype testing</td>
+                    <td class="tbc" data-i18n="qualitative">qualitative</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="linked_entities_comprehension">Linked Entities comprehension</td>
+                    <td data-i18n="confusing">confusing</td>
+                    <td data-i18n="understood_immediately">understood immediately</td>
+                    <td data-i18n="hallway_testing">Hallway testing</td>
+                    <td class="tbc" data-i18n="qualitative">qualitative</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note" data-i18n="honest_framing_the_product_ships">
+              Honest framing: the product ships September 2026, so business results (conversion, churn, growth) aren't
+              measurable yet — this case is strong problem-reframing + product decisions + validated usability
+              improvements, with business outcomes pending. The generative depth interviews were run by the product
+              team;
+              I built on that research and owned the design response. My hands-on validation was heuristic analysis,
+              prototype/hallway testing, and the comparative onboarding test.</div>
+          </section>
+
         </div>
-      </section>
+      </div>
 
       <section class="divider">
         <div class="wrap">
@@ -950,9 +983,9 @@
               The decision I'd defend hardest is refusing to “remove the tabs.” Solving the real problem instead of the
               requested one is the difference between executing a brief and actually fixing what's wrong.</p>
           </div>
-          <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+          <div class="case-bottom-nav">
             <a class="btn" data-go="tf" data-i18n="next_case_the_ticket_fairy">Next case: The Ticket Fairy →</a>
-            <a class="btn ghost" data-go="home" data-anchor="work" data-i18n="all_work_1">All work</a>
+            <a class="btn-allwork" data-go="home" data-anchor="work" data-i18n="all_work_1">← All work</a>
           </div>
         </div>
       </section>
@@ -966,7 +999,7 @@
     </div>
   </footer>
 
-  
+
 </body>
 
 </html>

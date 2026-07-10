@@ -5,6 +5,7 @@
 .project-section {
   padding: 100px 0;
   transition: background-color 0.3s ease;
+  overflow: hidden;
 }
 
 .project-section.dark-theme {
@@ -212,7 +213,7 @@
 
 /* Section background */
 .tf-section {
-  background: #0c0c14 url('../assets/TF_bg.png') center center / cover no-repeat !important;
+  background: #0c0c14 url('../assets/TF_bg.png') top right / cover no-repeat !important;
   position: relative;
   overflow: hidden;
   padding-top: 16px !important;

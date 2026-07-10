@@ -1,48 +1,87 @@
-/* CASE PAGES */
+/* CASE PAGES — uses the same .wrap (1512px → scales to 1920px → stops) */
+
+/* ── Back link (pill-style, visible) ── */
 .backlink {
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
   cursor: pointer;
-  display: inline-block;
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
   text-decoration: none;
+  background: var(--tint);
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+  align-self: flex-start;
 }
 
 .backlink:hover {
   color: var(--ink);
+  background: var(--line);
+  border-color: var(--muted);
 }
 
+/* ── Case identity row ── */
 .case-id {
   display: flex;
   align-items: center;
-  gap: 13px;
-  margin-bottom: 6px;
+  gap: 14px;
+  margin-bottom: 8px;
 }
 
+.case-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Case meta line ── */
 .case-meta {
   font-size: 14px;
   color: var(--muted);
-  margin-top: 16px;
+  margin-top: 18px;
+}
+
+/* ── Case hero ── */
+.case-hero {
+  padding-bottom: 40px;
+}
+
+.case-hero .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .case-hero h1 {
-  font-size: clamp(30px, 4.6vw, 48px);
-  max-width: 18ch;
+  font-size: clamp(30px, 4.6vw, 46px);
+  max-width: 900px;
   margin-top: 8px;
 }
 
 .case-hero .lead {
-  margin-top: 18px;
-  max-width: 54ch;
+  margin-top: 20px;
+  max-width: 760px;
 }
 
+/* ── Big metrics ── */
 .bigmetrics {
   display: flex;
-  gap: 46px;
+  gap: 48px;
   flex-wrap: wrap;
-  margin-top: 30px;
-  padding-top: 26px;
+  margin-top: 36px;
+  padding-top: 28px;
   border-top: 1px solid var(--line);
+  justify-content: center;
+  width: 100%;
+  max-width: 760px;
 }
 
 .bigmetric b {
@@ -57,8 +96,25 @@
   color: var(--muted);
 }
 
+/* ── Case hero image ── */
+.case-hero-image-section {
+  padding-top: 14px;
+  padding-bottom: 60px;
+}
+
+.case-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── Content block ── */
 .block {
-  max-width: 68ch;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 .block .eyebrow {
@@ -67,33 +123,58 @@
 }
 
 .block p+p {
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
+/* ── Align headings with centered blocks ── */
+.case-section > .eyebrow,
+.case-section > h2,
+.case-section > h3,
+.decision > .dnum,
+.decision > h2 {
+  display: block;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.case-section > .eyebrow {
+  margin-bottom: 14px;
+}
+
+.decision > .dnum {
+  margin-bottom: 8px;
+}
+
+/* ── Two-column grid ── */
 .twocol {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 26px;
+  gap: 32px;
 }
 
+/* ── Split layout ── */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 48px;
   align-items: center;
 }
 
+/* ── Status / callout note ── */
 .note {
   background: var(--accent-soft);
   border-left: 3px solid var(--accent);
-  padding: 16px 20px;
+  padding: 18px 24px;
   border-radius: 0 10px 10px 0;
   font-size: 14.5px;
   color: var(--ink-soft);
-  margin-top: 24px;
+  margin-top: 32px;
   line-height: 1.6;
 }
 
+/* ── Pull quote ── */
 .quote {
   font-size: clamp(20px, 2.6vw, 28px);
   line-height: 1.35;
@@ -103,20 +184,21 @@
   max-width: 26ch;
   border-left: 3px solid var(--ink);
   padding-left: 24px;
-  margin: 16px 0;
+  margin: 20px 0;
 }
 
+/* ── Metrics table ── */
 table.metrics-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 24px;
   font-size: 14px;
 }
 
 table.metrics-table th,
 table.metrics-table td {
   text-align: left;
-  padding: 12px 12px;
+  padding: 14px 14px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
@@ -133,9 +215,10 @@ table.metrics-table td.tbc {
   color: var(--muted);
 }
 
+/* ── Decision blocks ── */
 .decision {
-  padding-top: 56px;
-  margin-top: 56px;
+  padding-top: 64px;
+  margin-top: 64px;
   border-top: 1px solid var(--line);
 }
 
@@ -146,7 +229,7 @@ table.metrics-table td.tbc {
 }
 
 .decision h2 {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .dnum {
@@ -156,11 +239,150 @@ table.metrics-table td.tbc {
   letter-spacing: .04em;
 }
 
-/* RESPONSIVE CASE PAGES */
+/* ── Case figures — generous spacing ── */
+.case-section figure,
+.decision figure {
+  margin-top: 32px;
+}
+
+.case-section .twocol,
+.decision .twocol {
+  margin-top: 32px;
+}
+
+/* ── Responsive case pages ── */
 @media(max-width:760px) {
   .twocol,
   .split {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+
+/* ============================
+   CASE LAYOUT WITH SIDEBAR 
+   ============================ */
+.case-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
+  align-items: start;
+  position: relative;
+  margin-top: 0;
+}
+
+/* ── Sidebar TOC ── */
+.case-sidebar {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.case-sidebar a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  line-height: 1.5;
+  padding: 4px 0 4px 14px;
+  border-left: 2px solid transparent;
+}
+
+.case-sidebar a:hover {
+  color: var(--ink);
+  border-left-color: var(--ink);
+}
+
+.case-sidebar a.active {
+  color: var(--ink);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+/* ── Main content column ── */
+.case-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Case sections ── */
+.case-section {
+  padding-bottom: 80px;
+}
+
+.case-section:last-of-type {
+  padding-bottom: 0;
+}
+
+/* Neutralize .band and .divider when inside sidebar layout */
+.case-content .case-section.band {
+  background: transparent;
+  border-top: 1px solid var(--line);
+  border-bottom: none;
+  padding-top: 80px;
+}
+
+.case-content .case-section.divider {
+  padding-top: 80px;
+}
+
+.case-content .case-section:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+/* ── Bottom nav for cases ── */
+.case-bottom-nav {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-allwork {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--tint);
+  color: var(--ink);
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--line);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-allwork:hover {
+  background: var(--line);
+  border-color: var(--muted);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive sidebar ── */
+@media(max-width: 900px) {
+  .case-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .case-sidebar {
+    position: static;
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .case-sidebar a {
+    border-left: none;
+    padding-left: 0;
+    padding: 4px 8px;
   }
 }
