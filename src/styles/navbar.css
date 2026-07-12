@@ -148,6 +148,32 @@ nav .wrap {
   color: var(--ink);
 }
 
+.navlinks a.btn-cv {
+  color: #e60000;
+  border: 1.5px solid #e60000;
+  padding: 6px 14px;
+  border-radius: 99px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.navlinks a.btn-cv:hover {
+  color: #cc0000;
+  border-color: #cc0000;
+  background: rgba(230, 0, 0, 0.05);
+}
+
+nav.nav-dark .navlinks a.btn-cv {
+  color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+nav.nav-dark .navlinks a.btn-cv:hover {
+  color: #ff6666;
+  border-color: #ff6666;
+  background: rgba(255, 77, 77, 0.1);
+}
+
 /* RESPONSIVE NAVBAR */
 @media(max-width:760px) {
   .nav-blur-container {

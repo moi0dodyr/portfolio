@@ -157,4 +157,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     darkSections.forEach((s) => observer.observe(s));
   }
+
+  // Lightbox and Tooltip for Other Products
+  const globalTooltip = document.createElement('div');
+  globalTooltip.className = 'global-op-tooltip';
+  document.body.appendChild(globalTooltip);
+
+  document.querySelectorAll('.op-card-image').forEach(card => {
+    const tooltipContent = card.querySelector('.op-card-tooltip');
+    
+    // Tooltip logic
+    card.addEventListener('mouseenter', () => {
+      if(tooltipContent) {
+        globalTooltip.innerHTML = tooltipContent.innerHTML;
+        globalTooltip.classList.add('visible');
+      }
+    });
+    card.addEventListener('mousemove', (e) => {
+      // position slightly offset from cursor
+      globalTooltip.style.left = e.clientX + 'px';
+      globalTooltip.style.top = e.clientY + 'px';
+      globalTooltip.style.transform = 'translate(15px, 15px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      globalTooltip.classList.remove('visible');
+    });
+
+    // Lightbox logic
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      if (!img) return;
+
+      const lightbox = document.createElement('div');
+      lightbox.className = 'lightbox-overlay';
+      
+      const imgClone = document.createElement('img');
+      imgClone.src = img.src;
+      imgClone.alt = img.alt;
+      
+      lightbox.appendChild(imgClone);
+      document.body.appendChild(lightbox);
+      
+      // Force reflow before adding visible class for transition
+      void lightbox.offsetWidth;
+      lightbox.classList.add('visible');
+      
+      // Close on click
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('visible');
+        setTimeout(() => lightbox.remove(), 300);
+      });
+    });
+  });
 });
