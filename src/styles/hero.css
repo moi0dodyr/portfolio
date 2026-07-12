@@ -186,6 +186,10 @@
     padding: 50px 0;
   }
 
+  .hero-section .eyebrow {
+    text-align: center;
+  }
+
   .hero-title {
     font-size: 28px;
     letter-spacing: -0.56px;

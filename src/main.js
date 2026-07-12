@@ -10,17 +10,63 @@ import './styles/footer.css';
 // i18n switcher logic
 import { initI18n } from './i18n.js';
 
-// Page navigation logic (Client-side Page Router)
-export function go(id, anchor) {
+// ─── Hash-based Router ───────────────────────────────────────────────
+// Routes:
+//   (empty) / #/ / #/home        → home page
+//   #/case/tf                    → The Ticket Fairy case
+//   #/case/wt                    → WealthTrace case
+//   #/work  #/about  #/contact   → home page + scroll to anchor
+
+// Map route segments to page element IDs
+const CASE_ROUTES = { tf: 'tf', wt: 'wt' };
+
+/**
+ * Parse location.hash into { page, anchor }.
+ * Examples:
+ *   ""            → { page: "home", anchor: null }
+ *   "#/"          → { page: "home", anchor: null }
+ *   "#/case/tf"   → { page: "tf",   anchor: null }
+ *   "#/about"     → { page: "home", anchor: "about" }
+ */
+function parseRoute(hash) {
+  const raw = (hash || '').replace(/^#\/?/, '');   // strip leading #/ or #
+  const segments = raw.split('/').filter(Boolean);
+
+  if (segments.length === 0) {
+    return { page: 'home', anchor: null };
+  }
+
+  // #/case/<id>
+  if (segments[0] === 'case' && segments[1] && CASE_ROUTES[segments[1]]) {
+    return { page: CASE_ROUTES[segments[1]], anchor: null };
+  }
+
+  // #/work, #/about, #/contact — anchors on the home page
+  const knownAnchors = ['work', 'about', 'contact'];
+  if (knownAnchors.includes(segments[0])) {
+    return { page: 'home', anchor: segments[0] };
+  }
+
+  // Fallback to home
+  return { page: 'home', anchor: null };
+}
+
+/**
+ * Apply the current hash route to the DOM:
+ * switch visible .page, scroll to top or anchor.
+ */
+function applyRoute() {
+  const { page, anchor } = parseRoute(window.location.hash);
+
   document.querySelectorAll('.page').forEach((p) => {
     p.classList.remove('active');
   });
-  
-  const el = document.getElementById(id);
+
+  const el = document.getElementById(page);
   if (el) {
     el.classList.add('active');
   }
-  
+
   if (anchor) {
     requestAnimationFrame(() => {
       const a = document.getElementById(anchor);
@@ -33,16 +79,58 @@ export function go(id, anchor) {
   }
 }
 
-// Initialize navigation and translations
+/**
+ * Build a hash string from page id + optional anchor,
+ * set it on location (triggers hashchange).
+ */
+export function go(id, anchor) {
+  let hash;
+  if (id === 'home' && anchor) {
+    hash = `#/${anchor}`;
+  } else if (id === 'home') {
+    hash = '#/';
+  } else {
+    hash = `#/case/${id}`;
+  }
+
+  // If the hash is already correct, applyRoute manually
+  // (hashchange won't fire for identical hashes)
+  if (window.location.hash === hash) {
+    applyRoute();
+  } else {
+    window.location.hash = hash;
+  }
+}
+
+// ─── Initialization ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initI18n();
 
-  // Setup click handler for client-side routing links
+  // Listen to hash changes (browser back/forward, link clicks)
+  window.addEventListener('hashchange', applyRoute);
+
+  // Apply the initial route from the URL
+  applyRoute();
+
+  // Setup click handler for [data-go] routing links
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-go]');
     if (!t) return;
     e.preventDefault();
     go(t.getAttribute('data-go'), t.getAttribute('data-anchor'));
+  });
+
+  // Sidebar TOC links inside case pages — smooth scroll without
+  // breaking the hash router. They use href="#tf-problem" etc.
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.case-sidebar a[href^="#"]');
+    if (!link) return;
+    e.preventDefault();
+    const targetId = link.getAttribute('href').slice(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 
   // Navbar dark/light detection based on underlying section

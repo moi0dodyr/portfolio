@@ -158,6 +158,30 @@
   color: var(--ink-soft);
 }
 
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.project-tags span {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  color: #FBA395;
+  background: rgba(251, 163, 149, 0.05);
+  border: 1px solid rgba(251, 163, 149, 0.12);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.wt-section .project-tags span {
+  color: #2E5FFF;
+  background: rgba(46, 95, 255, 0.05);
+  border-color: rgba(46, 95, 255, 0.12);
+}
+
 .project-metrics {
   display: flex;
   gap: 40px;
