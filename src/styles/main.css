@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* The Inter font is loaded via <link> tags in the <head> of each page
+   (faster than a CSS @import, which blocks rendering). */
 
 :root {
   --ink: #16181d;
@@ -130,7 +131,7 @@ section {
   border-bottom: 1px solid var(--line);
 }
 
-/* UTILS */
+/* UTILS — small spacing helpers */
 .mb24 {
   margin-bottom: 24px;
 }
@@ -143,17 +144,16 @@ section {
   margin-top: 10px;
 }
 
-.stack>*+* {
+.mt12 {
+  margin-top: 12px;
+}
+
+.mt16 {
   margin-top: 16px;
 }
 
-/* PAGES / ANIMATION */
+/* PAGE FADE-IN ANIMATION */
 .page {
-  display: none;
-}
-
-.page.active {
-  display: block;
   animation: fade .25s ease;
 }
 
@@ -166,6 +166,14 @@ section {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* The mobile navbar is two rows (~115px), taller than the desktop one,
+   so anchors need a bigger offset or headings land hidden behind it. */
+@media (max-width: 760px) {
+  section {
+    scroll-margin-top: 130px;
   }
 }
 

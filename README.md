@@ -1,34 +1,32 @@
 # Oleg Stepanchykov's Portfolio
 
-A lightweight, high-performance portfolio website built with pure HTML, CSS, and vanilla JS. It supports bilingual content (English and Ukrainian) out of the box.
+A lightweight, fast portfolio website built with plain HTML, CSS, and a
+little vanilla JavaScript, bundled by Vite. Bilingual (English/Ukrainian).
 
-## Local Development
+**Want to change text, images, or styles? Read [EDITING.md](EDITING.md).**
 
-To run the project locally:
+## Structure
 
-1. **Install Dependencies** (uses Vite as a lightweight dev server):
-   ```bash
-   npm install
-   ```
+- `index.html` — home page
+- `ticket-fairy/index.html`, `wealthtrace/index.html` — case study pages
+- `src/styles/` — one CSS file per area of the site; design tokens
+  (colors, sizes) live at the top of `main.css`
+- `src/main.js` — navbar color detection, tooltips, lightbox
+- `src/i18n.js` + `src/locales/ua.json` — language switching
+  (English is written in the HTML; Ukrainian comes from the JSON)
+- `src/assets/` — images (`npm run optimize-images` compresses them)
+- `public/` — favicon and social-share image, served as-is
 
-2. **Start the Dev Server**:
-   ```bash
-   npm run dev
-   ```
+## Local development
 
-This will spin up a local development server (typically at `http://localhost:5173`) with Hot Module Replacement (HMR).
+```bash
+npm install
+npm run dev        # dev server at http://localhost:5173
+npm run build      # production build into dist/
+npm run preview    # preview the production build
+```
 
-## Deployment to Vercel
+## Deployment
 
-The project is fully prepared for Vercel deployment:
-
-1. **Deploy using Vercel CLI**:
-   Ensure you have the Vercel CLI installed (`npm install -g vercel`), then run:
-   ```bash
-   vercel
-   ```
-
-2. **Deploy using Git Integration**:
-   - Push this repository to GitHub, GitLab, or Bitbucket.
-   - Import the repository in your Vercel Dashboard.
-   - Vercel will automatically detect the static project and deploy it.
+Deployed on Vercel. Push to the repository (or run `vercel`) and it
+builds and deploys automatically.

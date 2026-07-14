@@ -1,30 +1,8 @@
-/* LOGO PLACEHOLDERS */
-.logo-ph {
-  width: 48px;
-  height: 48px;
-  border: 1.5px dashed var(--ph-line);
-  border-radius: 12px;
-  background: var(--ph-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-}
-
-.logo-ph span {
-  font-size: 8.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.logo-ph.sm {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-}
-
-/* PLACEHOLDER IMAGES FOR GENERAL USE */
+/* PLACEHOLDER IMAGES FOR GENERAL USE
+   Each placeholder = an image still to be designed.
+   .ph-id  — the image's ID (e.g. TF-04): deliver a file with that name
+             and swap this <div> for an <img>; the caption below stays.
+   .ph-spec — what to design + the aspect ratio. */
 figure {
   margin: 0;
 }
@@ -32,13 +10,17 @@ figure {
 .ph {
   position: relative;
   width: 100%;
-  border: 1.5px dashed var(--ph-line);
-  background: repeating-linear-gradient(45deg, var(--ph-bg), var(--ph-bg) 11px, #eef0ee 11px, #eef0ee 22px);
+  min-height: 160px;
+  border: 1.5px dashed #adb3ba;
+  background: repeating-linear-gradient(45deg, #eef0eb, #eef0eb 12px, #e4e7e1 12px, #e4e7e1 24px);
   border-radius: var(--radius);
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 24px;
 }
 
 .ph.r-wide {
@@ -51,6 +33,44 @@ figure {
 
 .ph.r-sq {
   aspect-ratio: 4/3;
+}
+
+.ph.r-tall {
+  aspect-ratio: 4/5;
+}
+
+.ph-id {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.ph-spec {
+  background: #fff;
+  border: 1px solid var(--ph-line);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  letter-spacing: .02em;
+  color: var(--ink-soft);
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 46ch;
+}
+
+.ph-ratio {
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .ph .tag {
@@ -75,60 +95,6 @@ figcaption {
 figcaption b {
   color: var(--ink-soft);
   font-weight: 600;
-}
-
-/* PET PROJECTS */
-.petgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.petbox {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 16px 18px;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color .15s ease, transform .15s ease;
-}
-
-.petbox:hover {
-  border-color: #b9c0ff;
-  transform: translateY(-2px);
-}
-
-.petname {
-  font-size: 15.5px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.peturl {
-  display: block;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.petitem .txt {
-  margin-top: 16px;
-}
-
-.petitem h4 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.petitem .txt p {
-  font-size: 14.5px;
-  color: var(--muted);
 }
 
 /* OTHER PRODUCTS SECTION */
@@ -351,13 +317,62 @@ figcaption b {
   margin: 0;
 }
 
-/* ABOUT SECTION */
-.about {
-  max-width: 62ch;
+/* PURE UI SECTION */
+.pure-ui-section {
+  background: transparent;
+  padding: 140px 0;
 }
 
-.about p+p {
-  margin-top: 18px;
+.pure-ui-section .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pure-ui-desc {
+  max-width: 60ch;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  color: #7B818B;
+}
+
+.pure-ui-media {
+  width: 100%;
+  position: relative;
+}
+
+.pure-ui-frame {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.pure-ui-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fades the bottom of the image into the page background */
+.pure-ui-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(251, 251, 249, 0) 0%, var(--bg) 100%);
+  pointer-events: none;
+}
+
+.pure-ui-cta {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  /* Absolutely-positioned + left:50% leaves only half the container
+     to lay out in, so without this the label wraps into a tall blob. */
+  white-space: nowrap;
 }
 
 /* CONTACT SECTION */
@@ -455,12 +470,26 @@ figcaption b {
 
 /* RESPONSIVE ELEMENTS */
 @media(max-width:760px) {
-  .petgrid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
   .op-row-top {
     grid-template-columns: 1fr;
+  }
+
+  /* Desktop-scale gaps read as empty screens on a phone */
+  .other-products {
+    padding-top: 100px;
+  }
+
+  .pure-ui-section {
+    padding: 90px 0;
+  }
+
+  .contact {
+    padding: 80px 0;
+  }
+
+  /* min-height 160px + a 16:9 aspect ratio forces placeholders to be
+     at least 284px wide, which overflows cards on narrow screens */
+  .ph {
+    min-height: 100px;
   }
 }

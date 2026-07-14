@@ -157,12 +157,35 @@
     text-align: center;
   }
 
+  /* Stacked, the sentence should read in one piece —
+     photo goes below it instead of splitting it in half */
   .hero-left,
   .hero-right {
     align-items: center;
     text-align: center;
     justify-self: center;
     margin-top: 0;
+  }
+
+  .hero-left {
+    order: 1;
+  }
+
+  .hero-right {
+    order: 2;
+    /* the two halves are one sentence — cancel the flex gap between them */
+    margin-top: -32px;
+  }
+
+  .hero-center {
+    order: 3;
+    margin-top: 8px;
+  }
+
+  /* 140px of air before the CTA suits the desktop grid,
+     not the stacked layout */
+  .hero-cta {
+    margin-top: 56px;
   }
 
   .hero-title {
@@ -184,6 +207,11 @@
 @media(max-width:760px) {
   .hero-section {
     padding: 50px 0;
+  }
+
+  .hero-social {
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
   .hero-section .eyebrow {

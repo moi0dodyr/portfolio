@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ticket Fairy — Case Study · Oleg Stepanchykov</title>
+  <meta name="description"
+    content="How I redesigned the revenue engine of an event-ticketing platform (YC S15, $300M+ in ticket sales): event-creation success ~50%→~90%, referral adoption ~10%→50%+, a design system from scratch, and a new Artist Management module.">
+
+  <!-- Social share preview (LinkedIn, Telegram, etc.) -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Ticket Fairy — Case Study · Oleg Stepanchykov">
+  <meta property="og:description"
+    content="Redesigning the revenue engine of an event-ticketing platform: event creation flow, design system, artist management.">
+  <meta property="og:image" content="/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Fonts: preconnect makes the font arrive sooner than the old CSS @import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+  <script type="module" src="/src/main.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-blur-container">
+      <div class="blur-layer layer-1"></div>
+      <div class="blur-layer layer-2"></div>
+      <div class="blur-layer layer-3"></div>
+      <div class="blur-layer layer-4"></div>
+      <div class="blur-layer layer-5"></div>
+    </div>
+    <div class="wrap">
+      <a class="brand" href="/">Oleg Stepanchykov</a>
+
+      <div class="lang-selector">
+        <a href="#" class="lang-link active" data-lang="en">
+          <img src="/src/assets/uk-flag.svg" alt="EN flag" class="flag-icon">
+          <span>EN</span>
+        </a>
+        <a href="#" class="lang-link" data-lang="uk">
+          <img src="/src/assets/ua-flag.svg" alt="UA flag" class="flag-icon">
+          <span>UA</span>
+        </a>
+      </div>
+
+      <div class="navlinks">
+        <a href="/#work" data-i18n="selected_works">Selected Works</a>
+        <a href="/#contact" data-i18n="contact">Contact</a>
+        <a href="https://drive.google.com/file/d/1wBdOFVCf-0NnUlVgXXkUc5pPI4wQ2tGC/view?usp=sharing" target="_blank" rel="noopener" class="btn-cv">CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page">
+    <article>
+
+      <!-- ─── SKIM LAYER: hero + TL;DR ─── -->
+      <section class="case-hero">
+        <div class="wrap">
+          <a class="backlink" href="/#work" data-i18n="all_work">← All work</a>
+          <div class="case-id">
+            <img class="case-logo-img" src="/src/assets/TF_logo.png" alt="The Ticket Fairy logo" width="44" height="44">
+            <div class="eyebrow">The Ticket Fairy</div>
+          </div>
+          <h1 data-i18n="tf2_h1">Redesigning the revenue engine of an event-ticketing platform</h1>
+          <div class="case-meta" data-i18n="tf2_meta">
+            Lead Product Designer · Aug 2025 – Mar 2026 · via Halo Lab
+          </div>
+          <p class="lead" data-i18n="tf2_lead">
+            YC S15 · $300M+ in ticket sales. The platform earns a commission on every ticket sold, so the
+            organizer-facing B2B dashboard is where the company makes its money. For seven months, that surface was
+            mine.</p>
+
+          <div class="tldr">
+            <div class="tldr-top">
+              <div>
+                <div class="tldr-label" data-i18n="tf2_tldr_owned_label">What I owned</div>
+                <div class="chips">
+                  <span class="chip" data-i18n="tf2_chip1">B2B dashboard, end-to-end</span>
+                  <span class="chip" data-i18n="tf2_chip2">Design system 0→1</span>
+                  <span class="chip" data-i18n="tf2_chip3">Artist Management module 0→1</span>
+                  <span class="chip" data-i18n="tf2_chip4">Usability testing, pre &amp; post</span>
+                </div>
+              </div>
+              <div>
+                <div class="tldr-label" data-i18n="tf2_tldr_changed_label">What changed</div>
+                <p data-i18n="tf2_tldr_changed">Event creation was the platform’s revenue bottleneck. I rebuilt the
+                  funnel around one metric — new organizers getting an event live — built the design system that ships
+                  it, and designed a new Artist Management module from zero.</p>
+              </div>
+            </div>
+            <div class="tldr-metrics">
+              <div class="tldr-metric"><b>~50% → ~90%</b><span data-i18n="tf2_metric1">event-creation task success —
+                  directional usability testing, n=5 per round</span></div>
+              <div class="tldr-metric"><b>~10% → 50%+</b><span data-i18n="tf2_metric2">organizers activating the
+                  referral program — product analytics</span></div>
+              <div class="tldr-metric"><b>20% → ~26%</b><span data-i18n="tf2_metric3">new users who go on to create an
+                  event — product analytics</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-hero-image-section">
+        <div class="wrap">
+          <figure>
+            <img class="case-hero-image" src="/src/assets/TF01.png" alt="The redesigned Ticket Fairy organizer dashboard on a laptop" width="1908"
+              height="1131">
+            <figcaption data-i18n="tf2_fig01">The redesigned organizer dashboard — the platform’s revenue surface.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ─── DEEP LAYER: sticky TOC + narrative ─── -->
+      <div class="case-layout wrap">
+        <aside class="case-sidebar">
+          <a href="#tf-context" data-i18n="tf2_toc_context">Context &amp; ownership</a>
+          <a href="#tf-problem" data-i18n="tf2_toc_problem">The problem</a>
+          <a href="#tf-research" data-i18n="tf2_toc_research">Research</a>
+          <a href="#tf-decisions" data-i18n="tf2_toc_decisions">Key decisions</a>
+          <a href="#tf-outcomes" data-i18n="tf2_toc_outcomes">Validation &amp; outcomes</a>
+          <a href="#tf-artist" data-i18n="tf2_toc_artist">Artist Management (0→1)</a>
+          <a href="#tf-reflection" data-i18n="tf2_toc_reflection">Reflection</a>
+        </aside>
+
+        <div class="case-content">
+
+          <!-- CONTEXT -->
+          <section id="tf-context" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_context_eyebrow">Context &amp; ownership</span>
+            <h2 data-i18n="tf2_context_title">One platform, five products, one revenue surface</h2>
+            <div class="block">
+              <p data-i18n="tf2_context_p1">The Ticket Fairy runs a multi-product ecosystem: a B2B dashboard where
+                organizers create and manage events, consumer apps and web for ticket buyers, and an on-site
+                ticket-scanning tool. The commission model makes the B2B dashboard the company’s revenue engine — no
+                events created, no tickets sold, no revenue.</p>
+              <p data-i18n="tf2_context_p2">I owned that surface end-to-end: every flow of the B2B dashboard, the
+                design system underneath the whole ecosystem, and a brand-new Artist Management module. A second
+                designer handled the consumer side.</p>
+            </div>
+            <figure>
+              <div class="ph r-wide">
+                <span class="ph-id">TF-02</span>
+                <span class="ph-spec">Product ecosystem diagram — B2B Dashboard &amp; Artist Management highlighted as “my ownership”, B2C app / B2C web / Entry Fairy around them</span>
+                <span class="ph-ratio">wide · 16:8</span>
+              </div>
+              <figcaption data-i18n="tf2_fig02"><b>The product ecosystem.</b> Highlighted: the surfaces I owned
+                end-to-end.</figcaption>
+            </figure>
+          </section>
+
+          <!-- PROBLEM -->
+          <section id="tf-problem" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_problem_eyebrow">The problem</span>
+            <h2 data-i18n="tf2_problem_title">80% of new organizers never created an event</h2>
+            <div class="block">
+              <p data-i18n="tf2_problem_p1">Only <b>20% of newly registered organizers</b> ever created an event.
+                Since revenue depends on events going live, that drop-off was a direct leak in the funnel — the single
+                metric the whole project would be judged against.</p>
+              <p data-i18n="tf2_problem_p2">Underneath the number: years of legacy code had produced an inconsistent,
+                dated, low-contrast interface. High-value capabilities — including the referral program, the
+                platform’s most unique feature — were buried in settings. And error states failed silently: an event
+                couldn’t be created until a “Brand” existed, but nothing on the screen said so.</p>
+            </div>
+            <figure>
+              <div class="ph r-wide">
+                <span class="ph-id">TF-03</span>
+                <span class="ph-spec">“Before” collage — mismatched legacy UI patterns side by side, the silent Brand error, the referral buried in settings; small callout arrows on each problem</span>
+                <span class="ph-ratio">wide · 16:8</span>
+              </div>
+              <figcaption data-i18n="tf2_fig03"><b>The legacy dashboard:</b> mismatched patterns, buried features, and
+                silent dead-ends.</figcaption>
+            </figure>
+          </section>
+
+          <!-- RESEARCH -->
+          <section id="tf-research" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_research_eyebrow">Research</span>
+            <h2 data-i18n="tf2_research_title">Watching five organizers fail, on camera</h2>
+            <div class="block">
+              <p data-i18n="tf2_research_p1">Before opening Figma, I needed to see exactly where and why users failed.
+                I wrote the test scenarios and ran directional usability testing — five organizers, unmoderated, with
+                video recording — on the core task: complete onboarding, then create an event.</p>
+              <p data-i18n="tf2_research_p2">Only about half succeeded. Even those who did hit around four critical
+                errors each and needed up to 14 minutes. The recordings surfaced four recurring failure patterns:</p>
+              <ol class="case-list mt16">
+                <li data-i18n="tf2_research_li1"><b>Brand &amp; location selectors:</b> users couldn’t understand the
+                  selection logic, and silent errors left them stuck without explanation.</li>
+                <li data-i18n="tf2_research_li2"><b>Disjointed ticket creation:</b> configuring tickets lived apart
+                  from the main flow.</li>
+                <li data-i18n="tf2_research_li3"><b>Hidden referral program:</b> the platform’s highest-performing
+                  feature was buried so deep that users never found it.</li>
+                <li data-i18n="tf2_research_li4"><b>Information overload:</b> one dense page carried so much
+                  unorganized content that users missed the primary actions.</li>
+              </ol>
+            </div>
+            <figure>
+              <div class="ph r-med">
+                <span class="ph-id">TF-04</span>
+                <span class="ph-spec">Research artifact — test scenario excerpt + where the 4 failure patterns occurred (error map, timeline, or annotated session stills)</span>
+                <span class="ph-ratio">16:9</span>
+              </div>
+              <figcaption data-i18n="tf2_fig04"><b>Five recorded sessions,</b> four recurring failure patterns in
+                event creation.</figcaption>
+            </figure>
+          </section>
+
+          <!-- DECISIONS -->
+          <section id="tf-decisions" class="case-section decisions-wrap">
+            <span class="eyebrow" data-i18n="tf2_decisions_eyebrow">Key decisions</span>
+            <h2 data-i18n="tf2_decisions_title">Three decisions that carried the redesign</h2>
+            <div class="block">
+              <p data-i18n="tf2_decisions_intro">Every decision below was anchored to a single question: <b>does this
+                  help a new organizer get an event live?</b> The priorities followed from the metric — onboarding,
+                event creation, and surfacing the features that actually drive ticket sales.</p>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="tf2_d1_num">Decision 1</div>
+              <h3 data-i18n="tf2_d1_title">Event creation as a step-by-step wizard</h3>
+              <p data-i18n="tf2_d1_p1">I restructured the most business-critical flow from one overloaded page into
+                smaller, clearer steps. Ticket creation moved directly into the main flow. The brand and location
+                selectors were rebuilt to be self-explanatory, and every silent failure became an actionable error
+                state — e.g. explaining inline that an event needs a Brand, and how to create one right there.</p>
+              <div class="why-product" data-i18n="tf2_d1_why"><b>Why it’s a product decision:</b> this flow maps
+                one-to-one onto the company’s revenue funnel. Every removed point of friction is commission the
+                platform stops losing.</div>
+              <div class="ba-frame">
+                <div class="ba-grid">
+                  <div class="ba-cell before">
+                    <span class="ba-label" data-i18n="tf2_ba_before">Before</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-05a</span>
+                      <span class="ph-spec">Old event-creation form — one overloaded page</span>
+                    </div>
+                  </div>
+                  <div class="ba-cell after">
+                    <span class="ba-label" data-i18n="tf2_ba_after">After</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-05b</span>
+                      <span class="ph-spec">New wizard — one focused step, progress visible, tickets integrated</span>
+                    </div>
+                  </div>
+                </div>
+                <figcaption data-i18n="tf2_fig05"><b>The conversion fix:</b> one overloaded form → focused steps with
+                  tickets and referral built into the flow.</figcaption>
+              </div>
+              <div class="ba-frame">
+                <div class="ba-grid">
+                  <div class="ba-cell before">
+                    <span class="ba-label" data-i18n="tf2_ba_before2">Before</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-06a</span>
+                      <span class="ph-spec">Silent failure — user blocked with no explanation (Brand missing)</span>
+                    </div>
+                  </div>
+                  <div class="ba-cell after">
+                    <span class="ba-label" data-i18n="tf2_ba_after2">After</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-06b</span>
+                      <span class="ph-spec">Actionable error state — explains the Brand requirement, offers inline creation</span>
+                    </div>
+                  </div>
+                </div>
+                <figcaption data-i18n="tf2_fig06"><b>Silent failure → actionable guidance:</b> the Brand requirement,
+                  explained where the user hits it.</figcaption>
+              </div>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="tf2_d2_num">Decision 2</div>
+              <h3 data-i18n="tf2_d2_title">Surfacing the referral program</h3>
+              <p data-i18n="tf2_d2_p1">The referral program is a unique, high-performing feature with no direct
+                equivalent among competitors — yet it was hidden inside event settings. Without a support onboarding
+                call, only ~10% of organizers ever set it up. I moved it into the event-creation flow as a prominent,
+                unmissable step: a clear explanation of how it works, links to supporting docs, data-backed messaging
+                on typical results, and a dedicated analytics screen to track performance.</p>
+              <div class="why-product" data-i18n="tf2_d2_why"><b>Why it’s a product decision:</b> in sample event
+                data, active referral campaigns generate ≈18% of total ticket sales. Making the feature discoverable
+                was a revenue decision, validated post-launch through analytics — adoption rose from ~10% to 50%+.</div>
+              <div class="ba-frame">
+                <div class="ba-grid">
+                  <div class="ba-cell before">
+                    <span class="ba-label" data-i18n="tf2_ba_before3">Before</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-07a</span>
+                      <span class="ph-spec">Referral buried in settings — show the click path (arrow trail)</span>
+                    </div>
+                  </div>
+                  <div class="ba-cell after">
+                    <span class="ba-label" data-i18n="tf2_ba_after3">After</span>
+                    <div class="ph r-med">
+                      <span class="ph-id">TF-07b</span>
+                      <span class="ph-spec">Referral as a prominent step in event creation, with data-backed messaging</span>
+                    </div>
+                  </div>
+                </div>
+                <figcaption data-i18n="tf2_fig07"><b>Discoverability:</b> buried four levels deep in settings → an
+                  unmissable step in event creation.</figcaption>
+              </div>
+              <figure>
+                <div class="ph r-med">
+                  <span class="ph-id">TF-08</span>
+                  <span class="ph-spec">Referral analytics screen — the dedicated, more visually engaging performance view</span>
+                  <span class="ph-ratio">16:9</span>
+                </div>
+                <figcaption data-i18n="tf2_fig08"><b>A dedicated analytics view</b> organizers actually check —
+                  deliberately more engaging than a standard report.</figcaption>
+              </figure>
+            </div>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="tf2_d3_num">Decision 3</div>
+              <h3 data-i18n="tf2_d3_title">A design system as the delivery mechanism</h3>
+              <p data-i18n="tf2_d3_p1">No system existed when I joined. I built one from the ground up: color,
+                typography, and spacing tokens (semantic and primitive) and a component library that developers
+                implemented in <b>Storybook</b> while I reviewed every build in <b>Chromatic</b> with annotated
+                feedback, iterating until each component matched design intent.</p>
+              <p data-i18n="tf2_d3_p2">The system spans the entire ecosystem with two design languages —
+                information-dense, operational B2B and expressive, consumer-friendly B2C — on one shared foundation
+                across web, iOS, and Android.</p>
+              <div class="why-product" data-i18n="tf2_d3_why"><b>Why it’s a product decision:</b> a redesign only
+                counts if it ships. The token-based system and the Storybook/Chromatic loop made every subsequent
+                flow cheaper to build — and kept the shipped product true to the design.</div>
+              <div class="twocol">
+                <figure>
+                  <div class="ph r-sq">
+                    <span class="ph-id">TF-09</span>
+                    <span class="ph-spec">Design-system foundations — color / type / spacing token scales + core components (buttons, inputs) in one grid</span>
+                    <span class="ph-ratio">4:3</span>
+                  </div>
+                  <figcaption data-i18n="tf2_fig09"><b>Foundations:</b> token scales and core components.</figcaption>
+                </figure>
+                <figure>
+                  <div class="ph r-sq">
+                    <span class="ph-id">TF-10</span>
+                    <span class="ph-spec">Storybook / Chromatic screen with my review annotations visible</span>
+                    <span class="ph-ratio">4:3</span>
+                  </div>
+                  <figcaption data-i18n="tf2_fig10"><b>The handoff loop:</b> components reviewed in Chromatic until
+                    they matched design intent.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <!-- OUTCOMES -->
+          <section id="tf-outcomes" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_outcomes_eyebrow">Validation &amp; outcomes</span>
+            <h2 data-i18n="tf2_outcomes_title">Tested before, tested after, confirmed in analytics</h2>
+            <div class="block">
+              <p data-i18n="tf2_outcomes_p1">After the redesign I ran a second round of usability testing with the
+                same scenario and metrics (n=5). Critical errors dropped to near zero and time on task almost halved.
+                Post-launch, product analytics confirmed the business movement.</p>
+            </div>
+            <div class="block wide">
+              <table class="metrics-table">
+                <thead>
+                  <tr>
+                    <th data-i18n="tf2_th_metric">Metric</th>
+                    <th data-i18n="tf2_th_before">Before</th>
+                    <th data-i18n="tf2_th_after">After</th>
+                    <th data-i18n="tf2_th_source">Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="tf2_row1_metric">Event-creation task success</td>
+                    <td>~50%</td>
+                    <td><b>~90%</b></td>
+                    <td data-i18n="tf2_row1_source">Usability testing, n=5 per round</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row2_metric">Mean time on task</td>
+                    <td data-i18n="tf2_row2_before">~14 min</td>
+                    <td><b data-i18n="tf2_row2_after">~8 min</b></td>
+                    <td data-i18n="tf2_row2_source">Usability testing</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row3_metric">Critical errors per user</td>
+                    <td data-i18n="tf2_row3_before">~4</td>
+                    <td><b>0–1</b></td>
+                    <td data-i18n="tf2_row3_source">Usability testing</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row4_metric">Mean SEQ score</td>
+                    <td>5.0 / 7</td>
+                    <td><b>6.5 / 7</b></td>
+                    <td data-i18n="tf2_row4_source">Usability testing</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row5_metric">Referral-program adoption</td>
+                    <td>~10%</td>
+                    <td><b>50%+</b></td>
+                    <td data-i18n="tf2_row5_source">Product analytics</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row6_metric">New users who create an event</td>
+                    <td>20%</td>
+                    <td><b>~26%</b></td>
+                    <td data-i18n="tf2_row6_source">Product analytics</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="tf2_row7_metric">Support onboarding-call requests</td>
+                    <td data-i18n="tf2_row7_before">baseline</td>
+                    <td><b data-i18n="tf2_row7_after">~10% lower</b></td>
+                    <td data-i18n="tf2_row7_source">Internal support data</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <figure>
+              <div class="ph r-wide">
+                <span class="ph-id">TF-11</span>
+                <span class="ph-spec">Outcome visual — clean metric cards or an honest before/after bar chart (no cut axes): 50→90, 14→8 min, 10→50+</span>
+                <span class="ph-ratio">wide · 16:8</span>
+              </div>
+              <figcaption data-i18n="tf2_fig11"><b>Before/after across the tracked metrics.</b> n=5 per round —
+                directional, then confirmed in product analytics.</figcaption>
+            </figure>
+            <div class="note neutral" data-i18n="tf2_outcomes_note">Method, honestly: the usability rounds were
+              unmoderated with 5 participants each — a directional signal, not statistics. The business metrics
+              (referral adoption, conversion) come from product analytics after launch.</div>
+          </section>
+
+          <!-- ARTIST MANAGEMENT -->
+          <section id="tf-artist" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_artist_eyebrow">Designing from zero · 0→1</span>
+            <h2 data-i18n="tf2_artist_title">Artist Management: a product inside the product</h2>
+            <div class="block">
+              <p data-i18n="tf2_artist_p1">Festival organizers juggle artist contracts, riders, travel, accommodation,
+                and equipment across dozens of emails, PDFs, and spreadsheets — with no shared visibility. I designed
+                a centralized artist &amp; logistics management module that, in scope and complexity, works as a
+                standalone product embedded in the dashboard.</p>
+              <ul class="case-list mt16">
+                <li data-i18n="tf2_artist_li1"><b>AI-powered bulk import:</b> organizers upload their existing
+                  documents; the system parses and routes the data into the right modules, with review/edit control
+                  and version-conflict handling (a revised contract becomes a v2, the previous version is archived).
+                </li>
+                <li data-i18n="tf2_artist_li2"><b>Role-based access for 7+ roles:</b> each role sees only its own
+                  modules — artist fees are visible exclusively to Finance/Legal.</li>
+                <li data-i18n="tf2_artist_li3"><b>IA before UI:</b> I mapped a separate sitemap per role — exactly
+                  which screens and data each role can reach — before drawing a single screen.</li>
+                <li data-i18n="tf2_artist_li4"><b>Real domain complexity:</b> multi-day events, simultaneous stages,
+                  per-artist riders and logistics, hotel-room reuse across non-overlapping dates, Viberate
+                  integration for artist stats.</li>
+              </ul>
+            </div>
+            <figure>
+              <div class="ph r-wide">
+                <span class="ph-id">TF-12</span>
+                <span class="ph-spec">Role-based sitemap — the priority artifact: roles mapped to the modules &amp; screens each can access</span>
+                <span class="ph-ratio">wide · 16:8</span>
+              </div>
+              <figcaption data-i18n="tf2_fig12"><b>The strongest artifact of the project:</b> one sitemap per role,
+                mapped before any screen was drawn.</figcaption>
+            </figure>
+            <div class="twocol">
+              <figure>
+                <div class="ph r-med">
+                  <span class="ph-id">TF-13</span>
+                  <span class="ph-spec">AI import flow schema: upload → parse → route → review/edit → version conflict (v2 + archive)</span>
+                  <span class="ph-ratio">16:9</span>
+                </div>
+                <figcaption data-i18n="tf2_fig13"><b>The AI import flow:</b> upload → parse → route → review → version
+                  conflict handling.</figcaption>
+              </figure>
+              <figure>
+                <div class="ph r-med">
+                  <span class="ph-id">TF-14</span>
+                  <span class="ph-spec">2–3 key module screens — per-artist overview + logistics tracking</span>
+                  <span class="ph-ratio">16:9</span>
+                </div>
+                <figcaption data-i18n="tf2_fig14"><b>Key screens:</b> artist overview and logistics — one operational
+                  source of truth.</figcaption>
+              </figure>
+            </div>
+            <div class="note" data-i18n="tf2_artist_note"><b>Status:</b> design complete · currently in development.</div>
+          </section>
+
+          <!-- REFLECTION + NAV -->
+          <section id="tf-reflection" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_reflection_eyebrow">Reflection</span>
+            <div class="block">
+              <p data-i18n="tf2_reflection_p">
+                The work I’m proudest of isn’t a screen — it’s the role-based IA for Artist Management and the system
+                that ties the whole platform together. That’s the part that holds up as the product scales.</p>
+            </div>
+            <div class="case-bottom-nav">
+              <a class="btn" href="/wealthtrace/" data-i18n="tf2_next_case">Next case: WealthTrace →</a>
+              <a class="btn-allwork" href="/#work" data-i18n="all_work_1">← All work</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div data-i18n="2026_oleg_stepanchykov_product_designer">© 2026 Oleg Stepanchykov · Product Designer</div>
+      <div>stepanchykov.o@gmail.com</div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

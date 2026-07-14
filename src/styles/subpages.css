@@ -1,4 +1,6 @@
-/* CASE PAGES — uses the same .wrap (1512px → scales to 1920px → stops) */
+/* CASE PAGES — uses the same .wrap (1512px → scales to 1920px → stops)
+   Page anatomy: skim layer (hero + TL;DR card + hero image),
+   then deep layer (sticky TOC + narrative sections). */
 
 /* ── Back link (pill-style, visible) ── */
 .backlink {
@@ -50,7 +52,7 @@
 
 /* ── Case hero ── */
 .case-hero {
-  padding-bottom: 40px;
+  padding-bottom: 24px;
 }
 
 .case-hero .wrap {
@@ -71,34 +73,107 @@
   max-width: 760px;
 }
 
-/* ── Big metrics ── */
-.bigmetrics {
-  display: flex;
-  gap: 48px;
-  flex-wrap: wrap;
-  margin-top: 36px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
-  justify-content: center;
+/* ── TL;DR card (the skim layer: sells the case in 15 seconds) ── */
+.tldr {
   width: 100%;
-  max-width: 760px;
+  max-width: 1060px;
+  margin-top: 40px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 32px 36px;
+  text-align: left;
 }
 
-.bigmetric b {
+.tldr-label {
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tldr-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tldr-top p {
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tldr-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 26px;
+}
+
+.tldr-metric b {
   display: block;
-  font-size: 30px;
+  font-size: 28px;
   letter-spacing: -.02em;
   font-weight: 680;
+  line-height: 1.2;
 }
 
-.bigmetric span {
-  font-size: 13.5px;
+.tldr-metric span {
+  display: block;
+  font-size: 13px;
   color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ── Status pill (TBC / in development / ships date) ── */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.status-pill.neutral {
+  background: var(--tint);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
 }
 
 /* ── Case hero image ── */
 .case-hero-image-section {
-  padding-top: 14px;
+  padding-top: 40px;
   padding-bottom: 60px;
 }
 
@@ -109,11 +184,16 @@
   margin: 0 auto;
 }
 
-/* ── Content block ── */
+.case-hero-image-section figcaption {
+  text-align: center;
+}
+
+/* ── Content block ──
+   Left-aligned with the content column (no auto-centering:
+   centering text inside the wide column leaves an ugly gap
+   between the sidebar and the text). */
 .block {
   max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
 }
 
@@ -130,12 +210,9 @@
 .case-section > .eyebrow,
 .case-section > h2,
 .case-section > h3,
-.decision > .dnum,
-.decision > h2 {
+.case-section > .quote {
   display: block;
   max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
 }
 
@@ -143,8 +220,9 @@
   margin-bottom: 14px;
 }
 
-.decision > .dnum {
-  margin-bottom: 8px;
+/* ── Figures & captions ── */
+.case-section figure {
+  margin-top: 36px;
 }
 
 /* ── Two-column grid ── */
@@ -152,14 +230,76 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  margin-top: 36px;
 }
 
-/* ── Split layout ── */
+.twocol figure {
+  margin-top: 0;
+}
+
+/* ── Split layout (text + figure side by side) ── */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
+}
+
+.split figure {
+  margin-top: 0;
+}
+
+/* ── Before / After frame ──
+   Before is smaller and muted; After is larger and clean. */
+.ba-frame {
+  margin-top: 36px;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 24px;
+  align-items: end;
+}
+
+.ba-cell {
+  position: relative;
+}
+
+.ba-cell .ph {
+  min-height: 140px;
+}
+
+.ba-cell.before .ph {
+  opacity: 0.78;
+}
+
+.ba-label {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ba-cell.before .ba-label {
+  background: #fff;
+  border: 1px solid var(--ph-line);
+  color: var(--muted);
+}
+
+.ba-cell.after .ba-label {
+  background: var(--accent);
+  color: #fff;
+}
+
+.ba-frame > figcaption {
+  margin-top: 13px;
 }
 
 /* ── Status / callout note ── */
@@ -174,14 +314,18 @@
   line-height: 1.6;
 }
 
-/* ── Pull quote ── */
-.quote {
-  font-size: clamp(20px, 2.6vw, 28px);
-  line-height: 1.35;
+.note.neutral {
+  background: var(--tint);
+  border-left-color: var(--muted);
+}
+
+/* ── Inline pull quote ── */
+.quote-sm {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.4;
   letter-spacing: -.01em;
   color: var(--ink);
   font-weight: 560;
-  max-width: 26ch;
   border-left: 3px solid var(--ink);
   padding-left: 24px;
   margin: 20px 0;
@@ -215,53 +359,92 @@ table.metrics-table td.tbc {
   color: var(--muted);
 }
 
-/* ── Decision blocks ── */
+/* ── Decision cards ── */
 .decision {
-  padding-top: 64px;
-  margin-top: 64px;
-  border-top: 1px solid var(--line);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 44px 48px;
+  margin-top: 32px;
 }
 
 .decision:first-of-type {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
+  margin-top: 36px;
 }
 
-.decision h2 {
-  margin-top: 8px;
+.decision h3 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  margin-top: 6px;
+  letter-spacing: -.02em;
+}
+
+.decision > p {
+  margin-top: 16px;
+  max-width: 72ch;
+}
+
+.decision p + p {
+  margin-top: 14px;
 }
 
 .dnum {
   font-size: 13px;
   color: var(--accent);
-  font-weight: 600;
-  letter-spacing: .04em;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-/* ── Case figures — generous spacing ── */
-.case-section figure,
-.decision figure {
-  margin-top: 32px;
+/* "why it's a product decision" strip inside a decision card */
+.why-product {
+  margin-top: 20px;
+  background: var(--tint);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
 }
 
-.case-section .twocol,
-.decision .twocol {
-  margin-top: 32px;
+.why-product b {
+  color: var(--ink);
 }
 
-/* ── Responsive case pages ── */
-@media(max-width:760px) {
-  .twocol,
-  .split {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+/* ── Bulleted / numbered lists inside case text ── */
+.case-list {
+  padding-left: 20px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
+.case-list li {
+  margin-bottom: 10px;
+}
+
+.case-list li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Small sub-heading inside a case block ── */
+.case-subhead {
+  margin-top: 36px;
+  font-size: 18px;
+}
+
+/* ── Full-width block variant — used for wide tables ── */
+.block.wide {
+  max-width: none;
 }
 
 /* ============================
-   CASE LAYOUT WITH SIDEBAR 
+   CASE LAYOUT WITH SIDEBAR
    ============================ */
+/* Capped and centered: 220px TOC + 60px gap + ~880px content.
+   Text inside stays at 760px for a readable measure; figures span
+   the full 880px column, slightly wider than the text. */
 .case-layout {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -269,6 +452,10 @@ table.metrics-table td.tbc {
   align-items: start;
   position: relative;
   margin-top: 0;
+  padding-bottom: 100px;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Sidebar TOC ── */
@@ -310,7 +497,7 @@ table.metrics-table td.tbc {
 
 /* ── Case sections ── */
 .case-section {
-  padding-bottom: 80px;
+  padding-bottom: 88px;
   scroll-margin-top: 96px;
 }
 
@@ -318,21 +505,19 @@ table.metrics-table td.tbc {
   padding-bottom: 0;
 }
 
-/* Neutralize .band and .divider when inside sidebar layout */
-.case-content .case-section.band {
-  background: transparent;
+.case-content .case-section {
   border-top: 1px solid var(--line);
-  border-bottom: none;
-  padding-top: 80px;
-}
-
-.case-content .case-section.divider {
-  padding-top: 80px;
+  padding-top: 72px;
 }
 
 .case-content .case-section:first-child {
   padding-top: 0;
   border-top: none;
+}
+
+/* decisions container section: cards carry their own borders */
+.case-section.decisions-wrap > .eyebrow {
+  margin-bottom: 4px;
 }
 
 /* ── Bottom nav for cases ── */
@@ -365,13 +550,14 @@ table.metrics-table td.tbc {
   transform: translateY(-1px);
 }
 
-/* ── Responsive sidebar ── */
-@media(max-width: 900px) {
+/* ── Responsive ── */
+@media (max-width: 900px) {
   .case-layout {
     display: flex;
     flex-direction: column;
     gap: 32px;
   }
+
   .case-sidebar {
     position: static;
     width: 100%;
@@ -381,9 +567,63 @@ table.metrics-table td.tbc {
     flex-wrap: wrap;
     gap: 12px;
   }
+
   .case-sidebar a {
     border-left: none;
-    padding-left: 0;
     padding: 4px 8px;
+  }
+
+  .case-sidebar a.active {
+    border-left: none;
+    color: var(--accent);
+  }
+
+  /* Without an explicit width the flex item stretches to the
+     min-content of wide children (metrics tables), pushing the whole
+     page into horizontal scroll on phones. Pinning it to 100% keeps
+     the column at the wrap width and lets tables scroll internally. */
+  .case-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .decision {
+    padding: 32px 26px;
+  }
+
+  /* Wide tables scroll inside their own box instead of
+     stretching the layout. */
+  table.metrics-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 760px) {
+  .twocol,
+  .split,
+  .tldr-top,
+  .ba-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .tldr {
+    padding: 24px 22px;
+  }
+
+  .tldr-metrics {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ba-cell.before .ph {
+    max-width: 88%;
+  }
+
+  /* Match the taller two-row mobile navbar */
+  .case-section {
+    scroll-margin-top: 130px;
   }
 }
