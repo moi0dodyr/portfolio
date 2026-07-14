@@ -125,6 +125,7 @@
           <a href="#tf-research" data-i18n="tf2_toc_research">Research</a>
           <a href="#tf-decisions" data-i18n="tf2_toc_decisions">Key decisions</a>
           <a href="#tf-outcomes" data-i18n="tf2_toc_outcomes">Validation &amp; outcomes</a>
+          <a href="#tf-design-system" data-i18n="tf2_toc_ds">Design system</a>
           <a href="#tf-artist" data-i18n="tf2_toc_artist">Artist Management (0→1)</a>
           <a href="#tf-reflection" data-i18n="tf2_toc_reflection">Reflection</a>
         </aside>
@@ -214,7 +215,7 @@
           <!-- DECISIONS -->
           <section id="tf-decisions" class="case-section decisions-wrap">
             <span class="eyebrow" data-i18n="tf2_decisions_eyebrow">Key decisions</span>
-            <h2 data-i18n="tf2_decisions_title">Three decisions that carried the redesign</h2>
+            <h2 data-i18n="tf2_decisions_title">The decisions that carried the redesign</h2>
             <div class="block">
               <p data-i18n="tf2_decisions_intro">Every decision below was anchored to a single question: <b>does this
                   help a new organizer get an event live?</b> The priorities followed from the metric — onboarding,
@@ -315,39 +316,6 @@
               </figure>
             </div>
 
-            <div class="decision">
-              <div class="dnum" data-i18n="tf2_d3_num">Decision 3</div>
-              <h3 data-i18n="tf2_d3_title">A design system as the delivery mechanism</h3>
-              <p data-i18n="tf2_d3_p1">No system existed when I joined. I built one from the ground up: color,
-                typography, and spacing tokens (semantic and primitive) and a component library that developers
-                implemented in <b>Storybook</b> while I reviewed every build in <b>Chromatic</b> with annotated
-                feedback, iterating until each component matched design intent.</p>
-              <p data-i18n="tf2_d3_p2">The system spans the entire ecosystem with two design languages —
-                information-dense, operational B2B and expressive, consumer-friendly B2C — on one shared foundation
-                across web, iOS, and Android.</p>
-              <div class="why-product" data-i18n="tf2_d3_why"><b>Why it’s a product decision:</b> a redesign only
-                counts if it ships. The token-based system and the Storybook/Chromatic loop made every subsequent
-                flow cheaper to build — and kept the shipped product true to the design.</div>
-              <div class="twocol">
-                <figure>
-                  <div class="ph r-sq">
-                    <span class="ph-id">TF-09</span>
-                    <span class="ph-spec">Design-system foundations — color / type / spacing token scales + core components (buttons, inputs) in one grid</span>
-                    <span class="ph-ratio">4:3</span>
-                  </div>
-                  <figcaption data-i18n="tf2_fig09"><b>Foundations:</b> token scales and core components.</figcaption>
-                </figure>
-                <figure>
-                  <div class="ph r-sq">
-                    <span class="ph-id">TF-10</span>
-                    <span class="ph-spec">Storybook / Chromatic screen with my review annotations visible</span>
-                    <span class="ph-ratio">4:3</span>
-                  </div>
-                  <figcaption data-i18n="tf2_fig10"><b>The handoff loop:</b> components reviewed in Chromatic until
-                    they matched design intent.</figcaption>
-                </figure>
-              </div>
-            </div>
           </section>
 
           <!-- OUTCOMES -->
@@ -427,6 +395,43 @@
             <div class="note neutral" data-i18n="tf2_outcomes_note">Method, honestly: the usability rounds were
               unmoderated with 5 participants each — a directional signal, not statistics. The business metrics
               (referral adoption, conversion) come from product analytics after launch.</div>
+          </section>
+
+          <!-- DESIGN SYSTEM -->
+          <section id="tf-design-system" class="case-section">
+            <span class="eyebrow" data-i18n="tf2_ds_eyebrow">Design system · DesOps</span>
+            <h2 data-i18n="tf2_ds_title">A scalable foundation, built from scratch</h2>
+            <div class="block">
+              <p data-i18n="tf2_ds_p1">No system existed when I joined. I built one from the ground up: color,
+                typography, and spacing tokens (semantic and primitive) and a component library that developers
+                implemented in <b>Storybook</b> while I reviewed every build in <b>Chromatic</b> with annotated
+                feedback, iterating until each component matched design intent.</p>
+              <p data-i18n="tf2_ds_p2">The system spans the entire ecosystem with two design languages —
+                information-dense, operational B2B and expressive, consumer-friendly B2C — on one shared foundation
+                across web, iOS, and Android.</p>
+              <div class="why-product" data-i18n="tf2_ds_why"><b>Why it’s a product decision:</b> a redesign only
+                counts if it ships. The token-based system and the Storybook/Chromatic loop made every subsequent
+                flow cheaper to build — and kept the shipped product true to the design.</div>
+            </div>
+            <div class="twocol">
+              <figure>
+                <div class="ph r-sq">
+                  <span class="ph-id">TF-09</span>
+                  <span class="ph-spec">Design-system foundations — color / type / spacing token scales + core components (buttons, inputs) in one grid</span>
+                  <span class="ph-ratio">4:3</span>
+                </div>
+                <figcaption data-i18n="tf2_fig09"><b>Foundations:</b> token scales and core components.</figcaption>
+              </figure>
+              <figure>
+                <div class="ph r-sq">
+                  <span class="ph-id">TF-10</span>
+                  <span class="ph-spec">Storybook / Chromatic screen with my review annotations visible</span>
+                  <span class="ph-ratio">4:3</span>
+                </div>
+                <figcaption data-i18n="tf2_fig10"><b>The handoff loop:</b> components reviewed in Chromatic until
+                  they matched design intent.</figcaption>
+              </figure>
+            </div>
           </section>
 
           <!-- ARTIST MANAGEMENT -->
