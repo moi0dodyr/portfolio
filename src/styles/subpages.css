@@ -43,6 +43,13 @@
   flex-shrink: 0;
 }
 
+/* ── Dates under the company name ── */
+.case-dates {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
 /* ── Case hero ── */
 .case-hero {
   padding-bottom: 24px;
