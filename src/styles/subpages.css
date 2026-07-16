@@ -43,11 +43,19 @@
   flex-shrink: 0;
 }
 
-/* ── Case meta line ── */
-.case-meta {
+/* ── Text column next to the logo: name above, dates below ── */
+.case-id-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2px;
+}
+
+.case-dates {
   font-size: 14px;
   color: var(--muted);
-  margin-top: 18px;
+  line-height: 1.4;
 }
 
 /* ── Case hero ── */
@@ -73,80 +81,52 @@
   max-width: 760px;
 }
 
-/* ── TL;DR card (the skim layer: sells the case in 15 seconds) ── */
-.tldr {
+/* ── Case facts (the skim layer: a sleek spec table under the title —
+   small muted label on the left, value on the same line, hairline
+   divider between rows, no card container) ── */
+.case-facts {
   width: 100%;
-  max-width: 1060px;
-  margin-top: 40px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 32px 36px;
+  max-width: 840px;
+  margin-top: 48px;
   text-align: left;
 }
 
-.tldr-label {
-  font-size: 11.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.tldr-top {
+.fact-row {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 40px;
-  padding-bottom: 26px;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.tldr-top p {
-  font-size: 15.5px;
+.fact-row:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.fact-label {
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
   line-height: 1.6;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  background: var(--tint);
-  border: 1px solid var(--line);
-  border-radius: 50px;
-  padding: 6px 14px;
-  font-size: 13px;
-  font-weight: 600;
+.fact-value {
+  font-size: 15.5px;
   color: var(--ink);
-  white-space: nowrap;
+  line-height: 1.6;
 }
 
-.tldr-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  padding-top: 26px;
+.fact-value b {
+  font-weight: 650;
+  letter-spacing: -.01em;
 }
 
-.tldr-metric b {
-  display: block;
-  font-size: 28px;
-  letter-spacing: -.02em;
-  font-weight: 680;
-  line-height: 1.2;
-}
-
-.tldr-metric span {
-  display: block;
-  font-size: 13px;
+.fact-note {
   color: var(--muted);
-  margin-top: 4px;
-  line-height: 1.5;
+  font-size: 13.5px;
 }
 
 /* ── Status pill (TBC / in development / ships date) ── */
@@ -250,16 +230,17 @@
 }
 
 /* ── Before / After frame ──
-   Before is smaller and muted; After is larger and clean. */
+   Sits outside the decision cards at full column width;
+   Before and After share equal widths. */
 .ba-frame {
   margin-top: 36px;
 }
 
 .ba-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: end;
+  align-items: start;
 }
 
 .ba-cell {
@@ -268,10 +249,6 @@
 
 .ba-cell .ph {
   min-height: 140px;
-}
-
-.ba-cell.before .ph {
-  opacity: 0.78;
 }
 
 .ba-label {
@@ -442,20 +419,17 @@ table.metrics-table td.tbc {
 /* ============================
    CASE LAYOUT WITH SIDEBAR
    ============================ */
-/* Capped and centered: 220px TOC + 60px gap + ~880px content.
-   Text inside stays at 760px for a readable measure; figures span
-   the full 880px column, slightly wider than the text. */
+/* Full-width: 220px TOC pinned to the far left of the page + wide
+   content column. Text inside stays at 760px for a readable measure;
+   figures span the full column, so images read much larger than text. */
 .case-layout {
   display: grid;
   grid-template-columns: 220px 1fr;
-  gap: 60px;
+  gap: 80px;
   align-items: start;
   position: relative;
   margin-top: 0;
   padding-bottom: 100px;
-  max-width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ── Sidebar TOC ── */
@@ -603,23 +577,16 @@ table.metrics-table td.tbc {
 @media (max-width: 760px) {
   .twocol,
   .split,
-  .tldr-top,
   .ba-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .tldr {
-    padding: 24px 22px;
-  }
-
-  .tldr-metrics {
+  /* Stack the fact table: label above its value */
+  .fact-row {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .ba-cell.before .ph {
-    max-width: 88%;
+    gap: 4px;
+    padding: 14px 0;
   }
 
   /* Match the taller two-row mobile navbar */
