@@ -1,0 +1,21 @@
+{
+  "name": "Oleg Stepanchykov — Product Designer",
+  "short_name": "Oleg S.",
+  "description": "Product designer with 4+ years of experience turning complex B2B and fintech products into clear, usable interfaces.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#e60000",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
