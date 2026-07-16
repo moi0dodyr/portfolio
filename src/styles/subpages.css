@@ -43,11 +43,19 @@
   flex-shrink: 0;
 }
 
-/* ── Dates under the company name ── */
+/* ── Text column next to the logo: name above, dates below ── */
+.case-id-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 2px;
+}
+
 .case-dates {
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 6px;
+  line-height: 1.4;
 }
 
 /* ── Case hero ── */
