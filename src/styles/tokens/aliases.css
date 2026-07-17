@@ -1,0 +1,99 @@
+/* ════════════════════════════════════════════════════════════════════
+   ALIAS VARIABLES — Collection 2: semantic tokens
+   ════════════════════════════════════════════════════════════════════
+   Aliases give primitives a MEANING: "text-muted", "surface-page",
+   "tag-fintech-bg". Components reference these, so re-skinning the
+   site means re-pointing an alias — not hunting through components.
+
+   Rules of the collection:
+   • An alias only ever points at a primitive from tokens/globals.css
+     (or composes primitives via color-mix for translucent variants).
+   • Name by role (what it's FOR), not by appearance.
+   ════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── TEXT ─────────────────────────────────────────────────────── */
+  --text-primary:    var(--gray-900);   /* headings, primary copy */
+  --text-secondary:  var(--gray-700);   /* body copy */
+  --text-muted:      var(--gray-500);   /* meta, captions, nav links */
+  --text-subtle:     var(--gray-600);   /* project descriptions (light & dark) */
+  --text-soft-dark:  var(--gray-400);   /* body copy on dark surfaces */
+  --text-disabled:   var(--gray-550);   /* "coming soon" and inactive labels */
+  --text-display:    var(--gray-510);   /* the hero headline gray */
+  --text-inverse:    var(--white);      /* text on dark/accent surfaces */
+
+  /* ── SURFACES ─────────────────────────────────────────────────── */
+  --surface-page:         var(--gray-25);
+  --surface-card:         var(--white);
+  --surface-tint:         var(--gray-50);    /* pills, icon chips, notes */
+  --surface-media:        var(--gray-100);   /* image card backdrop */
+  --surface-dark:         var(--gray-950);   /* dark project section */
+  --surface-dark-deepest: var(--gray-975);   /* Ticket Fairy section base */
+  --surface-inverse:      var(--gray-900);   /* dark chips on light pages */
+
+  /* ── BORDERS ──────────────────────────────────────────────────── */
+  --border-default: var(--gray-200);
+  --border-strong:   var(--gray-500);   /* cards & pills on hover */
+  --border-on-dark: color-mix(in srgb, var(--white) 10%, transparent);
+
+  /* ── BRAND ACCENT ─────────────────────────────────────────────── */
+  --accent:               var(--red-500);
+  --accent-hover:         var(--red-600);
+  --accent-soft:          var(--red-50);    /* soft red fill (notes, pills) */
+  --accent-on-dark:       var(--red-300);   /* CV button over dark sections */
+  --accent-on-dark-hover: var(--red-250);
+  --accent-tint:          color-mix(in srgb, var(--red-500) 5%, transparent);
+  --accent-tint-on-dark:  color-mix(in srgb, var(--red-300) 10%, transparent);
+  --accent-glow:          color-mix(in srgb, var(--red-500) 35%, transparent);
+
+  /* ── TEXT ON DARK (white ladders) ─────────────────────────────── */
+  --text-on-dark-muted: color-mix(in srgb, var(--white) 50%, transparent);
+  --text-on-dark-soft:  color-mix(in srgb, var(--white) 70%, transparent);
+
+  /* ── NAVBAR ───────────────────────────────────────────────────── */
+  --nav-height:         72px;
+  --nav-bg-mobile:      color-mix(in srgb, var(--gray-25) 95%, transparent);
+  --nav-bg-mobile-dark: color-mix(in srgb, var(--gray-900) 95%, transparent);
+
+  /* ── PROJECT TAGS (chips on the work cards) ───────────────────── */
+  --tag-tf-text:   var(--coral-300);
+  --tag-tf-bg:     color-mix(in srgb, var(--coral-300) 5%, transparent);
+  --tag-tf-border: color-mix(in srgb, var(--coral-300) 12%, transparent);
+
+  --tag-wt-text:   var(--blue-500);
+  --tag-wt-bg:     color-mix(in srgb, var(--blue-500) 5%, transparent);
+  --tag-wt-border: color-mix(in srgb, var(--blue-500) 12%, transparent);
+
+  --tag-fintech-text:   var(--rust-700);
+  --tag-fintech-bg:     color-mix(in srgb, var(--rust-700) 5%, transparent);
+  --tag-fintech-border: color-mix(in srgb, var(--rust-700) 12%, transparent);
+
+  --tag-healthcare-text:   var(--indigo-400);
+  --tag-healthcare-bg:     color-mix(in srgb, var(--indigo-400) 5%, transparent);
+  --tag-healthcare-border: color-mix(in srgb, var(--indigo-400) 12%, transparent);
+
+  --tag-cleaning-text:   var(--purple-300);
+  --tag-cleaning-bg:     color-mix(in srgb, var(--purple-300) 5%, transparent);
+  --tag-cleaning-border: color-mix(in srgb, var(--purple-300) 12%, transparent);
+
+  /* ── OVERLAYS & SHADOWS ───────────────────────────────────────── */
+  --tooltip-bg:        color-mix(in srgb, var(--gray-900) 94.9%, transparent);
+  --overlay-scrim:     color-mix(in srgb, var(--black) 85%, transparent);
+  --shadow-card-hover: 0 8px 24px color-mix(in srgb, var(--black) 4%, transparent);
+  --shadow-tooltip:    0 12px 24px color-mix(in srgb, var(--black) 20%, transparent);
+
+  /* ── LAYOUT & RHYTHM ──────────────────────────────────────────── */
+  --layout-max-width:      1512px;   /* design canvas width */
+  --layout-max-width-wide: 1920px;   /* cap on very large screens */
+  --wrap-padding-x:        var(--space-28);
+  --section-space:         var(--space-90);    /* default section padding */
+  --scroll-offset:         76px;               /* anchor offset under sticky nav */
+  --scroll-offset-mobile:  130px;              /* under the two-row mobile nav */
+
+  /* ── SHAPE (recurring radii by role) ──────────────────────────── */
+  --radius-card:   var(--radius-16);   /* contact cards, media cards */
+  --radius-media:  var(--radius-8);    /* screenshots inside showcases */
+  --radius-button: var(--radius-9);    /* rectangular buttons */
+  --radius-pill:   var(--radius-full); /* round buttons, pills, tags */
+}

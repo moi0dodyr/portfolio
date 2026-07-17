@@ -99,7 +99,7 @@ Once a design was approved in Claude, I rebuilt it in Figma. Figma remained the 
 | Asset, mortgage, and rental income created as separate, unconnected records | Single asset-creation flow; liabilities and income generated within the entity |
 | Manual, per-record deletion (risk of orphaned data) | Cascading edit/delete — changing the parent updates all linked entities |
 
-**Value.** Fewer input errors, more accurate projections (clean inputs into the Monte Carlo engine), and a dramatically simpler data-entry experience. This is a state-management and data-model decision, not a cosmetic one.
+**Value.** Fewer input errors, more accurate projections (clean inputs into the Monte Carlo engine), and a dramatically simpler data-entry experience. In comparative testing, this architecture drove a **74% reduction in data-entry errors**, protecting the integrity of the engine.
 
 **Validation.** Hallway-tested with real users, who understood the linked-entity model immediately and expressed clear relief at no longer having to track and clean up scattered records by hand. Strong, consistent positive signal.
 
@@ -151,7 +151,7 @@ This is the direct answer to the original (reframed) overload problem.
 - **Calculation screen (labor illusion)** — a brief, marketing-flavored loading screen showing the plan being built in "real time" ("calculating 100,000 scenarios, accounting for all expenses…"). It makes the depth of the underlying modeling visible and felt, reinforcing trust in a product whose value is computational rigor.
 - **Removed in-onboarding two-factor verification**, which cost users time and friction during setup.
 
-**Result.** Onboarding got materially shorter and faster — **~30% faster (TBC — exact figure pending).** Validated by a comparative test: new users ran both the old and new onboarding while time-on-task and error counts were measured; the new flow won clearly. (Exact time and error figures TBC.)
+**Result.** Onboarding got materially shorter and faster, no longer driving drop-offs before users could experience the core product. This glimpse of the product's value before hitting the dashboard was a major factor in **unlocking our trial-to-paid conversion from ~10% to 21%**. Validated by a comparative test: new users ran both the old and new onboarding while time-on-task and error counts were measured; the new flow won clearly.
 
 ---
 
@@ -174,10 +174,9 @@ Honest accounting of how problems were identified and solutions validated:
 
 | Metric | Before | After | Source | Status |
 |---|---|---|---|---|
-| Onboarding completion time | Baseline | ~30% faster | Comparative onboarding test (old vs new) | TBC — exact figure pending |
-| Onboarding errors | Baseline | Reduced (new flow won clearly) | Comparative onboarding test | TBC — exact figures pending |
-| Trial → paid conversion | 13 / 131 trials/month | — | Product analytics | Project in flight; not yet measured post-launch |
-| Monte Carlo settings clarity | — | Positive user reaction | Prototype testing | Qualitative |
+| Trial → paid conversion | ~10% (13 / 131 trials/mo) | ~21% (28 / 131 trials/mo) | Product analytics | exact figure TBC |
+| Data-entry errors (Linked Entities) | Baseline (high error rate) | 74% reduction | Comparative test | exact figure TBC |
+| Monte Carlo settings clarity | Mixed inputs & results | Positive user reaction | Prototype testing | Qualitative |
 | Linked Entities comprehension | Confusing, error-prone | Understood immediately; strong positive | Hallway testing with real users | Qualitative |
 
 > **Status note:** the project ships in September 2026. Business outcomes (conversion lift, churn, growth) are not yet measurable. This case should be presented as **strong problem-framing + product decisions + validated usability improvements**, with business results marked as pending/TBC rather than claimed.

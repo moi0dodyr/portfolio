@@ -1,0 +1,157 @@
+/* ════════════════════════════════════════════════════════════════════
+   CASE HERO — the skim layer at the top of a case page
+   ════════════════════════════════════════════════════════════════════
+   Identity row (logo + name + dates), headline, lead, the fact table,
+   the status pill and the full-width hero image.
+   (The .backlink pill above it lives in components/buttons.css.)
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Case identity row ── */
+.case-id {
+  display: flex;
+  align-items: center;
+  gap: var(--space-14);
+  margin-bottom: var(--space-8);
+}
+
+.case-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-10);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ── Text column next to the logo: name above, dates below ── */
+.case-id-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--space-2);
+}
+
+.case-dates {
+  font-size: var(--font-size-14);
+  color: var(--text-muted);
+  line-height: var(--line-height-snug);
+}
+
+/* ── Case hero ── */
+.case-hero {
+  padding-bottom: var(--space-24);
+}
+
+.case-hero .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.case-hero h1 {
+  font-size: clamp(30px, 4.6vw, 46px);
+  max-width: 900px;
+  margin-top: var(--space-8);
+}
+
+.case-hero .lead {
+  margin-top: var(--space-20);
+  max-width: 760px;
+}
+
+/* ── Case facts (the skim layer: a sleek spec table under the title —
+   small muted label on the left, value on the same line, hairline
+   divider between rows, no card container) ── */
+.case-facts {
+  width: 100%;
+  max-width: 840px;
+  margin-top: var(--space-48);
+  text-align: left;
+}
+
+.fact-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-32);
+  align-items: baseline;
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.fact-row:first-child {
+  border-top: 1px solid var(--border-default);
+}
+
+.fact-label {
+  font-size: var(--font-size-12);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-relaxed);
+}
+
+.fact-value {
+  font-size: var(--font-size-15-5);
+  color: var(--text-primary);
+  line-height: var(--line-height-relaxed);
+}
+
+.fact-value b {
+  font-weight: var(--font-weight-650);
+  letter-spacing: -.01em;
+}
+
+.fact-note {
+  color: var(--text-muted);
+  font-size: var(--font-size-13-5);
+}
+
+/* ── Status pill (TBC / in development / ships date) ── */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--radius-pill);
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: .03em;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.status-pill.neutral {
+  background: var(--surface-tint);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+
+/* ── Case hero image ── */
+.case-hero-image-section {
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-60);
+}
+
+.case-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.case-hero-image-section figcaption {
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  /* Stack the fact table: label above its value */
+  .fact-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-14) 0;
+  }
+}

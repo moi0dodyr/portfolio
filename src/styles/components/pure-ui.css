@@ -1,0 +1,68 @@
+/* ════════════════════════════════════════════════════════════════════
+   PURE UI — the Dribbble shots section on the home page
+   ════════════════════════════════════════════════════════════════════ */
+
+.pure-ui-section {
+  background: transparent;
+  padding: var(--space-140) 0;
+}
+
+.pure-ui-section .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pure-ui-desc {
+  max-width: 60ch;
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-40);
+  color: var(--text-subtle);
+}
+
+.pure-ui-media {
+  width: 100%;
+  position: relative;
+}
+
+.pure-ui-frame {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.pure-ui-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fades the bottom of the image into the page background */
+.pure-ui-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--surface-page) 0%, transparent) 0%,
+    var(--surface-page) 100%);
+  pointer-events: none;
+}
+
+.pure-ui-cta {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-content);
+  /* Absolutely-positioned + left:50% leaves only half the container
+     to lay out in, so without this the label wraps into a tall blob. */
+  white-space: nowrap;
+}
+
+@media(max-width:760px) {
+  .pure-ui-section {
+    padding: var(--space-90) 0;
+  }
+}

@@ -1,11 +1,6 @@
-// Stylesheet imports (Vite will bundle these)
+// Single stylesheet entry — src/styles/main.css imports the token
+// collections, base styles and every component (Vite bundles them).
 import './styles/main.css';
-import './styles/navbar.css';
-import './styles/hero.css';
-import './styles/projects.css';
-import './styles/elements.css';
-import './styles/subpages.css';
-import './styles/footer.css';
 
 // Language switcher logic
 import { initI18n } from './i18n.js';

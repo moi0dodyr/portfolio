@@ -1,0 +1,75 @@
+/* ── LAYOUT — page shell, section rhythm, small utilities ─────────── */
+
+.wrap {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--wrap-padding-x);
+}
+
+section {
+  padding: var(--section-space) 0;
+  scroll-margin-top: var(--scroll-offset);
+}
+
+.divider {
+  border-top: 1px solid var(--border-default);
+}
+
+.band {
+  background: var(--surface-tint);
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+/* UTILS — small spacing helpers */
+.mb24 {
+  margin-bottom: var(--space-24);
+}
+
+.mb12 {
+  margin-bottom: var(--space-12);
+}
+
+.mt8 {
+  margin-top: var(--space-10);   /* historic name; renders 10px */
+}
+
+.mt12 {
+  margin-top: var(--space-12);
+}
+
+.mt16 {
+  margin-top: var(--space-16);
+}
+
+/* PAGE FADE-IN ANIMATION */
+.page {
+  animation: fade .25s var(--ease-default);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The mobile navbar is two rows (~115px), taller than the desktop one,
+   so anchors need a bigger offset or headings land hidden behind it. */
+@media (max-width: 760px) {
+  section {
+    scroll-margin-top: var(--scroll-offset-mobile);
+  }
+}
+
+/* 1513–1920: proportional scaling */
+@media (min-width: 1513px) {
+  .wrap {
+    max-width: var(--layout-max-width-wide);
+  }
+}

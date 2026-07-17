@@ -1,0 +1,372 @@
+/* ════════════════════════════════════════════════════════════════════
+   PROJECT SHOWCASE — the two big work sections on the home page
+   ════════════════════════════════════════════════════════════════════
+   .project-section  the full-bleed section (dark = Ticket Fairy,
+                     light = WealthTrace)
+   .tf-*             layout shared by both showcases (sticky caption,
+                     narrow text column + wide screenshot column)
+   .project-tags     the small chips (colors from --tag-* aliases)
+   .project-metrics  the metric value + label pairs
+   ════════════════════════════════════════════════════════════════════ */
+
+#work {
+  scroll-margin-top: var(--nav-height);
+}
+
+.project-section {
+  padding: var(--space-100) 0;
+  transition: background-color var(--duration-medium) var(--ease-default);
+  overflow: hidden;
+}
+
+.project-section.dark-theme {
+  background: var(--surface-dark);
+  color: var(--text-inverse);
+}
+
+.project-section.light-theme {
+  background: var(--surface-card);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: var(--space-60);
+  align-items: center;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-kicker {
+  font-size: var(--font-size-13-5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-muted);
+}
+
+.project-title {
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: var(--font-weight-850);
+  letter-spacing: -0.025em;
+  margin-bottom: var(--space-18);
+  margin-top: 0;
+}
+
+.dark-theme .project-title {
+  color: var(--text-inverse);
+}
+
+.light-theme .project-title {
+  color: var(--text-primary);
+}
+
+.project-desc {
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-body);
+  margin-bottom: var(--space-28);
+  margin-top: 0;
+}
+
+.dark-theme .project-desc {
+  color: var(--text-soft-dark);
+}
+
+.light-theme .project-desc {
+  color: var(--text-secondary);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
+.project-tags span {
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-none);
+  color: var(--tag-tf-text);
+  background: var(--tag-tf-bg);
+  border: 1px solid var(--tag-tf-border);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-6);
+}
+
+.wt-section .project-tags span {
+  color: var(--tag-wt-text);
+  background: var(--tag-wt-bg);
+  border-color: var(--tag-wt-border);
+}
+
+.project-metrics {
+  display: flex;
+  gap: var(--space-40);
+  margin-bottom: var(--space-32);
+}
+
+.tf-section .project-metrics,
+.wt-section .project-metrics {
+  margin-bottom: var(--space-32);
+}
+
+.project-metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.metric-val {
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-750);
+  letter-spacing: -0.015em;
+}
+
+.dark-theme .metric-val {
+  color: var(--text-inverse);
+}
+
+.light-theme .metric-val {
+  color: var(--text-primary);
+}
+
+.metric-desc {
+  font-size: var(--font-size-13-5);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+/* CTA row under the description ("Read case →" + coming-soon label) */
+.project-action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.coming-soon {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.7;
+  color: var(--text-disabled);
+}
+
+/* RESPONSIVE PROJECTS */
+@media(max-width:1024px) {
+  .project-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-40);
+  }
+
+  .tf-container {
+    gap: var(--space-48);
+  }
+}
+
+/* ============================
+   TICKET FAIRY SECTION
+   ============================ */
+
+/* Section background */
+.tf-section {
+  background: var(--surface-dark-deepest) url('../../assets/TF_bg.png') top right / cover no-repeat !important;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-16) !important;
+  padding-bottom: 0 !important;
+}
+
+.wt-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-48) !important;
+  padding-bottom: 0 !important;
+}
+
+/* Sticky caption bar */
+.tf-sticky-caption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-caption);
+  padding: var(--space-16) 0;
+  margin-bottom: var(--space-12);
+}
+
+/* Layout: narrow text left, wide showcase right */
+.tf-container {
+  grid-template-columns: 0.75fr 1.6fr;
+  gap: var(--space-48);
+  align-items: start;
+}
+
+/* Content side */
+.tf-content {
+  position: relative;
+  z-index: var(--z-content);
+  margin-top: var(--space-48);
+}
+
+/* TF headline from Figma */
+.tf-section .project-title,
+.wt-section .project-title {
+  font-size: var(--font-size-22);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  letter-spacing: -0.22px;
+  margin-bottom: 0;
+}
+
+.tf-section .project-title {
+  color: var(--text-inverse);
+}
+
+.wt-section .project-title {
+  color: var(--text-primary);
+}
+
+/* Stacked kicker + title text */
+.tf-caption-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* TF kicker (text above headline) */
+.tf-section .project-kicker,
+.wt-section .project-kicker {
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-none);
+  color: var(--text-subtle);
+}
+
+/* TF body text */
+.tf-section .project-desc,
+.wt-section .project-desc {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--text-subtle);
+  margin-bottom: var(--space-20);
+  margin-top: 0;
+}
+
+/* TF metric description (same as body) */
+.tf-section .metric-desc,
+.wt-section .metric-desc {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  color: var(--text-subtle);
+}
+
+/* TF metric numbers */
+.tf-section .metric-val,
+.wt-section .metric-val {
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  letter-spacing: -0.2px;
+}
+
+.tf-section .metric-val {
+  color: var(--text-inverse);
+}
+
+.wt-section .metric-val {
+  color: var(--text-primary);
+}
+
+/* Logo image */
+.project-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* Product showcase */
+.tf-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  position: relative;
+  z-index: var(--z-content);
+  padding-top: 0;
+}
+
+.tf-showcase-laptop {
+  width: 100%;
+}
+
+.tf-showcase-laptop img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-media);
+}
+
+.tf-showcase-mobiles {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-16);
+  margin-left: 10%;
+  margin-right: 10%;
+  align-items: flex-start;
+}
+
+/* All mobile frames (TF and WT) are equal width and height */
+.tf-mobile-frame,
+.wt-mobile-frame {
+  flex: 0 0 calc((100% - 32px) / 3);
+  overflow: hidden;
+  border-radius: var(--radius-media) var(--radius-media) 0 0;
+  aspect-ratio: 3 / 4.5;
+}
+
+.tf-mobile-frame img,
+.wt-mobile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ============================
+   TF RESPONSIVE
+   ============================ */
+@media (max-width: 1024px) {
+  .tf-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-48);
+  }
+
+  .tf-content {
+    order: 1;
+  }
+
+  .tf-showcase {
+    order: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  .tf-showcase-mobiles {
+    gap: var(--space-10);
+  }
+
+  /* Match the taller two-row mobile navbar */
+  #work {
+    scroll-margin-top: var(--scroll-offset-mobile);
+  }
+}
