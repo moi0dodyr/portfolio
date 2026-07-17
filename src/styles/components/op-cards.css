@@ -1,0 +1,238 @@
+/* ════════════════════════════════════════════════════════════════════
+   OTHER PRODUCTS — image cards + cursor tooltip + lightbox
+   ════════════════════════════════════════════════════════════════════
+   The inline .op-card-tooltip markup inside each card is hidden and
+   used only as a data source; JS (src/main.js) clones it into the
+   floating .global-op-tooltip and opens the .lightbox-overlay.
+   ════════════════════════════════════════════════════════════════════ */
+
+.other-products {
+  padding-top: var(--space-200);
+  padding-bottom: 0;
+}
+
+.op-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.op-subtitle {
+  font-size: var(--font-size-15);
+  color: var(--text-subtle);
+  text-align: center;
+  margin-bottom: var(--space-48);
+}
+
+/* Grid rows */
+.op-row {
+  display: grid;
+  gap: var(--space-24);
+}
+
+.op-row-top {
+  grid-template-columns: 5fr 7fr;
+  margin-bottom: var(--space-48);
+}
+
+.op-row-bottom {
+  grid-template-columns: 1fr;
+}
+
+/* Card */
+.op-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.op-card-image {
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-media);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.op-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide the inline tooltip elements, we use them only as data sources */
+.op-card-tooltip {
+  display: none;
+}
+
+/* Global Tooltip for Other Products */
+.global-op-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--tooltip-bg);
+  backdrop-filter: blur(12px);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-2) var(--radius-12) var(--radius-12) var(--radius-12);
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--z-tooltip);
+  transition: opacity var(--duration-fast) var(--ease-default);
+  border: 1px solid var(--border-on-dark);
+  box-shadow: var(--shadow-tooltip);
+  width: max-content;
+}
+
+.global-op-tooltip.visible {
+  opacity: 1;
+}
+
+/* Tooltip internal text overrides */
+.global-op-tooltip .op-card-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-bottom: var(--space-4);
+}
+
+.global-op-tooltip .op-card-name {
+  color: var(--text-inverse);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+}
+
+.global-op-tooltip .op-card-desc {
+  color: var(--text-on-dark-soft);
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+/* Tags within tooltip */
+.global-op-tooltip .op-tag {
+  font-size: var(--font-size-13);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-none);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-6);
+}
+
+.global-op-tooltip .op-tag-fintech {
+  color: var(--tag-fintech-text);
+  background: var(--tag-fintech-bg);
+  border: 1px solid var(--tag-fintech-border);
+}
+
+.global-op-tooltip .op-tag-healthcare {
+  color: var(--tag-healthcare-text);
+  background: var(--tag-healthcare-bg);
+  border: 1px solid var(--tag-healthcare-border);
+}
+
+.global-op-tooltip .op-tag-cleaning {
+  color: var(--tag-cleaning-text);
+  background: var(--tag-cleaning-bg);
+  border: 1px solid var(--tag-cleaning-border);
+}
+
+/* Fullscreen Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--overlay-scrim);
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--duration-medium) var(--ease-default);
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.visible {
+  opacity: 1;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-media);
+  transform: scale(0.95);
+  transition: transform var(--duration-medium) var(--ease-default);
+}
+
+.lightbox-overlay.visible img {
+  transform: scale(1);
+}
+
+/* Card info row: name + tag */
+.op-card-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.op-card-name {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  line-height: var(--line-height-none);
+}
+
+/* Tags */
+.op-tag {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-4);
+}
+
+.op-tag-fintech {
+  color: var(--tag-fintech-text);
+  background: var(--tag-fintech-bg);
+  border: 1px solid var(--tag-fintech-border);
+}
+
+.op-tag-healthcare {
+  color: var(--tag-healthcare-text);
+  background: var(--tag-healthcare-bg);
+  border: 1px solid var(--tag-healthcare-border);
+}
+
+.op-tag-cleaning {
+  color: var(--tag-cleaning-text);
+  background: var(--tag-cleaning-bg);
+  border: 1px solid var(--tag-cleaning-border);
+}
+
+/* Description */
+.op-card-desc {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-subtle);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:760px) {
+  .op-row-top {
+    grid-template-columns: 1fr;
+  }
+
+  /* Desktop-scale gaps read as empty screens on a phone */
+  .other-products {
+    padding-top: var(--space-100);
+  }
+}

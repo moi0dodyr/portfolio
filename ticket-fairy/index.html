@@ -13,14 +13,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://stepanchykov.com/ticket-fairy/">
 
-  <!-- Theme color for mobile browser chrome -->
-  <meta name="theme-color" content="#0a0a0a">
-
-  <!-- Favicons (generated from profile photo) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  {{> head-meta}}
 
   <!-- Open Graph / Social share preview -->
   <meta property="og:type" content="article">
@@ -42,45 +35,11 @@
     content="Redesigning the revenue engine of an event-ticketing platform: event creation flow, design system, artist management.">
   <meta name="twitter:image" content="https://stepanchykov.com/og-image.png">
 
-  <!-- Fonts: preconnect makes the font arrive sooner than the old CSS @import -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-
-  <script type="module" src="/src/main.js"></script>
+  {{> head-assets}}
 </head>
 
 <body>
-  <nav>
-    <div class="nav-blur-container">
-      <div class="blur-layer layer-1"></div>
-      <div class="blur-layer layer-2"></div>
-      <div class="blur-layer layer-3"></div>
-      <div class="blur-layer layer-4"></div>
-      <div class="blur-layer layer-5"></div>
-    </div>
-    <div class="wrap">
-      <a class="brand" href="/">Oleg Stepanchykov</a>
-
-      <div class="lang-selector">
-        <a href="#" class="lang-link active" data-lang="en">
-          <img src="/src/assets/uk-flag.svg" alt="EN flag" class="flag-icon">
-          <span>EN</span>
-        </a>
-        <a href="#" class="lang-link" data-lang="uk">
-          <img src="/src/assets/ua-flag.svg" alt="UA flag" class="flag-icon">
-          <span>UA</span>
-        </a>
-      </div>
-
-      <div class="navlinks">
-        <a href="/#work" data-i18n="selected_works">Selected Works</a>
-        <a href="/#contact" data-i18n="contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1wBdOFVCf-0NnUlVgXXkUc5pPI4wQ2tGC/view?usp=sharing" target="_blank" rel="noopener" class="btn-cv">CV</a>
-      </div>
-    </div>
-  </nav>
+  {{> navbar}}
 
   <main class="page">
     <article>
@@ -522,12 +481,7 @@
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div data-i18n="2026_oleg_stepanchykov_product_designer">© 2026 Oleg Stepanchykov · Product Designer</div>
-      <div>stepanchykov.o@gmail.com</div>
-    </div>
-  </footer>
+  {{> footer}}
 
 
 </body>

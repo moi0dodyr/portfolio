@@ -13,21 +13,13 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://stepanchykov.com/">
 
-  <!-- Theme color for mobile browser chrome -->
-  <meta name="theme-color" content="#0a0a0a">
-
-  <!-- Favicons (generated from profile photo) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  {{> head-meta}}
 
   <!-- Open Graph / Social share preview (LinkedIn, Telegram, Facebook, etc.) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stepanchykov.com/">
   <meta property="og:title" content="Oleg Stepanchykov — Product Designer">
-  <meta property="og:description"
-    content="I turn complex B2B and fintech products into something clear and usable.">
+  <meta property="og:description" content="I turn complex B2B and fintech products into something clear and usable.">
   <meta property="og:image" content="https://stepanchykov.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -39,8 +31,7 @@
   <meta name="twitter:site" content="@stepanchykov">
   <meta name="twitter:creator" content="@stepanchykov">
   <meta name="twitter:title" content="Oleg Stepanchykov — Product Designer">
-  <meta name="twitter:description"
-    content="I turn complex B2B and fintech products into something clear and usable.">
+  <meta name="twitter:description" content="I turn complex B2B and fintech products into something clear and usable.">
   <meta name="twitter:image" content="https://stepanchykov.com/og-image.png">
 
   <!-- JSON-LD structured data for Google rich results -->
@@ -62,45 +53,11 @@
   }
   </script>
 
-  <!-- Fonts: preconnect makes the font arrive sooner than the old CSS @import -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-
-  <script type="module" src="/src/main.js"></script>
+  {{> head-assets}}
 </head>
 
 <body>
-  <nav>
-    <div class="nav-blur-container">
-      <div class="blur-layer layer-1"></div>
-      <div class="blur-layer layer-2"></div>
-      <div class="blur-layer layer-3"></div>
-      <div class="blur-layer layer-4"></div>
-      <div class="blur-layer layer-5"></div>
-    </div>
-    <div class="wrap">
-      <a class="brand" href="/">Oleg Stepanchykov</a>
-
-      <div class="lang-selector">
-        <a href="#" class="lang-link active" data-lang="en">
-          <img src="/src/assets/uk-flag.svg" alt="EN flag" class="flag-icon">
-          <span>EN</span>
-        </a>
-        <a href="#" class="lang-link" data-lang="uk">
-          <img src="/src/assets/ua-flag.svg" alt="UA flag" class="flag-icon">
-          <span>UA</span>
-        </a>
-      </div>
-
-      <div class="navlinks">
-        <a href="/#work" data-i18n="selected_works">Selected Works</a>
-        <a href="/#contact" data-i18n="contact">Contact</a>
-        <a href="https://drive.google.com/file/d/1wBdOFVCf-0NnUlVgXXkUc5pPI4wQ2tGC/view?usp=sharing" target="_blank" rel="noopener" class="btn-cv">CV</a>
-      </div>
-    </div>
-  </nav>
+  {{> navbar}}
 
   <main class="page">
 
@@ -185,7 +142,8 @@
               </div>
 
               <p class="project-desc" data-i18n="redesigned_the_b2b_platform_that">
-                I rebuilt the funnel around one metric — new organizers getting an event live — built the design system that ships it, and designed a new Artist Management module from zero.</p>
+                I rebuilt the funnel around one metric — event creation rate for new users — built the design system
+                that ships it, and designed a new Artist Management module from zero.</p>
 
               <div class="project-tags">
                 <span>SaaS</span>
@@ -195,7 +153,7 @@
 
               <div class="project-metrics">
                 <div class="project-metric">
-                  <span class="metric-val">20%→~26%</span>
+                  <span class="metric-val">20%→26%</span>
                   <span class="metric-desc" data-i18n="event_conversion">event conversion</span>
                 </div>
                 <div class="project-metric">
@@ -204,9 +162,10 @@
                 </div>
               </div>
 
-              <div class="project-action" style="display: flex; align-items: center; gap: 16px;">
-                <a class="btn-violet" href="javascript:void(0)" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;" title="Case is coming soon" data-i18n="read_case">Read case →</a>
-                <span style="font-size: 14px; font-weight: 500; opacity: 0.7; color: var(--text-secondary, #888);">Coming soon</span>
+              <div class="project-action">
+                <a class="btn-violet btn-disabled" href="javascript:void(0)" onclick="return false;"
+                  title="Case is coming soon" data-i18n="read_case">Read case →</a>
+                <span class="coming-soon">Coming soon</span>
               </div>
             </div>
 
@@ -257,7 +216,7 @@
               <p class="project-desc" data-i18n="wt_home_desc">
                 Rebuilt the app around the problem that was actually hurting conversion. Introduced a bunch of
                 Life-quality improvements that were liked by customers. Built Design Process around AI tools that saved
-                a lot of time.</p>
+                about 40% of time.</p>
 
               <div class="project-tags">
                 <span data-i18n="tag_fintech">Fintech</span>
@@ -267,18 +226,19 @@
 
               <div class="project-metrics">
                 <div class="project-metric">
-                  <span class="metric-val" data-i18n="whole_web_app">Whole web app</span>
-                  <span class="metric-desc" data-i18n="concept_rarr_dev_handoff">concept &rarr; dev handoff</span>
+                  <span class="metric-val" data-i18n="whole_web_app">~10% → 21%</span>
+                  <span class="metric-desc" data-i18n="concept_rarr_dev_handoff">trial-to-paid conversion</span>
                 </div>
                 <div class="project-metric">
-                  <span class="metric-val" data-i18n="30_faster">~30% faster</span>
-                  <span class="metric-desc" data-i18n="onboarding_test_tbc">onboarding (test, TBC)</span>
+                  <span class="metric-val" data-i18n="30_faster">74% reduction</span>
+                  <span class="metric-desc" data-i18n="onboarding_test_tbc">data-entry errors</span>
                 </div>
               </div>
 
-              <div class="project-action" style="display: flex; align-items: center; gap: 16px;">
-                <a class="btn-wt" href="javascript:void(0)" onclick="return false;" style="opacity: 0.5; cursor: not-allowed;" title="Case is coming soon" data-i18n="read_case">Read case →</a>
-                <span style="font-size: 14px; font-weight: 500; opacity: 0.7; color: var(--text-secondary, #888);">Coming soon</span>
+              <div class="project-action">
+                <a class="btn-wt btn-disabled" href="javascript:void(0)" onclick="return false;"
+                  title="Case is coming soon" data-i18n="read_case">Read case →</a>
+                <span class="coming-soon">Coming soon</span>
               </div>
             </div>
 
@@ -294,8 +254,7 @@
                     loading="lazy">
                 </div>
                 <div class="wt-mobile-frame">
-                  <img src="/src/assets/WT01.png" alt="WealthTrace mobile view" width="491" height="946"
-                    loading="lazy">
+                  <img src="/src/assets/WT01.png" alt="WealthTrace mobile view" width="491" height="946" loading="lazy">
                 </div>
                 <div class="wt-mobile-frame">
                   <img src="/src/assets/WT03.png" alt="WealthTrace Monte Carlo settings" width="491" height="946"
@@ -376,7 +335,7 @@
         <p class="pure-ui-desc" data-i18n="pure_ui_desc">
           A collection of pieces I made purely to practice UI skills. They're not perfect, but I enjoyed
           making them — and each one has its own little story.
-</p>
+        </p>
         <div class="pure-ui-media">
           <div class="pure-ui-frame">
             <img src="/src/assets/dribble.png" alt="Pure UI Works" width="2864" height="1770" loading="lazy">
@@ -398,12 +357,16 @@
       <div class="wrap split">
         <div class="contact-text">
           <h2 class="contact-title" data-i18n="lets_talk">Let's talk.</h2>
-          <p class="contact-subtitle" data-i18n="open_to_inhouse_product_design">Open to in-house product design roles.</p>
+          <p class="contact-subtitle" data-i18n="open_to_inhouse_product_design">Open to in-house product design roles.
+          </p>
         </div>
         <div class="contact-links">
           <a class="contact-card" href="mailto:stepanchykov.o@gmail.com">
             <div class="contact-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
             </div>
             <div class="contact-card-info">
               <span class="contact-card-title">Email</span>
@@ -411,9 +374,13 @@
             </div>
             <span class="arrow">↗</span>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/oleg-stepanchykov-358962212/" target="_blank" rel="noopener">
+          <a class="contact-card" href="https://www.linkedin.com/in/oleg-stepanchykov-358962212/" target="_blank"
+            rel="noopener">
             <div class="contact-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
             </div>
             <div class="contact-card-info">
               <span class="contact-card-title">LinkedIn</span>
@@ -421,9 +388,14 @@
             </div>
             <span class="arrow">↗</span>
           </a>
-          <a class="contact-card" href="https://drive.google.com/file/d/1wBdOFVCf-0NnUlVgXXkUc5pPI4wQ2tGC/view?usp=sharing" target="_blank" rel="noopener">
+          <a class="contact-card"
+            href="https://drive.google.com/file/d/1wBdOFVCf-0NnUlVgXXkUc5pPI4wQ2tGC/view?usp=sharing" target="_blank"
+            rel="noopener">
             <div class="contact-card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+              </svg>
             </div>
             <div class="contact-card-info">
               <span class="contact-card-title" data-i18n="resume_pdf">Resume (PDF)</span>
@@ -436,12 +408,7 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <div data-i18n="2026_oleg_stepanchykov_product_designer">© 2026 Oleg Stepanchykov · Product Designer</div>
-      <div>stepanchykov.o@gmail.com</div>
-    </div>
-  </footer>
+  {{> footer}}
 
 
 </body>

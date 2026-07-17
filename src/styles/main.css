@@ -1,185 +1,35 @@
-/* The Inter font is loaded via <link> tags in the <head> of each page
-   (faster than a CSS @import, which blocks rendering). */
+/* ════════════════════════════════════════════════════════════════════
+   ENTRY POINT — imports the whole design system, in cascade order
+   ════════════════════════════════════════════════════════════════════
+   1. tokens/      the two variable collections:
+                   globals.css  — primitives (raw colors, type scale,
+                                  spacing, radii, motion)
+                   aliases.css  — semantic tokens used by components
+   2. base/        reset, master text styles, page layout & rhythm
+   3. components/  one file per component, all built on the tokens
 
-:root {
-  --ink: #16181d;
-  --ink-soft: #43474f;
-  --muted: #8E929C;
-  --line: #e5e7ea;
-  --bg: #FBFBF9;
-  --card: #ffffff;
-  --accent: #e60000;
-  --accent-soft: #fff0f0;
-  --tint: #f4f5f1;
-  --ph-bg: #f3f4f2;
-  --ph-line: #c7cbcf;
-  --maxw: 1512px;
-  --radius: 14px;
-}
+   The import order matters: later files may refine earlier ones
+   (e.g. case pages refine the generic figure styles). Add new
+   component files at the position that matches where they appear
+   in the page flow.
+   ════════════════════════════════════════════════════════════════════ */
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import './tokens/globals.css';
+@import './tokens/aliases.css';
 
-html {
-  scroll-behavior: smooth;
-}
+@import './base/reset.css';
+@import './base/typography.css';
+@import './base/layout.css';
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.62;
-  -webkit-font-smoothing: antialiased;
-}
-
-.wrap {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 28px;
-}
-
-a {
-  color: inherit;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.13;
-  letter-spacing: -0.03em;
-  font-weight: 600;
-}
-
-h1 {
-  font-size: clamp(34px, 5.2vw, 58px);
-  font-weight: 750;
-}
-
-h2 {
-  font-size: clamp(24px, 3.2vw, 34px);
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 19px;
-  font-weight: 640;
-}
-
-p {
-  color: var(--ink-soft);
-  font-size: 17px;
-}
-
-.lead {
-  font-size: clamp(18px, 2.2vw, 21px);
-  color: var(--ink-soft);
-}
-
-.eyebrow {
-  font-size: 12.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--ink);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 9px;
-  font-size: 14px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  font-weight: 520;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.btn.ghost {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--line);
-}
-
-.btn:hover {
-  opacity: .9;
-  transform: translateY(-1px);
-}
-
-.btn.ghost:hover {
-  border-color: var(--ink);
-  background: var(--tint);
-}
-
-section {
-  padding: 90px 0;
-  scroll-margin-top: 76px;
-}
-
-.divider {
-  border-top: 1px solid var(--line);
-}
-
-.band {
-  background: var(--tint);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-/* UTILS — small spacing helpers */
-.mb24 {
-  margin-bottom: 24px;
-}
-
-.mb12 {
-  margin-bottom: 12px;
-}
-
-.mt8 {
-  margin-top: 10px;
-}
-
-.mt12 {
-  margin-top: 12px;
-}
-
-.mt16 {
-  margin-top: 16px;
-}
-
-/* PAGE FADE-IN ANIMATION */
-.page {
-  animation: fade .25s ease;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* The mobile navbar is two rows (~115px), taller than the desktop one,
-   so anchors need a bigger offset or headings land hidden behind it. */
-@media (max-width: 760px) {
-  section {
-    scroll-margin-top: 130px;
-  }
-}
-
-/* 1513–1920: proportional scaling */
-@media (min-width: 1513px) {
-  .wrap {
-    max-width: 1920px;
-  }
-}
+@import './components/buttons.css';
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/project-showcase.css';
+@import './components/placeholder.css';
+@import './components/op-cards.css';
+@import './components/pure-ui.css';
+@import './components/contact.css';
+@import './components/case-hero.css';
+@import './components/case-layout.css';
+@import './components/case-content.css';
+@import './components/footer.css';

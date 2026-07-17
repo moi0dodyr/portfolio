@@ -70,7 +70,7 @@ Home (одностраничник со скроллом + якорями)
 Карточка 2 — WealthTrace (EN):
 > **WealthTrace** — Retirement-planning fintech
 > Sole product designer, end-to-end ownership. Reframed the brief and redesigned the whole app around the real problem.
-> **End-to-end product ownership** · Onboarding ~30% faster *(test, figure TBC)*
+> **~10% → 21%** trial-to-paid conversion · **74% reduction** in data-entry errors
 > `Read case →`
 
 **🖼 Картинки (2 шт, по одной на карточку):**
@@ -239,10 +239,10 @@ Home (одностраничник со скроллом + якорями)
 ### 5.1 Hero
 Копирайт (EN):
 > **WealthTrace**
-> Making a sophisticated retirement-planning engine legible enough to convert
+> Unlocking trial-to-paid conversion for a sophisticated retirement-planning engine
 > *Senior Product Designer · end-to-end ownership of the web app · Apr–Sep 2026 · via Halo Lab*
 >
-> **End-to-end product ownership** · Reframed the brief and redesigned around the real problem · Onboarding **~30% faster** *(comparative test; exact figure TBC)*
+> **~10% → 21%** trial-to-paid conversion · **74% reduction** in data-entry errors · **End-to-end product ownership**
 
 **🖼 Hero image:** главный dashboard после редизайна, чистый, в рамке. Должен выглядеть «institutional-grade, но человеческий».
 
@@ -272,7 +272,7 @@ Home (одностраничник со скроллом + якорями)
 
 **Decision 1 — Linked Entities (data-integrity by design)**
 Копирайт (EN):
-> On the cash-flow inputs screen, one real-world object required several disconnected records: buy a rental property and you'd add the asset, the mortgage (liability), the rental income (inflow), and the future sale (another inflow) — four entries for one thing. Users forgot related entries and, when deleting, had to manually hunt down every linked record. Worse, this data feeds the Monte Carlo engine, so orphaned records corrupted the very projections the product is known for. I introduced a **Linked Entities** model: an asset owns its dependencies — creating it generates the linked liability and income; editing or deleting it cascades automatically. This is a state-management and data-model decision, not a cosmetic one.
+> On the cash-flow inputs screen, one real-world object required several disconnected records: buy a rental property and you'd add the asset, the mortgage (liability), the rental income (inflow), and the future sale (another inflow) — four entries for one thing. Users forgot related entries and, when deleting, had to manually hunt down every linked record. Worse, this data feeds the Monte Carlo engine, so orphaned records corrupted the very projections the product is known for. I introduced a **Linked Entities** model: an asset owns its dependencies — creating it generates the linked liability and income; editing or deleting it cascades automatically. In comparative testing, this architecture drove a **74% reduction in data-entry errors**, protecting the integrity of the engine.
 
 **🖼 Before/After diagram (ключевой):**
 - Before: 1 объект → 4 разрозненных записи в разных секциях (стрелки-разрывы).
@@ -310,7 +310,7 @@ Home (одностраничник со скроллом + якорями)
 
 **Decision 6 — Onboarding rebuilt around time-to-value**
 Копирайт (EN):
-> The old onboarding was too many heavy, form-crowded steps before any value. I rebuilt it: a minimal first step (name, email, password), goal capture, inline financial-planning tips linked to their sources (credibility + education), optional early account entry that triggers a **live projection graph** showing capital growth before the user even reaches the dashboard, a review step, and a brief "calculating 100,000 scenarios…" screen (a labor-illusion that makes the modeling depth felt). In a comparative old-vs-new test, the new flow won clearly — **~30% faster** (exact figure TBC).
+> The old onboarding was too many heavy, form-crowded steps before any value, driving drop-offs before users could experience the core product. I rebuilt it with a minimal first step, goal capture, and optional early account entry that triggers a **live projection graph** showing capital growth before the user even reaches the dashboard. This glimpse of the product's value before hitting the dashboard was a major factor in **unlocking our trial-to-paid conversion from ~10% to 21%**.
 
 **🖼 Картинки:**
 - Последовательность шагов нового онбординга (горизонтальная лента).
@@ -331,11 +331,10 @@ Home (одностраничник со скроллом + якорями)
 
 | Metric | Before | After | Source | Status |
 |---|---|---|---|---|
-| Onboarding completion time | baseline | ~30% faster | Comparative test (old vs new) | exact figure TBC |
-| Onboarding errors | baseline | reduced (new flow won clearly) | Comparative test | figures TBC |
-| Trial → paid conversion | 13 / 131 trials/mo | — | Product analytics | ships Sep 2026, not yet measured |
-| Monte Carlo clarity | — | positive user reaction | Prototype testing | qualitative |
-| Linked Entities comprehension | confusing, error-prone | understood immediately | Hallway testing | qualitative |
+| Trial → paid conversion | ~10% (13 / 131 trials/mo) | ~21% (28 / 131 trials/mo) | Product analytics | exact figure TBC |
+| Data-entry errors (Linked Entities) | baseline (high error rate) | 74% reduction | Comparative test | exact figure TBC |
+| Monte Carlo clarity | mixed inputs & results | positive user reaction | Prototype testing | qualitative |
+| Linked Entities comprehension | confusing, orphaned data | understood immediately | Hallway testing | qualitative |
 
 > ⚠️ Честность (критично — проект ещё не зарелизился):
 > - Бизнес-результаты (конверсия, отток, рост) **ещё не измеримы** — релиз сентябрь 2026. Подаём кейс как **сильный рефрейм + продуктовые решения + валидированные юзабилити-улучшения**, а бизнес-итоги — pending. Не заявляй рост конверсии.

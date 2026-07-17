@@ -1,0 +1,134 @@
+/* ════════════════════════════════════════════════════════════════════
+   CASE LAYOUT — sticky sidebar TOC + content column + section rhythm
+   ════════════════════════════════════════════════════════════════════
+   Full-width: 220px TOC pinned to the far left of the page + wide
+   content column. Text inside stays at 760px for a readable measure;
+   figures span the full column, so images read much larger than text.
+   The scrollspy that highlights the active TOC link is in src/main.js.
+   ════════════════════════════════════════════════════════════════════ */
+
+.case-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-80);
+  align-items: start;
+  position: relative;
+  margin-top: 0;
+  padding-bottom: var(--space-100);
+}
+
+/* ── Sidebar TOC ── */
+.case-sidebar {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  padding-top: var(--space-8);
+}
+
+.case-sidebar a {
+  font-size: var(--font-size-14);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default),
+              border-color var(--duration-fast) var(--ease-default);
+  line-height: var(--line-height-base);
+  padding: var(--space-4) 0 var(--space-4) var(--space-14);
+  border-left: 2px solid transparent;
+}
+
+.case-sidebar a:hover {
+  color: var(--text-primary);
+  border-left-color: var(--text-primary);
+}
+
+.case-sidebar a.active {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  border-left-color: var(--accent);
+}
+
+/* ── Main content column ── */
+.case-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Case sections ── */
+.case-section {
+  padding-bottom: 88px;
+  scroll-margin-top: 96px;
+}
+
+.case-section:last-of-type {
+  padding-bottom: 0;
+}
+
+.case-content .case-section {
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--space-72);
+}
+
+.case-content .case-section:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+/* decisions container section: cards carry their own borders */
+.case-section.decisions-wrap > .eyebrow {
+  margin-bottom: var(--space-4);
+}
+
+/* ── Bottom nav for cases ── */
+.case-bottom-nav {
+  margin-top: var(--space-40);
+  display: flex;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .case-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-32);
+  }
+
+  .case-sidebar {
+    position: static;
+    width: 100%;
+    border-bottom: 1px solid var(--border-default);
+    padding-bottom: var(--space-20);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-12);
+  }
+
+  .case-sidebar a {
+    border-left: none;
+    padding: var(--space-4) var(--space-8);
+  }
+
+  .case-sidebar a.active {
+    border-left: none;
+    color: var(--accent);
+  }
+
+  /* Without an explicit width the flex item stretches to the
+     min-content of wide children (metrics tables), pushing the whole
+     page into horizontal scroll on phones. Pinning it to 100% keeps
+     the column at the wrap width and lets tables scroll internally. */
+  .case-content {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Match the taller two-row mobile navbar */
+  .case-section {
+    scroll-margin-top: var(--scroll-offset-mobile);
+  }
+}

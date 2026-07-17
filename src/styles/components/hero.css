@@ -1,13 +1,17 @@
+/* ════════════════════════════════════════════════════════════════════
+   HERO — home page opening: split headline, photo, CTA, social row
+   ════════════════════════════════════════════════════════════════════ */
+
 .hero-section {
-  padding: 140px 0 70px;
-  background: var(--bg);
+  padding: var(--space-140) 0 70px;
+  background: var(--surface-page);
 }
 
 .hero-split-container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: flex-start;
-  gap: 36px;
+  gap: var(--space-36);
   width: 100%;
 }
 
@@ -38,24 +42,21 @@
   flex-shrink: 0;
 }
 
+/* Display text style — the only place this gray headline is used */
 .hero-title {
-  color: #8F969D;
-  font-family: 'Inter', sans-serif;
-  font-size: 56px;
+  color: var(--text-display);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-56);
   font-style: normal;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -1.12px;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -1.12px;   /* -0.02em of the 56px size */
   margin: 0;
   white-space: nowrap;
 }
 
 .shifted {
-  margin-left: 48px;
-}
-
-.text-red {
-  color: #e60000;
+  margin-left: var(--space-48);
 }
 
 .profile-container {
@@ -72,49 +73,31 @@
 }
 
 .hero-cta {
-  margin-top: 140px;
+  margin-top: var(--space-140);
   display: flex;
   justify-content: center;
-}
-
-.btn-red {
-  display: inline-block;
-  background: #e60000;
-  color: #ffffff;
-  padding: 14px 36px;
-  border-radius: 9999px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-red:hover {
-  background: #cc0000;
 }
 
 .hero-social {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: var(--space-32);
   margin-top: 34px;
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
   text-decoration: none;
-  font-size: 13.5px;
-  color: #8E929C;
-  font-weight: 550;
-  transition: color 0.2s ease;
+  font-size: var(--font-size-13-5);
+  color: var(--text-muted);
+  font-weight: var(--font-weight-550);
+  transition: color var(--duration-fast) var(--ease-default);
 }
 
 .social-link:hover {
-  color: var(--ink);
+  color: var(--text-primary);
 }
 
 .social-icon {
@@ -124,9 +107,10 @@
 }
 
 .social-link .arrow {
-  font-size: 11px;
-  color: #8E929C;
-  transition: transform 0.2s ease, color 0.2s ease;
+  font-size: var(--font-size-11);
+  color: var(--text-muted);
+  transition: transform var(--duration-fast) var(--ease-default),
+              color var(--duration-fast) var(--ease-default);
   display: inline-block;
 }
 
@@ -153,7 +137,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: var(--space-32);
     text-align: center;
   }
 
@@ -179,17 +163,17 @@
 
   .hero-center {
     order: 3;
-    margin-top: 8px;
+    margin-top: var(--space-8);
   }
 
   /* 140px of air before the CTA suits the desktop grid,
      not the stacked layout */
   .hero-cta {
-    margin-top: 56px;
+    margin-top: var(--space-56);
   }
 
   .hero-title {
-    font-size: 38px;
+    font-size: var(--font-size-38);
     letter-spacing: -0.76px;
     white-space: normal;
   }
@@ -210,7 +194,7 @@
   }
 
   .hero-social {
-    gap: 20px;
+    gap: var(--space-20);
     flex-wrap: wrap;
   }
 
@@ -219,7 +203,7 @@
   }
 
   .hero-title {
-    font-size: 28px;
+    font-size: var(--font-size-28);
     letter-spacing: -0.56px;
   }
 }

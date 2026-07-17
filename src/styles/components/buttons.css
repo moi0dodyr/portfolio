@@ -1,0 +1,187 @@
+/* ════════════════════════════════════════════════════════════════════
+   BUTTONS — every button variant on the site
+   ════════════════════════════════════════════════════════════════════
+   .btn          dark rectangular button ("Next case")
+   .btn.ghost    outlined variant of .btn
+   .btn-red      round red CTA (hero "View works", Dribbble CTA)
+   .btn-violet   Ticket Fairy gradient CTA
+   .btn-wt       WealthTrace red CTA (fixed size, matches .btn-violet)
+   .btn-allwork  tinted pill ("← All work" on case pages)
+   .backlink     tinted pill back-link at the top of case pages
+   .btn-disabled modifier: grays out a CTA that isn't clickable yet
+   (.btn-cv, the navbar CV pill, lives in components/navbar.css
+   because its colors react to the navbar's dark mode.)
+   ════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-block;
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  padding: var(--space-10) var(--space-20);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-14);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-520);
+  transition: opacity var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+}
+
+.btn:hover {
+  opacity: .9;
+  transform: translateY(-1px);
+}
+
+.btn.ghost:hover {
+  border-color: var(--text-primary);
+  background: var(--surface-tint);
+}
+
+/* ── Round red CTA ────────────────────────────────────────────────── */
+.btn-red {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text-inverse);
+  padding: var(--space-14) var(--space-36);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-15);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.btn-red:hover {
+  background: var(--accent-hover);
+}
+
+/* ── Ticket Fairy gradient CTA ────────────────────────────────────── */
+.btn-violet {
+  display: flex;
+  height: 44px;
+  min-width: 96px;
+  padding: 0px var(--space-24);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1.3px solid linear-gradient(color-mix(in srgb, var(--lavender-100) 5%, transparent) 0%,
+      var(--lavender-100) 50%,
+      color-mix(in srgb, var(--lavender-100) 5%, transparent) 100%);
+  background:
+    radial-gradient(54.09% 195.21% at 92.23% -4.17%,
+      color-mix(in srgb, var(--violet-200) 20%, transparent) 0%,
+      color-mix(in srgb, var(--violet-500) 60%, transparent) 100%),
+    radial-gradient(57.49% 47.97% at 0% 50%,
+      var(--violet-200) 0%, var(--violet-800) 100%);
+  box-shadow:
+    0 16px 4.5px -14px var(--violet-200) inset,
+    inset 0 0 0 1.3px color-mix(in srgb, var(--violet-200) 30%, transparent);
+  color: var(--text-inverse);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn-violet:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 4.5px -14px var(--violet-200) inset,
+    inset 0 0 0 1.3px color-mix(in srgb, var(--violet-200) 30%, transparent),
+    0 4px 18px color-mix(in srgb, var(--violet-500) 35%, transparent);
+}
+
+/* ── WealthTrace red CTA (same box as .btn-violet) ────────────────── */
+.btn-wt {
+  display: flex;
+  height: 44px;
+  min-width: 96px;
+  padding: 0px var(--space-24);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    box-shadow var(--duration-fast) var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn-wt:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px var(--accent-glow);
+}
+
+/* ── Tinted pill: "← All work" on case pages ──────────────────────── */
+.btn-allwork {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  background: var(--surface-tint);
+  color: var(--text-primary);
+  padding: var(--space-10) var(--space-20);
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border: 1.5px solid var(--border-default);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.btn-allwork:hover {
+  background: var(--border-default);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+/* ── Tinted pill back-link at the top of case pages ───────────────── */
+.backlink {
+  font-size: var(--font-size-13-5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-20);
+  text-decoration: none;
+  background: var(--surface-tint);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-default);
+  transition: all var(--duration-fast) var(--ease-default);
+  align-self: flex-start;
+}
+
+.backlink:hover {
+  color: var(--text-primary);
+  background: var(--border-default);
+  border-color: var(--border-strong);
+}
+
+/* ── Disabled state — a CTA that isn't live yet ───────────────────── */
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

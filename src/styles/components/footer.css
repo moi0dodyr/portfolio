@@ -1,0 +1,17 @@
+/* ════════════════════════════════════════════════════════════════════
+   FOOTER — markup lives in src/partials/footer.html
+   ════════════════════════════════════════════════════════════════════ */
+
+footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-48) 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-13);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
