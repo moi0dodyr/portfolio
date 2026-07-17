@@ -5,6 +5,11 @@ import './styles/main.css';
 // Language switcher logic
 import { initI18n } from './i18n.js';
 
+// Vercel Analytics — counts visitors and page views once deployed.
+// Does nothing on localhost, only sends data from the live site.
+import { inject } from '@vercel/analytics';
+inject();
+
 // ─── Legacy URL redirects ────────────────────────────────────────────
 // The site used to be a single page with hash routes (#/case/tf).
 // If someone opens an old link, send them to the new page.
