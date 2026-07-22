@@ -72,7 +72,7 @@
 
 .fact-row {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: var(--space-32);
   align-items: baseline;
   padding: var(--space-16) 0;
@@ -148,6 +148,7 @@
 }
 
 @media (max-width: 760px) {
+
   /* Stack the fact table: label above its value */
   .fact-row {
     grid-template-columns: 1fr;

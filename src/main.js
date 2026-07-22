@@ -89,6 +89,47 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActive();
   }
 
+  // Opens an image fullscreen in a dismissable overlay. Shared by the
+  // "Other products" cards (home page) and the case-page figures.
+  const openLightbox = (img) => {
+    if (!img) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+
+    const imgClone = document.createElement('img');
+    imgClone.src = img.src;
+    imgClone.alt = img.alt;
+
+    lightbox.appendChild(imgClone);
+    document.body.appendChild(lightbox);
+
+    // Force reflow before adding visible class for transition
+    void lightbox.offsetWidth;
+    lightbox.classList.add('visible');
+
+    const close = () => {
+      lightbox.classList.remove('visible');
+      document.removeEventListener('keydown', onKey);
+      setTimeout(() => lightbox.remove(), 300);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+    };
+
+    lightbox.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+  };
+
+  // Click-to-magnify for the inline figures on internal case pages.
+  // The hero image (laptop mock-up) is deliberately excluded, and the
+  // placeholder blocks have no <img> so they're never zoomable.
+  const caseImages = document.querySelectorAll('.case-figure-img');
+  caseImages.forEach((img) => {
+    img.classList.add('is-zoomable');
+    img.addEventListener('click', () => openLightbox(img));
+  });
+
   // Tooltip + lightbox for the "Other products" cards (home page only)
   const opCards = document.querySelectorAll('.op-card-image');
   if (opCards.length > 0) {
@@ -118,28 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Click opens the image fullscreen
       card.addEventListener('click', () => {
-        const img = card.querySelector('img');
-        if (!img) return;
-
-        const lightbox = document.createElement('div');
-        lightbox.className = 'lightbox-overlay';
-
-        const imgClone = document.createElement('img');
-        imgClone.src = img.src;
-        imgClone.alt = img.alt;
-
-        lightbox.appendChild(imgClone);
-        document.body.appendChild(lightbox);
-
-        // Force reflow before adding visible class for transition
-        void lightbox.offsetWidth;
-        lightbox.classList.add('visible');
-
-        // Close on click
-        lightbox.addEventListener('click', () => {
-          lightbox.classList.remove('visible');
-          setTimeout(() => lightbox.remove(), 300);
-        });
+        openLightbox(card.querySelector('img'));
       });
     });
   }
