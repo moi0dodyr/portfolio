@@ -163,4 +163,46 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Hero laptop image magnify-on-scroll fallback (for Firefox / unsupported browsers)
+  const heroImages = document.querySelectorAll('.case-hero-image-section .case-hero-image');
+  if (heroImages.length > 0) {
+    const supportsScrollTimeline =
+      window.CSS &&
+      CSS.supports &&
+      CSS.supports('(animation-timeline: view()) and (animation-range: entry)');
+
+    if (!supportsScrollTimeline && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const updateHeroScale = () => {
+        heroImages.forEach((img) => {
+          const section = img.closest('.case-hero-image-section') || img;
+          const rect = section.getBoundingClientRect();
+          const viewHeight = window.innerHeight;
+
+          const totalDist = viewHeight * 0.65;
+          const currentDist = viewHeight - rect.top;
+          let progress = currentDist / totalDist;
+          progress = Math.max(0, Math.min(1, progress));
+
+          const scale = 0.85 + progress * 0.2;
+          img.style.transform = `scale(${scale.toFixed(4)})`;
+        });
+      };
+
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(() => {
+            updateHeroScale();
+            ticking = false;
+          });
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      updateHeroScale();
+    }
+  }
 });
