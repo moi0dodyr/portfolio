@@ -11,6 +11,24 @@ figure {
   margin: 0;
 }
 
+.case-figure-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-14);
+}
+
+/* Click-to-magnify affordance — added by JS to real case images
+   (hero + figures). Placeholder blocks stay non-interactive. */
+.is-zoomable {
+  cursor: zoom-in;
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.is-zoomable:hover {
+  opacity: 0.92;
+}
+
 .ph {
   position: relative;
   width: 100%;
