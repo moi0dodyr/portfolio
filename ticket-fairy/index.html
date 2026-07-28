@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
-  <title>The Ticket Fairy — Case Study · Oleg Stepanchykov</title>
-  <meta name="description"
+  <title data-i18n="meta_title_tf" data-i18n-attr="text">The Ticket Fairy — Case Study · Oleg Stepanchykov</title>
+  <meta name="description" data-i18n="meta_description_tf" data-i18n-attr="content"
     content="How I redesigned the revenue engine of an event-ticketing platform (YC S15, $300M+ in ticket sales): event-creation success ~50%→~90%, referral adoption ~10%→50%+, a design system from scratch, and a new Artist Management module.">
   <meta name="author" content="Oleg Stepanchykov">
   <meta name="robots" content="index, follow">
@@ -18,8 +18,9 @@
   <!-- Open Graph / Social share preview -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://stepanchykov.com/ticket-fairy/">
-  <meta property="og:title" content="The Ticket Fairy — Case Study · Oleg Stepanchykov">
-  <meta property="og:description"
+  <meta property="og:title" data-i18n="meta_title_tf" data-i18n-attr="content"
+    content="The Ticket Fairy — Case Study · Oleg Stepanchykov">
+  <meta property="og:description" data-i18n="meta_og_description_tf" data-i18n-attr="content"
     content="Redesigning the revenue engine of an event-ticketing platform: event creation flow, design system, artist management.">
   <meta property="og:image" content="https://stepanchykov.com/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -30,8 +31,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@stepanchykov">
   <meta name="twitter:creator" content="@stepanchykov">
-  <meta name="twitter:title" content="The Ticket Fairy — Case Study · Oleg Stepanchykov">
-  <meta name="twitter:description"
+  <meta name="twitter:title" data-i18n="meta_title_tf" data-i18n-attr="content"
+    content="The Ticket Fairy — Case Study · Oleg Stepanchykov">
+  <meta name="twitter:description" data-i18n="meta_og_description_tf" data-i18n-attr="content"
     content="Redesigning the revenue engine of an event-ticketing platform: event creation flow, design system, artist management.">
   <meta name="twitter:image" content="https://stepanchykov.com/og-image.png">
 
@@ -49,7 +51,7 @@
         <div class="wrap">
           <a class="backlink" href="/#work" data-i18n="all_work">← All work</a>
           <div class="case-id">
-            <img class="case-logo-img" src="/src/assets/TF_logo.svg" alt="The Ticket Fairy logo" width="44" height="44">
+            <img class="case-logo-img" src="/src/assets/TF_logo.svg" alt="The Ticket Fairy logo" data-i18n="tf_logo_alt_full" data-i18n-attr="alt" width="44" height="44">
             <div class="case-id-text">
               <div class="eyebrow">The Ticket Fairy</div>
               <div class="case-dates" data-i18n="tf2_fact_timeline">Aug 2025 – Mar 2026</div>
@@ -65,7 +67,7 @@
             <div class="fact-row">
               <div class="fact-label" data-i18n="tf2_fact_m1_label">Event-creation task success</div>
               <div class="fact-value"><b>~50% → ~90%</b> <span class="fact-note" data-i18n="tf2_metric1">directional
-                  usability testing, n=5 per round</span></div>
+                  usability testing, n=8 per round</span></div>
             </div>
             <div class="fact-row">
               <div class="fact-label" data-i18n="tf2_fact_m2_label">Referral-program adoption</div>
@@ -85,7 +87,8 @@
         <div class="wrap">
           <figure>
             <img class="case-hero-image" src="/src/assets/TF01.png"
-              alt="The redesigned Ticket Fairy organizer dashboard on a laptop" width="1908" height="1131">
+              alt="The redesigned Ticket Fairy organizer dashboard on a laptop" width="1908" height="1131"
+              data-i18n="alt_tf_hero_dashboard" data-i18n-attr="alt">
             <figcaption data-i18n="tf2_fig01">The redesigned organizer dashboard — the platform’s revenue surface.
             </figcaption>
           </figure>
@@ -123,7 +126,7 @@
             <figure>
               <img class="case-figure-img" src="/src/assets/TF-case-02.png"
                 alt="Product ecosystem diagram — B2B Dashboard and Artist Management highlighted" width="2400"
-                height="1200">
+                height="1200" data-i18n="alt_tf_ecosystem" data-i18n-attr="alt">
               <figcaption data-i18n="tf2_fig02"><b>The product ecosystem.</b> Highlighted: the surfaces I owned
                 end-to-end.</figcaption>
             </figure>
@@ -144,7 +147,7 @@
             </div>
             <figure>
               <img class="case-figure-img" src="/src/assets/TF-case-03.png" alt="The legacy dashboard before redesign"
-                width="2400" height="1200">
+                width="2400" height="1200" data-i18n="alt_tf_legacy_dashboard" data-i18n-attr="alt">
               <figcaption data-i18n="tf2_fig03"><b>The legacy dashboard:</b> mismatched patterns, buried features, and
                 silent dead-ends.</figcaption>
             </figure>
@@ -153,11 +156,20 @@
           <!-- RESEARCH -->
           <section id="tf-research" class="case-section">
             <span class="eyebrow" data-i18n="tf2_research_eyebrow">Research</span>
-            <h2 data-i18n="tf2_research_title">Watching five organizers fail, on camera</h2>
+            <h2 data-i18n="tf2_research_title">Watching eight organizers fail, on camera</h2>
             <div class="block">
               <p data-i18n="tf2_research_p1">Before opening Figma, I needed to see exactly where and why users failed.
-                I wrote the test scenarios and ran directional usability testing — five organizers, unmoderated, with
+                I wrote the test scenarios and ran directional usability testing — eight organizers, unmoderated, with
                 video recording — on the core task: complete onboarding, then create an event.</p>
+            </div>
+            <figure>
+              <img class="case-figure-img" src="/src/assets/TF-case-04.png"
+                alt="Research artifact — test scenario excerpt and failure patterns" width="2400" height="1350"
+                data-i18n="alt_tf_research_artifact" data-i18n-attr="alt">
+              <figcaption data-i18n="tf2_fig04"><b>Eight recorded sessions,</b> four recurring failure patterns in
+                event creation.</figcaption>
+            </figure>
+            <div class="block mt24">
               <p data-i18n="tf2_research_p2">Only about half succeeded. Even those who did hit around four critical
                 errors each and needed up to 14 minutes. The recordings surfaced four recurring failure patterns:</p>
               <ol class="case-list mt16">
@@ -171,12 +183,6 @@
                   unorganized content that users missed the primary actions.</li>
               </ol>
             </div>
-            <figure>
-              <img class="case-figure-img" src="/src/assets/TF-case-04.png"
-                alt="Research artifact — test scenario excerpt and failure patterns" width="2400" height="1350">
-              <figcaption data-i18n="tf2_fig04"><b>Five recorded sessions,</b> four recurring failure patterns in
-                event creation.</figcaption>
-            </figure>
           </section>
 
           <!-- DECISIONS -->
@@ -193,9 +199,8 @@
               <div class="dnum" data-i18n="tf2_d1_num">Decision 1</div>
               <h3 data-i18n="tf2_d1_title">Event creation as a step-by-step wizard</h3>
               <p data-i18n="tf2_d1_p1">I restructured the most business-critical flow from one overloaded page into
-                smaller, clearer steps. Ticket creation moved directly into the main flow. The brand and location
-                selectors were rebuilt to be self-explanatory, and every silent failure became an actionable error
-                state — e.g. explaining inline that an event needs a Brand, and how to create one right there.</p>
+                smaller, clearer steps. The brand and location selectors were rebuilt to be self-explanatory, and the
+                core creation steps were focused on getting the event configured quickly and accurately.</p>
               <div class="why-product" data-i18n="tf2_d1_why"><b>Why it’s a product decision:</b> this flow maps
                 one-to-one onto the company’s revenue funnel. Every removed point of friction is commission the
                 platform stops losing.</div>
@@ -205,37 +210,18 @@
                 <div class="ba-cell before">
                   <span class="ba-label" data-i18n="tf2_ba_before">Before</span>
                   <img class="case-figure-img" src="/src/assets/TF-case-05a.png"
-                    alt="Old event-creation form — one overloaded page" width="1200" height="900">
+                    alt="Old event-creation form — one overloaded page" width="1200" height="900"
+                    data-i18n="alt_tf_form_before" data-i18n-attr="alt">
                 </div>
                 <div class="ba-cell after">
                   <span class="ba-label" data-i18n="tf2_ba_after">After</span>
                   <img class="case-figure-img" src="/src/assets/TF-case-05b.png"
-                    alt="New wizard — one focused step, progress visible, tickets integrated" width="1200" height="900">
+                    alt="New wizard — one focused step, progress visible, tickets integrated" width="1200" height="900"
+                    data-i18n="alt_tf_wizard_after" data-i18n-attr="alt">
                 </div>
               </div>
               <figcaption data-i18n="tf2_fig05"><b>The conversion fix:</b> one overloaded form → focused steps with
                 tickets and referral built into the flow.</figcaption>
-            </div>
-            <div class="ba-frame">
-              <div class="ba-grid">
-                <div class="ba-cell before">
-                  <span class="ba-label" data-i18n="tf2_ba_before2">Before</span>
-                  <div class="ph r-med">
-                    <span class="ph-id">TF-06a</span>
-                    <span class="ph-spec">Silent failure — user blocked with no explanation (Brand missing)</span>
-                  </div>
-                </div>
-                <div class="ba-cell after">
-                  <span class="ba-label" data-i18n="tf2_ba_after2">After</span>
-                  <div class="ph r-med">
-                    <span class="ph-id">TF-06b</span>
-                    <span class="ph-spec">Actionable error state — explains the Brand requirement, offers inline
-                      creation</span>
-                  </div>
-                </div>
-              </div>
-              <figcaption data-i18n="tf2_fig06"><b>Silent failure → actionable guidance:</b> the Brand requirement,
-                explained where the user hits it.</figcaption>
             </div>
 
             <div class="decision">
@@ -253,34 +239,51 @@
             <div class="ba-frame">
               <div class="ba-grid">
                 <div class="ba-cell before">
-                  <span class="ba-label" data-i18n="tf2_ba_before3">Before</span>
-                  <div class="ph r-med">
-                    <span class="ph-id">TF-07a</span>
-                    <span class="ph-spec">Referral buried in settings — show the click path (arrow trail)</span>
-                  </div>
+                  <span class="ba-label" data-i18n="tf2_ba_before2">Before</span>
+                  <img class="case-figure-img" src="/src/assets/TF-case-06a.png"
+                    alt="Referral program buried inside event settings" width="1200" height="900"
+                    data-i18n="alt_tf_referral_before" data-i18n-attr="alt">
                 </div>
                 <div class="ba-cell after">
-                  <span class="ba-label" data-i18n="tf2_ba_after3">After</span>
-                  <div class="ph r-med">
-                    <span class="ph-id">TF-07b</span>
-                    <span class="ph-spec">Referral as a prominent step in event creation, with data-backed
-                      messaging</span>
-                  </div>
+                  <span class="ba-label" data-i18n="tf2_ba_after2">After</span>
+                  <img class="case-figure-img" src="/src/assets/TF-case-06b.png"
+                    alt="Referral program integrated as a prominent step in the wizard" width="1200" height="900"
+                    data-i18n="alt_tf_referral_after" data-i18n-attr="alt">
                 </div>
               </div>
-              <figcaption data-i18n="tf2_fig07"><b>Discoverability:</b> buried four levels deep in settings → an
-                unmissable step in event creation.</figcaption>
+              <figcaption data-i18n="tf2_fig06"><b>Discoverability:</b> buried four levels deep in settings → an unmissable step in event creation.</figcaption>
             </div>
             <figure>
-              <div class="ph r-med">
-                <span class="ph-id">TF-08</span>
-                <span class="ph-spec">Referral analytics screen — the dedicated, more visually engaging performance
-                  view</span>
-                <span class="ph-ratio">16:9</span>
-              </div>
+              <img class="case-figure-img" src="/src/assets/TF-case-08.png"
+                alt="Referral analytics screen — the dedicated, more visually engaging performance view" width="2400" height="1350"
+                data-i18n="alt_tf_referral_analytics" data-i18n-attr="alt">
               <figcaption data-i18n="tf2_fig08"><b>A dedicated analytics view</b> organizers actually check —
                 deliberately more engaging than a standard report.</figcaption>
             </figure>
+
+            <div class="decision">
+              <div class="dnum" data-i18n="tf2_d3_num">Decision 3</div>
+              <h3 data-i18n="tf2_d3_title">Integrated ticket creation</h3>
+              <p data-i18n="tf2_d3_p1">Ticket setup — previously buried in a separate sub-menu — was integrated directly into the wizard as a dedicated step. Organizers can now configure tiers, pricing rules, and limits inline without interrupting event creation.</p>
+              <div class="why-product" data-i18n="tf2_d3_why"><b>Why it’s a product decision:</b> configuring tickets is where value turns into transaction. Moving setup directly into creation eliminated a major drop-off point before events could accept payments.</div>
+            </div>
+            <div class="ba-frame">
+              <div class="ba-grid">
+                <div class="ba-cell before">
+                  <span class="ba-label" data-i18n="tf2_ba_before3">Before</span>
+                  <img class="case-figure-img" src="/src/assets/TF-case-07a.png"
+                    alt="Old ticket setup form in a separate sub-menu" width="1200" height="900"
+                    data-i18n="alt_tf_ticket_before" data-i18n-attr="alt">
+                </div>
+                <div class="ba-cell after">
+                  <span class="ba-label" data-i18n="tf2_ba_after3">After</span>
+                  <img class="case-figure-img" src="/src/assets/TF-case-07b.png"
+                    alt="New inline ticket builder step inside the creation wizard" width="1200" height="900"
+                    data-i18n="alt_tf_ticket_after" data-i18n-attr="alt">
+                </div>
+              </div>
+              <figcaption data-i18n="tf2_fig07"><b>Integrated ticket creation:</b> separate settings sub-menu → intuitive inline ticket builder within the creation flow.</figcaption>
+            </div>
 
           </section>
 
@@ -290,7 +293,7 @@
             <h2 data-i18n="tf2_outcomes_title">Tested before, tested after, confirmed in analytics</h2>
             <div class="block">
               <p data-i18n="tf2_outcomes_p1">After the redesign I ran a second round of usability testing with the
-                same scenario and metrics (n=5). Critical errors dropped to near zero and time on task almost halved.
+                same scenario and metrics (n=8). Critical errors dropped to near zero and time on task almost halved.
                 Post-launch, product analytics confirmed the business movement.</p>
             </div>
             <div class="block wide">
@@ -308,7 +311,7 @@
                     <td data-i18n="tf2_row1_metric">Event-creation task success</td>
                     <td>~50%</td>
                     <td><b>~90%</b></td>
-                    <td data-i18n="tf2_row1_source">Usability testing, n=5 per round</td>
+                    <td data-i18n="tf2_row1_source">Usability testing, n=8 per round</td>
                   </tr>
                   <tr>
                     <td data-i18n="tf2_row2_metric">Mean time on task</td>
@@ -352,15 +355,15 @@
             <figure>
               <div class="ph r-wide">
                 <span class="ph-id">TF-11</span>
-                <span class="ph-spec">Outcome visual — clean metric cards or an honest before/after bar chart (no cut
+                <span class="ph-spec" data-i18n="ph_spec_tf_06">Outcome visual — clean metric cards or an honest before/after bar chart (no cut
                   axes): 50→90, 14→8 min, 10→50+</span>
                 <span class="ph-ratio">wide · 16:8</span>
               </div>
-              <figcaption data-i18n="tf2_fig11"><b>Before/after across the tracked metrics.</b> n=5 per round —
+              <figcaption data-i18n="tf2_fig11"><b>Before/after across the tracked metrics.</b> n=8 per round —
                 directional, then confirmed in product analytics.</figcaption>
             </figure>
             <div class="note neutral" data-i18n="tf2_outcomes_note">Method, honestly: the usability rounds were
-              unmoderated with 5 participants each — a directional signal, not statistics. The business metrics
+              unmoderated with 8 participants each — a directional signal, not statistics. The business metrics
               (referral adoption, conversion) come from product analytics after launch.</div>
           </section>
 
@@ -385,7 +388,7 @@
               <figure>
                 <div class="ph r-sq">
                   <span class="ph-id">TF-09</span>
-                  <span class="ph-spec">Design-system foundations — color / type / spacing token scales + core
+                  <span class="ph-spec" data-i18n="ph_spec_tf_07">Design-system foundations — color / type / spacing token scales + core
                     components (buttons, inputs) in one grid</span>
                   <span class="ph-ratio">4:3</span>
                 </div>
@@ -394,7 +397,7 @@
               <figure>
                 <div class="ph r-sq">
                   <span class="ph-id">TF-10</span>
-                  <span class="ph-spec">Storybook / Chromatic screen with my review annotations visible</span>
+                  <span class="ph-spec" data-i18n="ph_spec_tf_08">Storybook / Chromatic screen with my review annotations visible</span>
                   <span class="ph-ratio">4:3</span>
                 </div>
                 <figcaption data-i18n="tf2_fig10"><b>The handoff loop:</b> components reviewed in Chromatic until
@@ -429,7 +432,7 @@
             <figure>
               <img class="case-figure-img" src="/src/assets/TF12.png"
                 alt="Role-based sitemap — roles mapped to the modules and screens each can access" width="2400"
-                height="1350">
+                height="1350" data-i18n="alt_tf_sitemap" data-i18n-attr="alt">
               <figcaption data-i18n="tf2_fig12"><b>The strongest artifact of the project:</b> one sitemap per role,
                 mapped before any screen was drawn.</figcaption>
             </figure>
@@ -437,13 +440,14 @@
               <figure>
                 <img class="case-figure-img" src="/src/assets/TF13.png"
                   alt="AI import flow schema — upload, parse, route, review, version conflict handling" width="2400"
-                  height="1350">
+                  height="1350" data-i18n="alt_tf_ai_import" data-i18n-attr="alt">
                 <figcaption data-i18n="tf2_fig13"><b>The AI import flow:</b> upload → parse → route → review → version
                   conflict handling.</figcaption>
               </figure>
               <figure>
                 <img class="case-figure-img" src="/src/assets/TF14.png"
-                  alt="Key module screens — artist overview and logistics tracking" width="2400" height="1350">
+                  alt="Key module screens — artist overview and logistics tracking" width="2400" height="1350"
+                  data-i18n="alt_tf_key_screens" data-i18n-attr="alt">
                 <figcaption data-i18n="tf2_fig14"><b>Key screens:</b> artist overview and logistics — one operational
                   source of truth.</figcaption>
               </figure>
