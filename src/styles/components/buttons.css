@@ -132,6 +132,38 @@
   box-shadow: 0 4px 18px var(--accent-glow);
 }
 
+/* ── WealthTrace ghost/secondary CTA ──────────────────────────────── */
+.btn-wt-ghost {
+  display: inline-flex;
+  height: 44px;
+  min-width: 96px;
+  padding: 0px var(--space-20);
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border-default);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-default),
+    border-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn-wt-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+
 /* ── Tinted pill: "← All work" on case pages ──────────────────────── */
 .btn-allwork {
   display: inline-flex;

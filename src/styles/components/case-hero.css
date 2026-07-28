@@ -108,6 +108,26 @@
   font-size: var(--font-size-13-5);
 }
 
+.fact-value a {
+  color: var(--accent);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  transition: color var(--duration-fast) var(--ease-default), text-decoration var(--duration-fast) var(--ease-default);
+}
+
+.fact-value a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.case-hero-cta {
+  margin-top: var(--space-32);
+}
+
+
 /* ── Status pill (TBC / in development / ships date) ── */
 .status-pill {
   display: inline-flex;
