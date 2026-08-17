@@ -10,12 +10,18 @@ import { initI18n } from './i18n.js';
 import { inject } from '@vercel/analytics';
 inject();
 
+// ─── Maintenance redirects ───────────────────────────────────────────
+// WealthTrace case is under maintenance; redirect any direct visits
+if (window.location.pathname.startsWith('/wealthtrace')) {
+  window.location.replace('/#work');
+}
+
 // ─── Legacy URL redirects ────────────────────────────────────────────
 // The site used to be a single page with hash routes (#/case/tf).
 // If someone opens an old link, send them to the new page.
 const LEGACY_ROUTES = {
   '#/case/tf': '/ticket-fairy/',
-  '#/case/wt': '/wealthtrace/',
+  '#/case/wt': '/#work',
   '#/work': '/#work',
   '#/contact': '/#contact',
 };

@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <script>
+    window.location.replace('/#work');
+  </script>
+  <meta http-equiv="refresh" content="0; url=/#work">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +14,7 @@
   <meta name="description" data-i18n="meta_description_wt" data-i18n-attr="content"
     content="End-to-end ownership of a retirement-planning fintech redesign: Linked Entities, Monte Carlo legibility, and an onboarding rebuilt around time-to-value (~30% faster, comparative test).">
   <meta name="author" content="Oleg Stepanchykov">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://stepanchykov.com/wealthtrace/">
 
   {{> head-meta}}
@@ -40,7 +44,7 @@
   {{> head-assets}}
 </head>
 
-<body>
+<body style="display: none;">
   {{> navbar}}
 
   <main class="page">
@@ -164,7 +168,7 @@
                 <span class="ph-spec" data-i18n="ph_spec_wt_02">“Before” dashboard — overloaded, off-topic sections;
                   small callouts marking the
                   problem zones</span>
-                <span class="ph-ratio">16:9 · present muted</span>
+                <span class="ph-ratio" data-i18n="ph_ratio_present_muted">16:9 · present muted</span>
               </div>
               <figcaption data-i18n="wt2_fig03"><b>The old dashboard:</b> strong numbers underneath, noise on top.
               </figcaption>
@@ -190,7 +194,7 @@
                 <span class="ph-spec" data-i18n="ph_spec_wt_03">Diagnosis diagram (thinking, not UI) — one noisy screen
                   annotated: low
                   signal-to-noise + broken semantic grouping → the same screen grouped by meaning</span>
-                <span class="ph-ratio">wide · 16:8</span>
+                <span class="ph-ratio" data-i18n="ph_ratio_wide">wide · 16:8</span>
               </div>
               <figcaption data-i18n="wt2_fig04"><b>The diagnosis that set the direction:</b> raise signal-to-noise,
                 group by meaning.</figcaption>
@@ -224,7 +228,7 @@
                     scattered records with
                     broken-link arrows; after: 1 asset entity containing mortgage / income / sale, cascading edit &amp;
                     delete</span>
-                  <span class="ph-ratio">wide · 16:8</span>
+                  <span class="ph-ratio" data-i18n="ph_ratio_wide">wide · 16:8</span>
                 </div>
                 <figcaption data-i18n="wt2_fig05"><b>A data-model decision, not a cosmetic one:</b> entities own their
                   dependencies.</figcaption>
@@ -305,7 +309,7 @@
                 <span class="ph-spec" data-i18n="ph_spec_wt_09">Close-up crop — the “settings changed, re-run the
                   simulation” stale-state
                   indicator</span>
-                <span class="ph-ratio">16:9 crop</span>
+                <span class="ph-ratio" data-i18n="ph_ratio_crop">16:9 crop</span>
               </div>
               <figcaption data-i18n="wt2_fig09"><b>The cue that closed a real comprehension gap:</b> “settings
                 changed — re-run the simulation.”</figcaption>
@@ -383,7 +387,7 @@
                   <span class="ph-spec" data-i18n="ph_spec_wt_13">The new onboarding as a horizontal step ribbon —
                     minimal signup → goals →
                     accounts (optional) → review → calculation</span>
-                  <span class="ph-ratio">wide · 16:8</span>
+                  <span class="ph-ratio" data-i18n="ph_ratio_wide">wide · 16:8</span>
                 </div>
                 <figcaption data-i18n="wt2_fig12"><b>Light steps, value before the dashboard.</b></figcaption>
               </figure>

@@ -118,6 +118,8 @@
   color: var(--text-inverse);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  border: none;
   text-decoration: none;
   cursor: pointer;
   transition: transform var(--duration-fast) var(--ease-default),
@@ -213,7 +215,21 @@
 }
 
 /* ── Disabled state — a CTA that isn't live yet ───────────────────── */
-.btn-disabled {
+.btn-disabled,
+.btn:disabled,
+button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+a.btn-disabled {
+  pointer-events: none;
+}
+
+.btn-disabled:hover,
+.btn:disabled:hover,
+button:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  opacity: 0.5;
 }

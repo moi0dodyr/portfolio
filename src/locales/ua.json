@@ -1,4 +1,7 @@
 {
+  "ph_ratio_present_muted": "16:9 · приглушена подача",
+  "ph_ratio_wide": "широкий · 16:8",
+  "ph_ratio_crop": "16:9 кадрування",
   "selected_works": "Вибрані роботи",
   "tf_logo_alt": "Логотип Ticket Fairy",
   "tf_logo_alt_full": "Логотип The Ticket Fairy",
@@ -18,6 +21,7 @@
   "event_conversion": "конверсія у створення події",
   "referral_driven_sales": "продажі через реферальну програму",
   "read_case": "Дивитися кейс →",
+  "case_under_maintenance": "На оновленні",
   "try_live_prototype": "Спробувати прототип ↗",
   "retirementplanning_fintech_us": "Фінтех для пенсійного планування · США",
   "wt_home_desc": "Перебудував застосунок навколо проблеми, яка насправді шкодила конверсії. Додав низку quality-of-life покращень, що сподобалися користувачам. Побудував дизайн-процес на AI-інструментах, який заощадив багато часу.",
