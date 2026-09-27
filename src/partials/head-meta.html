@@ -1,7 +1,17 @@
-<!-- HEAD BOILERPLATE (part 1) — theme color, favicons, manifest (the
+<!-- HEAD BOILERPLATE (part 1) — analytics, theme color, favicons, manifest (the
      "head-meta" partial). Page-specific SEO (title, description,
      Open Graph) stays in each page's own <head>. -->
-<!-- Theme color for mobile browser chrome -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CGYMTRHFB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6CGYMTRHFB');
+  </script>
+
+  <!-- Theme color for mobile browser chrome -->
   <meta name="theme-color" content="#0a0a0a">
 
   <!-- Favicons (generated from profile photo) -->

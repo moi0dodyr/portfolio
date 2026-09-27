@@ -11,7 +11,7 @@ wealthtrace/index.html      ← the WealthTrace case study
 src/partials/               ← shared pieces of every page:
   navbar.html                  the top navigation (ONE copy for all pages)
   footer.html                  the footer
-  head-meta.html               favicons & browser theme color
+  head-meta.html               Google Analytics, favicons & browser theme color
   head-assets.html             the font and the site's code entry
 src/styles/
   tokens/globals.css        ← ALL raw values: colors, font sizes/weights,
